@@ -1,0 +1,3114 @@
+
+1974_fish_all.png
+size: 2033,1286
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+1974_crabft_Particle
+  rotate: false
+  xy: 1962, 463
+  size: 69, 56
+  orig: 69, 56
+  offset: 0, 0
+  index: -1
+1974_crabft_body
+  rotate: true
+  xy: 107, 6
+  size: 249, 149
+  orig: 249, 149
+  offset: 0, 0
+  index: -1
+1974_crabft_dice
+  rotate: false
+  xy: 1182, 3
+  size: 105, 117
+  orig: 105, 117
+  offset: 0, 0
+  index: -1
+1974_crabft_dices00
+  rotate: false
+  xy: 1289, 3
+  size: 105, 117
+  orig: 105, 117
+  offset: 0, 0
+  index: -1
+1974_crabft_dices01
+  rotate: false
+  xy: 1396, 3
+  size: 105, 117
+  orig: 105, 117
+  offset: 0, 0
+  index: -1
+1974_crabft_dices02
+  rotate: false
+  xy: 1503, 5
+  size: 105, 117
+  orig: 105, 117
+  offset: 0, 0
+  index: -1
+1974_crabft_dices03
+  rotate: true
+  xy: 1893, 1126
+  size: 105, 117
+  orig: 105, 117
+  offset: 0, 0
+  index: -1
+1974_crabft_dices04
+  rotate: true
+  xy: 1893, 1019
+  size: 105, 117
+  orig: 105, 117
+  offset: 0, 0
+  index: -1
+1974_crabft_dices05
+  rotate: true
+  xy: 1893, 912
+  size: 105, 117
+  orig: 105, 117
+  offset: 0, 0
+  index: -1
+1974_crabft_hand1
+  rotate: true
+  xy: 1109, 571
+  size: 47, 65
+  orig: 47, 65
+  offset: 0, 0
+  index: -1
+1974_crabft_hand2
+  rotate: false
+  xy: 1678, 577
+  size: 84, 106
+  orig: 84, 106
+  offset: 0, 0
+  index: -1
+1974_crabft_hand3
+  rotate: true
+  xy: 1335, 265
+  size: 80, 94
+  orig: 80, 94
+  offset: 0, 0
+  index: -1
+1974_crabft_hand4
+  rotate: true
+  xy: 1523, 270
+  size: 92, 68
+  orig: 92, 68
+  offset: 0, 0
+  index: -1
+1974_crabft_hand5
+  rotate: false
+  xy: 1892, 578
+  size: 106, 51
+  orig: 106, 51
+  offset: 0, 0
+  index: -1
+1974_crabft_hat_3
+  rotate: false
+  xy: 1934, 227
+  size: 24, 30
+  orig: 24, 30
+  offset: 0, 0
+  index: -1
+1974_crabft_leg2
+  rotate: false
+  xy: 1062, 620
+  size: 118, 60
+  orig: 118, 60
+  offset: 0, 0
+  index: -1
+1974_crabft_leg2_1
+  rotate: true
+  xy: 2012, 857
+  size: 61, 18
+  orig: 61, 18
+  offset: 0, 0
+  index: -1
+1974_crabft_leg2_2
+  rotate: true
+  xy: 1782, 40
+  size: 29, 23
+  orig: 29, 23
+  offset: 0, 0
+  index: -1
+1974_crabft_leg2_3
+  rotate: true
+  xy: 1849, 621
+  size: 51, 41
+  orig: 51, 41
+  offset: 0, 0
+  index: -1
+1974_crabft_leg2_4
+  rotate: true
+  xy: 876, 660
+  size: 20, 39
+  orig: 20, 39
+  offset: 0, 0
+  index: -1
+1974_crabft_leg3
+  rotate: false
+  xy: 1892, 818
+  size: 113, 41
+  orig: 113, 41
+  offset: 0, 0
+  index: -1
+1974_crabft_leg4
+  rotate: false
+  xy: 1260, 1087
+  size: 100, 42
+  orig: 100, 42
+  offset: 0, 0
+  index: -1
+1974_crabft_plate
+  rotate: true
+  xy: 1167, 726
+  size: 163, 114
+  orig: 163, 114
+  offset: 0, 0
+  index: -1
+1974_crabft_s_25
+  rotate: true
+  xy: 1450, 684
+  size: 65, 117
+  orig: 65, 117
+  offset: 0, 0
+  index: -1
+1974_crabft_shadow_crab
+  rotate: false
+  xy: 1221, 265
+  size: 112, 80
+  orig: 112, 80
+  offset: 0, 0
+  index: -1
+1974_eff_light
+  rotate: false
+  xy: 1764, 580
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+eff_light
+  rotate: false
+  xy: 1764, 580
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+fish_18_eff_light
+  rotate: false
+  xy: 1764, 580
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+1974_fish_0_body
+  rotate: false
+  xy: 1691, 266
+  size: 49, 27
+  orig: 49, 27
+  offset: 0, 0
+  index: -1
+1974_fish_0_fin1
+  rotate: false
+  xy: 2012, 920
+  size: 19, 15
+  orig: 19, 15
+  offset: 0, 0
+  index: -1
+1974_fish_0_shadow
+  rotate: false
+  xy: 968, 2
+  size: 38, 25
+  orig: 38, 25
+  offset: 0, 0
+  index: -1
+1974_fish_0_tail
+  rotate: false
+  xy: 978, 1087
+  size: 55, 8
+  orig: 55, 8
+  offset: 0, 0
+  index: -1
+1974_fish_11_acc
+  rotate: false
+  xy: 193, 257
+  size: 50, 13
+  orig: 50, 13
+  offset: 0, 0
+  index: -1
+1974_fish_11_body
+  rotate: true
+  xy: 701, 2
+  size: 255, 57
+  orig: 255, 57
+  offset: 0, 0
+  index: -1
+1974_fish_11_eye2_r
+  rotate: false
+  xy: 585, 332
+  size: 5, 5
+  orig: 5, 5
+  offset: 0, 0
+  index: -1
+1974_fish_11_eye_l
+  rotate: false
+  xy: 1946, 99
+  size: 28, 17
+  orig: 28, 17
+  offset: 0, 0
+  index: -1
+1974_fish_11_eye_r
+  rotate: true
+  xy: 1682, 110
+  size: 35, 21
+  orig: 35, 21
+  offset: 0, 0
+  index: -1
+1974_fish_11_eyelip_r
+  rotate: false
+  xy: 1975, 78
+  size: 27, 16
+  orig: 27, 16
+  offset: 0, 0
+  index: -1
+1974_fish_11_fins1
+  rotate: true
+  xy: 1813, 336
+  size: 56, 32
+  orig: 56, 32
+  offset: 0, 0
+  index: -1
+1974_fish_11_fins2_r
+  rotate: false
+  xy: 1872, 122
+  size: 35, 27
+  orig: 35, 27
+  offset: 0, 0
+  index: -1
+1974_fish_11_fins_l
+  rotate: false
+  xy: 1889, 278
+  size: 43, 37
+  orig: 43, 37
+  offset: 0, 0
+  index: -1
+1974_fish_11_fins_r
+  rotate: false
+  xy: 1889, 240
+  size: 43, 36
+  orig: 43, 36
+  offset: 0, 0
+  index: -1
+1974_fish_11_mouth
+  rotate: false
+  xy: 1755, 301
+  size: 50, 21
+  orig: 50, 21
+  offset: 0, 0
+  index: -1
+1974_fish_11_sd
+  rotate: true
+  xy: 1542, 438
+  size: 134, 44
+  orig: 134, 44
+  offset: 0, 0
+  index: -1
+1974_fish_11_tail1
+  rotate: true
+  xy: 1574, 364
+  size: 72, 17
+  orig: 72, 17
+  offset: 0, 0
+  index: -1
+1974_fish_11_tail2
+  rotate: false
+  xy: 1693, 393
+  size: 62, 22
+  orig: 62, 22
+  offset: 0, 0
+  index: -1
+1974_fish_12_arm_r
+  rotate: false
+  xy: 1760, 446
+  size: 53, 32
+  orig: 53, 32
+  offset: 0, 0
+  index: -1
+1974_fish_12_body1
+  rotate: false
+  xy: 1182, 571
+  size: 143, 109
+  orig: 143, 109
+  offset: 0, 0
+  index: -1
+1974_fish_12_body2
+  rotate: true
+  xy: 1631, 286
+  size: 38, 58
+  orig: 38, 58
+  offset: 0, 0
+  index: -1
+1974_fish_12_body3
+  rotate: true
+  xy: 1520, 1141
+  size: 143, 84
+  orig: 143, 84
+  offset: 0, 0
+  index: -1
+1974_fish_12_coco1
+  rotate: false
+  xy: 1997, 134
+  size: 34, 28
+  orig: 34, 28
+  offset: 0, 0
+  index: -1
+1974_fish_12_coco2
+  rotate: false
+  xy: 1960, 327
+  size: 44, 21
+  orig: 44, 21
+  offset: 0, 0
+  index: -1
+1974_fish_12_coco3
+  rotate: false
+  xy: 1167, 710
+  size: 55, 14
+  orig: 55, 14
+  offset: 0, 0
+  index: -1
+1974_fish_12_coco4
+  rotate: false
+  xy: 1912, 126
+  size: 35, 35
+  orig: 35, 35
+  offset: 0, 0
+  index: -1
+1974_fish_12_coco5
+  rotate: true
+  xy: 2000, 522
+  size: 46, 28
+  orig: 46, 28
+  offset: 0, 0
+  index: -1
+1974_fish_12_coco6
+  rotate: false
+  xy: 1588, 685
+  size: 84, 64
+  orig: 84, 64
+  offset: 0, 0
+  index: -1
+1974_fish_12_eye
+  rotate: false
+  xy: 585, 326
+  size: 5, 4
+  orig: 5, 4
+  offset: 0, 0
+  index: -1
+1974_fish_12_eye2
+  rotate: false
+  xy: 1035, 1087
+  size: 14, 8
+  orig: 14, 8
+  offset: 0, 0
+  index: -1
+1974_fish_12_eyelip
+  rotate: false
+  xy: 1516, 125
+  size: 14, 8
+  orig: 14, 8
+  offset: 0, 0
+  index: -1
+1974_fish_12_finger_r_1
+  rotate: false
+  xy: 1558, 126
+  size: 14, 7
+  orig: 14, 7
+  offset: 0, 0
+  index: -1
+1974_fish_12_finger_r_2
+  rotate: true
+  xy: 1168, 61
+  size: 17, 10
+  orig: 17, 10
+  offset: 0, 0
+  index: -1
+1974_fish_12_finger_r_3
+  rotate: false
+  xy: 1451, 348
+  size: 13, 6
+  orig: 13, 6
+  offset: 0, 0
+  index: -1
+1974_fish_12_foot_r
+  rotate: true
+  xy: 2006, 313
+  size: 27, 25
+  orig: 27, 25
+  offset: 0, 0
+  index: -1
+1974_fish_12_forearm_r
+  rotate: false
+  xy: 1874, 151
+  size: 36, 33
+  orig: 36, 33
+  offset: 0, 0
+  index: -1
+1974_fish_12_hand_r
+  rotate: true
+  xy: 1733, 55
+  size: 29, 18
+  orig: 29, 18
+  offset: 0, 0
+  index: -1
+1974_fish_12_head
+  rotate: true
+  xy: 794, 994
+  size: 61, 51
+  orig: 61, 51
+  offset: 0, 0
+  index: -1
+1974_fish_12_jaw
+  rotate: false
+  xy: 733, 994
+  size: 59, 61
+  orig: 59, 61
+  offset: 0, 0
+  index: -1
+1974_fish_12_leg_l
+  rotate: true
+  xy: 1963, 521
+  size: 55, 35
+  orig: 55, 35
+  offset: 0, 0
+  index: -1
+1974_fish_12_leg_r
+  rotate: false
+  xy: 1849, 954
+  size: 42, 34
+  orig: 42, 34
+  offset: 0, 0
+  index: -1
+1974_fish_12_mouth
+  rotate: false
+  xy: 1755, 263
+  size: 49, 36
+  orig: 49, 36
+  offset: 0, 0
+  index: -1
+1974_fish_12_sd
+  rotate: true
+  xy: 1740, 903
+  size: 95, 63
+  orig: 95, 63
+  offset: 0, 0
+  index: -1
+1974_fish_12_toenail_l
+  rotate: false
+  xy: 1930, 33
+  size: 16, 21
+  orig: 16, 21
+  offset: 0, 0
+  index: -1
+1974_fish_12_toenail_r_1
+  rotate: false
+  xy: 687, 62
+  size: 11, 7
+  orig: 11, 7
+  offset: 0, 0
+  index: -1
+1974_fish_12_toenail_r_2
+  rotate: false
+  xy: 1532, 125
+  size: 14, 8
+  orig: 14, 8
+  offset: 0, 0
+  index: -1
+1974_fish_12_toenail_r_3
+  rotate: false
+  xy: 687, 53
+  size: 11, 7
+  orig: 11, 7
+  offset: 0, 0
+  index: -1
+1974_fish_13_body
+  rotate: false
+  xy: 1018, 710
+  size: 147, 179
+  orig: 147, 179
+  offset: 0, 0
+  index: -1
+1974_fish_13_body_sd
+  rotate: false
+  xy: 1063, 994
+  size: 74, 90
+  orig: 74, 90
+  offset: 0, 0
+  index: -1
+1974_fish_13_eye1
+  rotate: false
+  xy: 1682, 30
+  size: 21, 18
+  orig: 21, 18
+  offset: 0, 0
+  index: -1
+1974_fish_13_eye2
+  rotate: false
+  xy: 1168, 34
+  size: 10, 8
+  orig: 10, 8
+  offset: 0, 0
+  index: -1
+1974_fish_13_fins_l
+  rotate: false
+  xy: 1889, 341
+  size: 50, 36
+  orig: 50, 36
+  offset: 0, 0
+  index: -1
+1974_fish_13_fins_r
+  rotate: false
+  xy: 1760, 384
+  size: 51, 37
+  orig: 51, 37
+  offset: 0, 0
+  index: -1
+1974_fish_13_sd
+  rotate: false
+  xy: 924, 994
+  size: 137, 90
+  orig: 137, 90
+  offset: 0, 0
+  index: -1
+1974_fish_13_tail1_1
+  rotate: true
+  xy: 1616, 576
+  size: 107, 60
+  orig: 107, 60
+  offset: 0, 0
+  index: -1
+1974_fish_13_tail1_1_sd
+  rotate: true
+  xy: 1816, 532
+  size: 54, 30
+  orig: 54, 30
+  offset: 0, 0
+  index: -1
+1974_fish_13_tail1_2
+  rotate: false
+  xy: 1091, 682
+  size: 59, 26
+  orig: 59, 26
+  offset: 0, 0
+  index: -1
+1974_fish_13_tail1_3
+  rotate: false
+  xy: 1631, 326
+  size: 60, 59
+  orig: 60, 59
+  offset: 0, 0
+  index: -1
+1974_fish_13_tail2
+  rotate: true
+  xy: 1451, 356
+  size: 73, 37
+  orig: 73, 37
+  offset: 0, 0
+  index: -1
+1974_fish_13_tail3_1
+  rotate: false
+  xy: 830, 2
+  size: 54, 25
+  orig: 54, 25
+  offset: 0, 0
+  index: -1
+1974_fish_13_tail3_2
+  rotate: true
+  xy: 1569, 684
+  size: 65, 17
+  orig: 65, 17
+  offset: 0, 0
+  index: -1
+1974_fish_13_tail3_3
+  rotate: false
+  xy: 1760, 423
+  size: 53, 21
+  orig: 53, 21
+  offset: 0, 0
+  index: -1
+1974_fish_14_body
+  rotate: false
+  xy: 1139, 996
+  size: 153, 89
+  orig: 153, 89
+  offset: 0, 0
+  index: -1
+1974_fish_14_eye
+  rotate: true
+  xy: 2004, 56
+  size: 22, 25
+  orig: 22, 25
+  offset: 0, 0
+  index: -1
+1974_fish_14_eye2
+  rotate: false
+  xy: 1466, 348
+  size: 7, 6
+  orig: 7, 6
+  offset: 0, 0
+  index: -1
+1974_fish_14_fins2
+  rotate: true
+  xy: 541, 258
+  size: 66, 49
+  orig: 66, 49
+  offset: 0, 0
+  index: -1
+1974_fish_14_fins3
+  rotate: true
+  xy: 1813, 294
+  size: 40, 32
+  orig: 40, 32
+  offset: 0, 0
+  index: -1
+1974_fish_14_fins_r
+  rotate: false
+  xy: 1291, 682
+  size: 52, 42
+  orig: 52, 42
+  offset: 0, 0
+  index: -1
+1974_fish_14_head
+  rotate: true
+  xy: 1349, 348
+  size: 73, 83
+  orig: 73, 83
+  offset: 0, 0
+  index: -1
+1974_fish_14_shadow
+  rotate: true
+  xy: 1236, 1131
+  size: 153, 136
+  orig: 153, 136
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail1_1
+  rotate: true
+  xy: 1405, 122
+  size: 141, 44
+  orig: 141, 44
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail1_2
+  rotate: true
+  xy: 1248, 894
+  size: 100, 57
+  orig: 100, 57
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail2_1
+  rotate: true
+  xy: 784, 620
+  size: 38, 133
+  orig: 38, 133
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail2_2
+  rotate: false
+  xy: 1082, 2
+  size: 98, 29
+  orig: 98, 29
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail3
+  rotate: false
+  xy: 919, 620
+  size: 141, 60
+  orig: 141, 60
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail4
+  rotate: true
+  xy: 1575, 769
+  size: 130, 52
+  orig: 130, 52
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail5
+  rotate: false
+  xy: 1415, 1087
+  size: 116, 49
+  orig: 116, 49
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail5b
+  rotate: false
+  xy: 1893, 861
+  size: 116, 49
+  orig: 116, 49
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail6a
+  rotate: true
+  xy: 1759, 775
+  size: 126, 55
+  orig: 126, 55
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail7a
+  rotate: false
+  xy: 646, 570
+  size: 118, 48
+  orig: 118, 48
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail8a
+  rotate: true
+  xy: 1849, 747
+  size: 115, 41
+  orig: 115, 41
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail_acc1
+  rotate: false
+  xy: 1018, 682
+  size: 71, 26
+  orig: 71, 26
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail_acc2
+  rotate: true
+  xy: 1816, 759
+  size: 69, 31
+  orig: 69, 31
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail_acc3
+  rotate: true
+  xy: 420, 257
+  size: 67, 33
+  orig: 67, 33
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail_acc4
+  rotate: false
+  xy: 565, 2
+  size: 70, 23
+  orig: 70, 23
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail_acc5
+  rotate: true
+  xy: 1134, 264
+  size: 76, 31
+  orig: 76, 31
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail_acc6
+  rotate: false
+  xy: 1224, 682
+  size: 65, 42
+  orig: 65, 42
+  offset: 0, 0
+  index: -1
+1974_fish_14_tail_acc7
+  rotate: false
+  xy: 1891, 544
+  size: 70, 32
+  orig: 70, 32
+  offset: 0, 0
+  index: -1
+1974_fish_15_eff_flower2
+  rotate: false
+  xy: 1760, 480
+  size: 54, 58
+  orig: 54, 58
+  offset: 0, 0
+  index: -1
+1974_fish_15_eye_d
+  rotate: false
+  xy: 1807, 47
+  size: 32, 32
+  orig: 32, 32
+  offset: 0, 0
+  index: -1
+1974_fish_15_eye_u
+  rotate: false
+  xy: 2000, 733
+  size: 31, 33
+  orig: 31, 33
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_1
+  rotate: false
+  xy: 1835, 156
+  size: 37, 36
+  orig: 37, 36
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_10
+  rotate: true
+  xy: 1941, 337
+  size: 40, 17
+  orig: 40, 17
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_11
+  rotate: true
+  xy: 2012, 1115
+  size: 36, 19
+  orig: 36, 19
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_12
+  rotate: false
+  xy: 1621, 751
+  size: 36, 16
+  orig: 36, 16
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_13
+  rotate: false
+  xy: 1753, 71
+  size: 34, 17
+  orig: 34, 17
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_14
+  rotate: false
+  xy: 1679, 1141
+  size: 35, 16
+  orig: 35, 16
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_2
+  rotate: false
+  xy: 1847, 256
+  size: 40, 32
+  orig: 40, 32
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_3
+  rotate: false
+  xy: 1682, 50
+  size: 21, 26
+  orig: 21, 26
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_4
+  rotate: true
+  xy: 2006, 342
+  size: 30, 25
+  orig: 30, 25
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_5
+  rotate: true
+  xy: 1815, 13
+  size: 32, 23
+  orig: 32, 23
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_6
+  rotate: false
+  xy: 2000, 684
+  size: 31, 15
+  orig: 31, 15
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_7
+  rotate: true
+  xy: 1733, 180
+  size: 39, 20
+  orig: 39, 20
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_8
+  rotate: false
+  xy: 1806, 224
+  size: 39, 22
+  orig: 39, 22
+  offset: 0, 0
+  index: -1
+1974_fish_15_flower_9
+  rotate: false
+  xy: 1878, 186
+  size: 38, 22
+  orig: 38, 22
+  offset: 0, 0
+  index: -1
+1974_fish_15_head
+  rotate: false
+  xy: 1168, 122
+  size: 119, 141
+  orig: 119, 141
+  offset: 0, 0
+  index: -1
+1974_fish_15_head_d
+  rotate: false
+  xy: 1606, 1141
+  size: 71, 143
+  orig: 71, 143
+  offset: 0, 0
+  index: -1
+1974_fish_15_leaf1
+  rotate: true
+  xy: 1764, 632
+  size: 51, 50
+  orig: 51, 50
+  offset: 0, 0
+  index: -1
+1974_fish_15_leaf2
+  rotate: false
+  xy: 1844, 1036
+  size: 47, 33
+  orig: 47, 33
+  offset: 0, 0
+  index: -1
+1974_fish_15_leaf3
+  rotate: true
+  xy: 1848, 568
+  size: 51, 41
+  orig: 51, 41
+  offset: 0, 0
+  index: -1
+1974_fish_15_leaf4
+  rotate: false
+  xy: 1847, 222
+  size: 40, 32
+  orig: 40, 32
+  offset: 0, 0
+  index: -1
+1974_fish_15_leaf5
+  rotate: false
+  xy: 1755, 175
+  size: 38, 33
+  orig: 38, 33
+  offset: 0, 0
+  index: -1
+1974_fish_15_leaf6
+  rotate: false
+  xy: 687, 169
+  size: 12, 22
+  orig: 12, 22
+  offset: 0, 0
+  index: -1
+1974_fish_15_leaf7
+  rotate: true
+  xy: 1976, 96
+  size: 17, 28
+  orig: 17, 28
+  offset: 0, 0
+  index: -1
+1974_fish_15_leaf8
+  rotate: true
+  xy: 1847, 290
+  size: 33, 40
+  orig: 33, 40
+  offset: 0, 0
+  index: -1
+1974_fish_15_leg0
+  rotate: true
+  xy: 1471, 438
+  size: 134, 69
+  orig: 134, 69
+  offset: 0, 0
+  index: -1
+1974_fish_15_leg0a
+  rotate: true
+  xy: 1622, 902
+  size: 96, 50
+  orig: 96, 50
+  offset: 0, 0
+  index: -1
+1974_fish_15_leg1
+  rotate: true
+  xy: 1451, 124
+  size: 139, 63
+  orig: 139, 63
+  offset: 0, 0
+  index: -1
+1974_fish_15_leg2
+  rotate: true
+  xy: 1289, 122
+  size: 141, 56
+  orig: 141, 56
+  offset: 0, 0
+  index: -1
+1974_fish_15_leg3
+  rotate: true
+  xy: 1347, 122
+  size: 141, 56
+  orig: 141, 56
+  offset: 0, 0
+  index: -1
+1974_fish_15_leg_flower
+  rotate: true
+  xy: 1610, 3
+  size: 130, 70
+  orig: 130, 70
+  offset: 0, 0
+  index: -1
+1974_fish_15_leg_flower1
+  rotate: false
+  xy: 1771, 687
+  size: 43, 40
+  orig: 43, 40
+  offset: 0, 0
+  index: -1
+1974_fish_15_leg_flower2
+  rotate: true
+  xy: 1848, 489
+  size: 43, 40
+  orig: 43, 40
+  offset: 0, 0
+  index: -1
+1974_fish_15_leg_flower3
+  rotate: false
+  xy: 471, 258
+  size: 68, 66
+  orig: 68, 66
+  offset: 0, 0
+  index: -1
+1974_fish_15_shadow
+  rotate: true
+  xy: 301, 723
+  size: 164, 158
+  orig: 164, 158
+  offset: 0, 0
+  index: -1
+1974_fish_1_shadow
+  rotate: false
+  xy: 1805, 903
+  size: 42, 23
+  orig: 42, 23
+  offset: 0, 0
+  index: -1
+1974_fish_1_shell
+  rotate: false
+  xy: 1362, 1087
+  size: 51, 42
+  orig: 51, 42
+  offset: 0, 0
+  index: -1
+1974_fish_1_snail
+  rotate: true
+  xy: 1806, 248
+  size: 44, 39
+  orig: 44, 39
+  offset: 0, 0
+  index: -1
+1974_fish_3_body
+  rotate: true
+  xy: 1431, 265
+  size: 81, 43
+  orig: 81, 43
+  offset: 0, 0
+  index: -1
+1974_fish_3_eyeblack
+  rotate: false
+  xy: 1548, 125
+  size: 8, 8
+  orig: 8, 8
+  offset: 0, 0
+  index: -1
+1974_fish_3_eyelid
+  rotate: false
+  xy: 687, 86
+  size: 12, 11
+  orig: 12, 11
+  offset: 0, 0
+  index: -1
+1974_fish_3_eyewhite
+  rotate: false
+  xy: 687, 99
+  size: 12, 12
+  orig: 12, 12
+  offset: 0, 0
+  index: -1
+1974_fish_3_fin1
+  rotate: true
+  xy: 1733, 125
+  size: 25, 20
+  orig: 25, 20
+  offset: 0, 0
+  index: -1
+1974_fish_3_fin2
+  rotate: true
+  xy: 255, 288
+  size: 34, 15
+  orig: 34, 15
+  offset: 0, 0
+  index: -1
+1974_fish_3_shadow
+  rotate: true
+  xy: 1593, 271
+  size: 51, 33
+  orig: 51, 33
+  offset: 0, 0
+  index: -1
+1974_fish_3_tail
+  rotate: true
+  xy: 1713, 4
+  size: 34, 14
+  orig: 34, 14
+  offset: 0, 0
+  index: -1
+1974_fish_46_Fin 1
+  rotate: true
+  xy: 784, 660
+  size: 227, 90
+  orig: 227, 90
+  offset: 0, 0
+  index: -1
+1974_fish_46_beard
+  rotate: true
+  xy: 333, 2
+  size: 15, 150
+  orig: 15, 150
+  offset: 0, 0
+  index: -1
+1974_fish_46_body
+  rotate: true
+  xy: 146, 889
+  size: 395, 153
+  orig: 395, 153
+  offset: 0, 0
+  index: -1
+1974_fish_46_body2
+  rotate: false
+  xy: 734, 260
+  size: 198, 77
+  orig: 198, 77
+  offset: 0, 0
+  index: -1
+1974_fish_46_body3
+  rotate: false
+  xy: 934, 262
+  size: 198, 77
+  orig: 198, 77
+  offset: 0, 0
+  index: -1
+1974_fish_46_body4
+  rotate: true
+  xy: 882, 1086
+  size: 198, 77
+  orig: 198, 77
+  offset: 0, 0
+  index: -1
+1974_fish_46_dark_side
+  rotate: true
+  xy: 211, 721
+  size: 166, 88
+  orig: 166, 88
+  offset: 0, 0
+  index: -1
+1974_fish_46_fx_24
+  rotate: true
+  xy: 1516, 135
+  size: 132, 104
+  orig: 132, 104
+  offset: 0, 0
+  index: -1
+1974_fish_46_fx_R_13
+  rotate: true
+  xy: 1845, 1107
+  size: 50, 46
+  orig: 50, 46
+  offset: 0, 0
+  index: -1
+1974_fish_46_fx_R_57
+  rotate: false
+  xy: 1629, 772
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+1974_fish_46_fx_gradient_8
+  rotate: false
+  xy: 134, 272
+  size: 119, 442
+  orig: 119, 442
+  offset: 0, 0
+  index: -1
+1974_fish_46_head
+  rotate: false
+  xy: 1136, 423
+  size: 144, 146
+  orig: 144, 146
+  offset: 0, 0
+  index: -1
+1974_fish_46_l_eye
+  rotate: true
+  xy: 2005, 273
+  size: 38, 26
+  orig: 38, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_l_eye_top
+  rotate: true
+  xy: 1674, 685
+  size: 64, 38
+  orig: 64, 38
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv1_Fin 1
+  rotate: true
+  xy: 881, 341
+  size: 227, 90
+  orig: 227, 90
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv1_body
+  rotate: true
+  xy: 255, 324
+  size: 395, 153
+  orig: 395, 153
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv1_head
+  rotate: false
+  xy: 1282, 423
+  size: 144, 146
+  orig: 144, 146
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv1_l_eye_top
+  rotate: false
+  xy: 1694, 537
+  size: 64, 38
+  orig: 64, 38
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv1_r_eye_top
+  rotate: false
+  xy: 1622, 387
+  size: 69, 51
+  orig: 69, 51
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv1_r_fin
+  rotate: true
+  xy: 611, 889
+  size: 103, 113
+  orig: 103, 113
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv1_small_fin1
+  rotate: true
+  xy: 1476, 269
+  size: 85, 45
+  orig: 85, 45
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv1_small_fin2
+  rotate: false
+  xy: 1628, 258
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv1_tail
+  rotate: true
+  xy: 529, 27
+  size: 229, 156
+  orig: 229, 156
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv2_Fin 1
+  rotate: true
+  xy: 973, 342
+  size: 227, 90
+  orig: 227, 90
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv2_beard
+  rotate: true
+  xy: 2012, 973
+  size: 16, 19
+  orig: 16, 19
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv2_body
+  rotate: true
+  xy: 301, 889
+  size: 395, 153
+  orig: 395, 153
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv2_head
+  rotate: false
+  xy: 1283, 746
+  size: 144, 146
+  orig: 144, 146
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv2_l_eye
+  rotate: true
+  xy: 1705, 153
+  size: 38, 26
+  orig: 38, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv2_l_eye_top
+  rotate: false
+  xy: 1694, 497
+  size: 64, 38
+  orig: 64, 38
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv2_r_eye
+  rotate: false
+  xy: 1755, 147
+  size: 37, 26
+  orig: 37, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv2_r_fin
+  rotate: true
+  xy: 726, 889
+  size: 103, 113
+  orig: 103, 113
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv2_small_fin1
+  rotate: true
+  xy: 1655, 1000
+  size: 85, 45
+  orig: 85, 45
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv2_small_fin2
+  rotate: false
+  xy: 1682, 238
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv2_tail
+  rotate: true
+  xy: 565, 339
+  size: 229, 156
+  orig: 229, 156
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_Fin 1
+  rotate: true
+  xy: 1076, 33
+  size: 227, 90
+  orig: 227, 90
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_beard
+  rotate: false
+  xy: 1733, 152
+  size: 20, 26
+  orig: 20, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_body
+  rotate: true
+  xy: 456, 889
+  size: 395, 153
+  orig: 395, 153
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_head
+  rotate: false
+  xy: 1429, 751
+  size: 144, 146
+  orig: 144, 146
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_l_eye
+  rotate: true
+  xy: 1705, 113
+  size: 38, 26
+  orig: 38, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_l_eye_top
+  rotate: false
+  xy: 1694, 457
+  size: 64, 38
+  orig: 64, 38
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_r_eye
+  rotate: false
+  xy: 1755, 119
+  size: 37, 26
+  orig: 37, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_r_eye_top
+  rotate: false
+  xy: 1890, 432
+  size: 69, 51
+  orig: 69, 51
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_r_fin
+  rotate: true
+  xy: 841, 889
+  size: 103, 113
+  orig: 103, 113
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_small_fin1
+  rotate: true
+  xy: 1702, 1000
+  size: 85, 45
+  orig: 85, 45
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_small_fin2
+  rotate: false
+  xy: 1682, 210
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv3_tail
+  rotate: true
+  xy: 723, 339
+  size: 229, 156
+  orig: 229, 156
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_Fin 1
+  rotate: true
+  xy: 733, 1057
+  size: 227, 90
+  orig: 227, 90
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_beard
+  rotate: false
+  xy: 1065, 419
+  size: 15, 150
+  orig: 15, 150
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_body
+  rotate: true
+  xy: 410, 326
+  size: 395, 153
+  orig: 395, 153
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_fx_24
+  rotate: true
+  xy: 1588, 440
+  size: 132, 104
+  orig: 132, 104
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_head
+  rotate: false
+  xy: 1374, 1138
+  size: 144, 146
+  orig: 144, 146
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_l_eye
+  rotate: false
+  xy: 1838, 194
+  size: 38, 26
+  orig: 38, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_l_eye_top
+  rotate: false
+  xy: 1694, 417
+  size: 64, 38
+  orig: 64, 38
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_r_eye
+  rotate: true
+  xy: 1705, 74
+  size: 37, 26
+  orig: 37, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_r_eye_top
+  rotate: false
+  xy: 1961, 410
+  size: 69, 51
+  orig: 69, 51
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_r_fin_1
+  rotate: false
+  xy: 1055, 891
+  size: 73, 101
+  orig: 73, 101
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_r_fin_2
+  rotate: false
+  xy: 1346, 999
+  size: 107, 86
+  orig: 107, 86
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_r_fin_3
+  rotate: false
+  xy: 1892, 688
+  size: 106, 55
+  orig: 106, 55
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_small_fin1
+  rotate: true
+  xy: 1724, 685
+  size: 85, 45
+  orig: 85, 45
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_small_fin2
+  rotate: false
+  xy: 1755, 235
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_lv4_tail
+  rotate: true
+  xy: 760, 29
+  size: 229, 156
+  orig: 229, 156
+  offset: 0, 0
+  index: -1
+1974_fish_46_r_eye
+  rotate: false
+  xy: 1958, 147
+  size: 37, 26
+  orig: 37, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_r_eye_top
+  rotate: false
+  xy: 1889, 379
+  size: 69, 51
+  orig: 69, 51
+  offset: 0, 0
+  index: -1
+1974_fish_46_r_fin_1
+  rotate: false
+  xy: 1130, 891
+  size: 73, 101
+  orig: 73, 101
+  offset: 0, 0
+  index: -1
+1974_fish_46_r_fin_2
+  rotate: false
+  xy: 1455, 999
+  size: 107, 86
+  orig: 107, 86
+  offset: 0, 0
+  index: -1
+1974_fish_46_r_fin_3
+  rotate: false
+  xy: 1892, 631
+  size: 106, 55
+  orig: 106, 55
+  offset: 0, 0
+  index: -1
+1974_fish_46_shadow_tail
+  rotate: true
+  xy: 876, 682
+  size: 205, 140
+  orig: 205, 140
+  offset: 0, 0
+  index: -1
+1974_fish_46_small_fin1
+  rotate: true
+  xy: 1749, 1000
+  size: 85, 45
+  orig: 85, 45
+  offset: 0, 0
+  index: -1
+1974_fish_46_small_fin2
+  rotate: false
+  xy: 1622, 230
+  size: 49, 26
+  orig: 49, 26
+  offset: 0, 0
+  index: -1
+1974_fish_46_tail
+  rotate: true
+  xy: 918, 29
+  size: 229, 156
+  orig: 229, 156
+  offset: 0, 0
+  index: -1
+1974_fish_4_body
+  rotate: true
+  xy: 1816, 830
+  size: 71, 31
+  orig: 71, 31
+  offset: 0, 0
+  index: -1
+1974_fish_4_eyeblack
+  rotate: false
+  xy: 2018, 1252
+  size: 10, 10
+  orig: 10, 10
+  offset: 0, 0
+  index: -1
+1974_fish_4_eyelid
+  rotate: true
+  xy: 255, 272
+  size: 14, 15
+  orig: 14, 15
+  offset: 0, 0
+  index: -1
+1974_fish_4_fin
+  rotate: true
+  xy: 1682, 78
+  size: 30, 21
+  orig: 30, 21
+  offset: 0, 0
+  index: -1
+1974_fish_4_fin2
+  rotate: false
+  xy: 1946, 75
+  size: 27, 22
+  orig: 27, 22
+  offset: 0, 0
+  index: -1
+1974_fish_4_finshadow
+  rotate: false
+  xy: 1698, 193
+  size: 22, 15
+  orig: 22, 15
+  offset: 0, 0
+  index: -1
+1974_fish_4_fints
+  rotate: false
+  xy: 1374, 1131
+  size: 36, 5
+  orig: 36, 5
+  offset: 0, 0
+  index: -1
+1974_fish_4_shadow
+  rotate: true
+  xy: 2000, 570
+  size: 54, 30
+  orig: 54, 30
+  offset: 0, 0
+  index: -1
+1974_fish_4_tail_d
+  rotate: true
+  xy: 1816, 588
+  size: 70, 30
+  orig: 70, 30
+  offset: 0, 0
+  index: -1
+1974_fish_4_tail_u
+  rotate: false
+  xy: 1889, 317
+  size: 50, 22
+  orig: 50, 22
+  offset: 0, 0
+  index: -1
+1974_fish_9_beard
+  rotate: true
+  xy: 1844, 1012
+  size: 22, 47
+  orig: 22, 47
+  offset: 0, 0
+  index: -1
+1974_fish_9_body
+  rotate: false
+  xy: 1533, 1087
+  size: 142, 52
+  orig: 142, 52
+  offset: 0, 0
+  index: -1
+1974_fish_9_dorsal-fin
+  rotate: true
+  xy: 717, 259
+  size: 78, 15
+  orig: 78, 15
+  offset: 0, 0
+  index: -1
+1974_fish_9_eye1
+  rotate: false
+  xy: 1716, 1142
+  size: 17, 15
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+1974_fish_9_fins
+  rotate: false
+  xy: 2002, 164
+  size: 29, 29
+  orig: 29, 29
+  offset: 0, 0
+  index: -1
+1974_fish_9_pelvic_fin
+  rotate: false
+  xy: 485, 2
+  size: 78, 19
+  orig: 78, 19
+  offset: 0, 0
+  index: -1
+1974_fish_9_shadow
+  rotate: true
+  xy: 1564, 999
+  size: 86, 41
+  orig: 86, 41
+  offset: 0, 0
+  index: -1
+1974_fish_9_tail
+  rotate: false
+  xy: 886, 2
+  size: 39, 25
+  orig: 39, 25
+  offset: 0, 0
+  index: -1
+1974_fishft4
+  rotate: true
+  xy: 646, 620
+  size: 267, 136
+  orig: 267, 136
+  offset: 0, 0
+  index: -1
+Shrimp
+  rotate: true
+  xy: 1307, 895
+  size: 99, 53
+  orig: 99, 53
+  offset: 0, 0
+  index: -1
+eyelid
+  rotate: true
+  xy: 1931, 187
+  size: 38, 27
+  orig: 38, 27
+  offset: 0, 0
+  index: -1
+fish18_body
+  rotate: true
+  xy: 565, 570
+  size: 317, 79
+  orig: 317, 79
+  offset: 0, 0
+  index: -1
+fish18_body_rc0
+  rotate: false
+  xy: 961, 1086
+  size: 15, 9
+  orig: 15, 9
+  offset: 0, 0
+  index: -1
+fish18_body_rc1
+  rotate: true
+  xy: 1799, 5
+  size: 33, 14
+  orig: 33, 14
+  offset: 0, 0
+  index: -1
+fish18_body_rc2
+  rotate: false
+  xy: 1575, 751
+  size: 44, 16
+  orig: 44, 16
+  offset: 0, 0
+  index: -1
+fish18_body_rc3
+  rotate: false
+  xy: 565, 326
+  size: 18, 11
+  orig: 18, 11
+  offset: 0, 0
+  index: -1
+fish18_body_rc4
+  rotate: true
+  xy: 1914, 32
+  size: 22, 14
+  orig: 22, 14
+  offset: 0, 0
+  index: -1
+fish18_body_rc5
+  rotate: false
+  xy: 284, 2
+  size: 23, 13
+  orig: 23, 13
+  offset: 0, 0
+  index: -1
+fish18_body_rc6
+  rotate: true
+  xy: 1168, 44
+  size: 15, 10
+  orig: 15, 10
+  offset: 0, 0
+  index: -1
+fish18_body_rc7
+  rotate: true
+  xy: 687, 71
+  size: 13, 11
+  orig: 13, 11
+  offset: 0, 0
+  index: -1
+fish18_eye
+  rotate: false
+  xy: 1973, 37
+  size: 16, 15
+  orig: 16, 15
+  offset: 0, 0
+  index: -1
+fish18_fin1
+  rotate: false
+  xy: 1795, 183
+  size: 38, 23
+  orig: 38, 23
+  offset: 0, 0
+  index: -1
+fish18_fin2b
+  rotate: false
+  xy: 1797, 208
+  size: 39, 14
+  orig: 39, 14
+  offset: 0, 0
+  index: -1
+fish18_fin3
+  rotate: false
+  xy: 1960, 350
+  size: 44, 22
+  orig: 44, 22
+  offset: 0, 0
+  index: -1
+fish18_fin4
+  rotate: false
+  xy: 760, 2
+  size: 68, 25
+  orig: 68, 25
+  offset: 0, 0
+  index: -1
+fish18_fin5
+  rotate: false
+  xy: 1659, 751
+  size: 63, 19
+  orig: 63, 19
+  offset: 0, 0
+  index: -1
+fish18_fin6
+  rotate: true
+  xy: 258, 17
+  size: 238, 62
+  orig: 238, 62
+  offset: 0, 0
+  index: -1
+fish18_fin7
+  rotate: true
+  xy: 1674, 902
+  size: 96, 31
+  orig: 96, 31
+  offset: 0, 0
+  index: -1
+fish18_fin7b
+  rotate: true
+  xy: 1707, 902
+  size: 96, 31
+  orig: 96, 31
+  offset: 0, 0
+  index: -1
+fish18_rc1
+  rotate: false
+  xy: 258, 2
+  size: 24, 13
+  orig: 24, 13
+  offset: 0, 0
+  index: -1
+fish18_rc10b
+  rotate: true
+  xy: 1168, 80
+  size: 40, 10
+  orig: 40, 10
+  offset: 0, 0
+  index: -1
+fish18_rc2
+  rotate: true
+  xy: 1948, 40
+  size: 14, 23
+  orig: 14, 23
+  offset: 0, 0
+  index: -1
+fish18_rc3
+  rotate: true
+  xy: 687, 193
+  size: 23, 12
+  orig: 23, 12
+  offset: 0, 0
+  index: -1
+fish18_rc4
+  rotate: false
+  xy: 1209, 687
+  size: 13, 21
+  orig: 13, 21
+  offset: 0, 0
+  index: -1
+fish18_rc5
+  rotate: true
+  xy: 687, 147
+  size: 20, 12
+  orig: 20, 12
+  offset: 0, 0
+  index: -1
+fish18_rc6
+  rotate: true
+  xy: 1948, 24
+  size: 14, 16
+  orig: 14, 16
+  offset: 0, 0
+  index: -1
+fish18_rc7
+  rotate: false
+  xy: 1955, 59
+  size: 17, 14
+  orig: 17, 14
+  offset: 0, 0
+  index: -1
+fish18_rc8
+  rotate: true
+  xy: 687, 33
+  size: 18, 10
+  orig: 18, 10
+  offset: 0, 0
+  index: -1
+fish18_rc9
+  rotate: false
+  xy: 1896, 55
+  size: 15, 18
+  orig: 15, 18
+  offset: 0, 0
+  index: -1
+fish18_rice1b
+  rotate: true
+  xy: 1434, 348
+  size: 81, 15
+  orig: 81, 15
+  offset: 0, 0
+  index: -1
+fish18_rice2b
+  rotate: true
+  xy: 134, 257
+  size: 13, 57
+  orig: 13, 57
+  offset: 0, 0
+  index: -1
+fish18_rice3b
+  rotate: false
+  xy: 1113, 1087
+  size: 60, 10
+  orig: 60, 10
+  offset: 0, 0
+  index: -1
+fish18_rice4b
+  rotate: true
+  xy: 1051, 1086
+  size: 11, 60
+  orig: 11, 60
+  offset: 0, 0
+  index: -1
+fish18_rice5b
+  rotate: true
+  xy: 455, 257
+  size: 67, 14
+  orig: 67, 14
+  offset: 0, 0
+  index: -1
+fish18_sd
+  rotate: true
+  xy: 1044, 1099
+  size: 185, 72
+  orig: 185, 72
+  offset: 0, 0
+  index: -1
+fish18_tail
+  rotate: false
+  xy: 766, 570
+  size: 83, 48
+  orig: 83, 48
+  offset: 0, 0
+  index: -1
+fish43_belly
+  rotate: false
+  xy: 1327, 572
+  size: 126, 108
+  orig: 126, 108
+  offset: 0, 0
+  index: -1
+fish43_belly_sd_v3
+  rotate: false
+  xy: 272, 257
+  size: 146, 65
+  orig: 146, 65
+  offset: 0, 0
+  index: -1
+fish43_belly_v3
+  rotate: false
+  xy: 1455, 574
+  size: 126, 108
+  orig: 126, 108
+  offset: 0, 0
+  index: -1
+fish43_body
+  rotate: true
+  xy: 1679, 1159
+  size: 125, 105
+  orig: 125, 105
+  offset: 0, 0
+  index: -1
+fish43_body_v3
+  rotate: true
+  xy: 1786, 1159
+  size: 125, 105
+  orig: 125, 105
+  offset: 0, 0
+  index: -1
+fish43_bpdy_action3_down
+  rotate: false
+  xy: 1283, 726
+  size: 123, 18
+  orig: 123, 18
+  offset: 0, 0
+  index: -1
+fish43_bpdy_action3_up
+  rotate: false
+  xy: 1893, 1233
+  size: 123, 51
+  orig: 123, 51
+  offset: 0, 0
+  index: -1
+fish43_eye_l
+  rotate: true
+  xy: 1975, 54
+  size: 22, 25
+  orig: 22, 25
+  offset: 0, 0
+  index: -1
+fish43_eye_r
+  rotate: true
+  xy: 2002, 32
+  size: 22, 25
+  orig: 22, 25
+  offset: 0, 0
+  index: -1
+fish43_eyelid_l
+  rotate: false
+  xy: 1896, 7
+  size: 17, 23
+  orig: 17, 23
+  offset: 0, 0
+  index: -1
+fish43_eyelid_l_sd
+  rotate: true
+  xy: 1913, 56
+  size: 17, 23
+  orig: 17, 23
+  offset: 0, 0
+  index: -1
+fish43_eyelid_r
+  rotate: false
+  xy: 2012, 1058
+  size: 19, 23
+  orig: 19, 23
+  offset: 0, 0
+  index: -1
+fish43_eyelid_r_sd
+  rotate: false
+  xy: 2012, 1033
+  size: 19, 23
+  orig: 19, 23
+  offset: 0, 0
+  index: -1
+fish43_fins_l
+  rotate: true
+  xy: 1848, 448
+  size: 39, 40
+  orig: 39, 40
+  offset: 0, 0
+  index: -1
+fish43_fins_l_v3
+  rotate: true
+  xy: 1847, 407
+  size: 39, 40
+  orig: 39, 40
+  offset: 0, 0
+  index: -1
+fish43_fins_r
+  rotate: true
+  xy: 1847, 366
+  size: 39, 40
+  orig: 39, 40
+  offset: 0, 0
+  index: -1
+fish43_fins_r_sd
+  rotate: false
+  xy: 1960, 286
+  size: 43, 39
+  orig: 43, 39
+  offset: 0, 0
+  index: -1
+fish43_fins_r_v3
+  rotate: true
+  xy: 1847, 325
+  size: 39, 40
+  orig: 39, 40
+  offset: 0, 0
+  index: -1
+fish43_mouth
+  rotate: true
+  xy: 2012, 955
+  size: 16, 19
+  orig: 16, 19
+  offset: 0, 0
+  index: -1
+fish43_sd
+  rotate: false
+  xy: 632, 259
+  size: 83, 78
+  orig: 83, 78
+  offset: 0, 0
+  index: -1
+fish43_sp_explorer_1
+  rotate: true
+  xy: 2000, 768
+  size: 35, 31
+  orig: 35, 31
+  offset: 0, 0
+  index: -1
+fish43_sp_explorer_3
+  rotate: true
+  xy: 1816, 462
+  size: 32, 30
+  orig: 32, 30
+  offset: 0, 0
+  index: -1
+fish43_sp_explorer_4
+  rotate: true
+  xy: 1950, 7
+  size: 15, 14
+  orig: 15, 14
+  offset: 0, 0
+  index: -1
+fish43_sp_explorer_5
+  rotate: false
+  xy: 1885, 78
+  size: 21, 17
+  orig: 21, 17
+  offset: 0, 0
+  index: -1
+fish43_sp_explorer_6
+  rotate: true
+  xy: 2006, 80
+  size: 24, 25
+  orig: 24, 25
+  offset: 0, 0
+  index: -1
+fish43_tail
+  rotate: false
+  xy: 1844, 928
+  size: 37, 24
+  orig: 37, 24
+  offset: 0, 0
+  index: -1
+fish43_tail_v3
+  rotate: true
+  xy: 1934, 259
+  size: 37, 24
+  orig: 37, 24
+  offset: 0, 0
+  index: -1
+fish43_thorn_1
+  rotate: true
+  xy: 1622, 193
+  size: 35, 46
+  orig: 35, 46
+  offset: 0, 0
+  index: -1
+fish43_thorn_1_v3
+  rotate: false
+  xy: 1622, 146
+  size: 35, 45
+  orig: 35, 45
+  offset: 0, 0
+  index: -1
+fish43_thorn_2
+  rotate: false
+  xy: 1949, 118
+  size: 35, 27
+  orig: 35, 27
+  offset: 0, 0
+  index: -1
+fish43_thorn_2_v3
+  rotate: false
+  xy: 1909, 97
+  size: 35, 27
+  orig: 35, 27
+  offset: 0, 0
+  index: -1
+fish43_thorn_3
+  rotate: false
+  xy: 1872, 6
+  size: 22, 24
+  orig: 22, 24
+  offset: 0, 0
+  index: -1
+fish43_thorn_3_v3
+  rotate: false
+  xy: 1872, 34
+  size: 22, 24
+  orig: 22, 24
+  offset: 0, 0
+  index: -1
+fish43_thorn_4
+  rotate: false
+  xy: 1008, 2
+  size: 35, 25
+  orig: 35, 25
+  offset: 0, 0
+  index: -1
+fish43_thorn_4_v3
+  rotate: false
+  xy: 1045, 2
+  size: 35, 25
+  orig: 35, 25
+  offset: 0, 0
+  index: -1
+fish43_thorn_5
+  rotate: false
+  xy: 1815, 428
+  size: 30, 32
+  orig: 30, 32
+  offset: 0, 0
+  index: -1
+fish43_thorn_5_v3
+  rotate: false
+  xy: 1815, 394
+  size: 30, 32
+  orig: 30, 32
+  offset: 0, 0
+  index: -1
+fish43_thorn_6
+  rotate: false
+  xy: 1927, 80
+  size: 17, 15
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+fish43_thorn_6_v3
+  rotate: true
+  xy: 1938, 56
+  size: 17, 15
+  orig: 17, 15
+  offset: 0, 0
+  index: -1
+fish43_thorn_7
+  rotate: false
+  xy: 1729, 5
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+fish43_thorn_7_v3
+  rotate: false
+  xy: 1764, 5
+  size: 33, 33
+  orig: 33, 33
+  offset: 0, 0
+  index: -1
+fish43_thorn_8
+  rotate: false
+  xy: 2002, 234
+  size: 29, 37
+  orig: 29, 37
+  offset: 0, 0
+  index: -1
+fish43_thorn_8_v3
+  rotate: false
+  xy: 2002, 195
+  size: 29, 37
+  orig: 29, 37
+  offset: 0, 0
+  index: -1
+fish43_thorn_9
+  rotate: true
+  xy: 1834, 121
+  size: 33, 36
+  orig: 33, 36
+  offset: 0, 0
+  index: -1
+fish43_thorn_9_v3
+  rotate: true
+  xy: 1794, 111
+  size: 33, 36
+  orig: 33, 36
+  offset: 0, 0
+  index: -1
+fish43_thorn_sd1
+  rotate: true
+  xy: 2012, 1083
+  size: 30, 19
+  orig: 30, 19
+  offset: 0, 0
+  index: -1
+fish43_thorn_sd2
+  rotate: false
+  xy: 1753, 40
+  size: 27, 29
+  orig: 27, 29
+  offset: 0, 0
+  index: -1
+fish43_thorn_sd3
+  rotate: false
+  xy: 1682, 2
+  size: 29, 26
+  orig: 29, 26
+  offset: 0, 0
+  index: -1
+fish43_thorn_sd4
+  rotate: false
+  xy: 1849, 895
+  size: 42, 31
+  orig: 42, 31
+  offset: 0, 0
+  index: -1
+fish_10_behind
+  rotate: true
+  xy: 2012, 1193
+  size: 38, 19
+  orig: 38, 19
+  offset: 0, 0
+  index: -1
+fish_10_body
+  rotate: false
+  xy: 1362, 899
+  size: 127, 98
+  orig: 127, 98
+  offset: 0, 0
+  index: -1
+fish_10_head
+  rotate: false
+  xy: 1491, 899
+  size: 68, 98
+  orig: 68, 98
+  offset: 0, 0
+  index: -1
+fish_10_scarf
+  rotate: true
+  xy: 637, 2
+  size: 23, 62
+  orig: 23, 62
+  offset: 0, 0
+  index: -1
+fish_10_shadow
+  rotate: true
+  xy: 1167, 265
+  size: 75, 52
+  orig: 75, 52
+  offset: 0, 0
+  index: -1
+fish_10_tentacle
+  rotate: true
+  xy: 1816, 701
+  size: 56, 31
+  orig: 56, 31
+  offset: 0, 0
+  index: -1
+fish_10_tentacle2
+  rotate: true
+  xy: 2000, 626
+  size: 56, 30
+  orig: 56, 30
+  offset: 0, 0
+  index: -1
+fish_10_tentacle3
+  rotate: false
+  xy: 1118, 1099
+  size: 54, 28
+  orig: 54, 28
+  offset: 0, 0
+  index: -1
+fish_10_tentacle4
+  rotate: false
+  xy: 1152, 682
+  size: 55, 26
+  orig: 55, 26
+  offset: 0, 0
+  index: -1
+fish_16_body
+  rotate: true
+  xy: 2, 257
+  size: 457, 130
+  orig: 457, 130
+  offset: 0, 0
+  index: -1
+fish_16_eyebrow
+  rotate: false
+  xy: 1025, 571
+  size: 82, 47
+  orig: 82, 47
+  offset: 0, 0
+  index: -1
+fish_16_fin
+  rotate: false
+  xy: 1175, 1087
+  size: 83, 40
+  orig: 83, 40
+  offset: 0, 0
+  index: -1
+fish_16_head
+  rotate: true
+  xy: 1118, 1129
+  size: 155, 116
+  orig: 155, 116
+  offset: 0, 0
+  index: -1
+fish_16_shadow
+  rotate: true
+  xy: 437, 23
+  size: 232, 90
+  orig: 232, 90
+  offset: 0, 0
+  index: -1
+fish_16_sidefin
+  rotate: false
+  xy: 1170, 347
+  size: 145, 74
+  orig: 145, 74
+  offset: 0, 0
+  index: -1
+fish_17_body
+  rotate: true
+  xy: 2, 716
+  size: 568, 142
+  orig: 568, 142
+  offset: 0, 0
+  index: -1
+fish_17_bulb
+  rotate: false
+  xy: 1771, 729
+  size: 43, 44
+  orig: 43, 44
+  offset: 0, 0
+  index: -1
+fish_17_bulbbig
+  rotate: false
+  xy: 1891, 485
+  size: 69, 57
+  orig: 69, 57
+  offset: 0, 0
+  index: -1
+fish_17_bulbsmall
+  rotate: true
+  xy: 1816, 496
+  size: 34, 30
+  orig: 34, 30
+  offset: 0, 0
+  index: -1
+fish_17_flower
+  rotate: false
+  xy: 1840, 15
+  size: 30, 30
+  orig: 30, 30
+  offset: 0, 0
+  index: -1
+fish_17_head
+  rotate: true
+  xy: 461, 723
+  size: 164, 102
+  orig: 164, 102
+  offset: 0, 0
+  index: -1
+fish_17_l_eyeball
+  rotate: false
+  xy: 1960, 225
+  size: 40, 28
+  orig: 40, 28
+  offset: 0, 0
+  index: -1
+fish_17_l_eyeball2
+  rotate: false
+  xy: 1889, 210
+  size: 40, 28
+  orig: 40, 28
+  offset: 0, 0
+  index: -1
+fish_17_l_eyeguard
+  rotate: true
+  xy: 1593, 383
+  size: 55, 27
+  orig: 55, 27
+  offset: 0, 0
+  index: -1
+fish_17_l_leg_0
+  rotate: true
+  xy: 1607, 1000
+  size: 85, 46
+  orig: 85, 46
+  offset: 0, 0
+  index: -1
+fish_17_l_leg_1
+  rotate: true
+  xy: 1735, 1087
+  size: 70, 59
+  orig: 70, 59
+  offset: 0, 0
+  index: -1
+fish_17_l_leg_2
+  rotate: false
+  xy: 1844, 1071
+  size: 47, 34
+  orig: 47, 34
+  offset: 0, 0
+  index: -1
+fish_17_leaf
+  rotate: true
+  xy: 322, 19
+  size: 236, 113
+  orig: 236, 113
+  offset: 0, 0
+  index: -1
+fish_17_leaf_back
+  rotate: true
+  xy: 1593, 324
+  size: 57, 36
+  orig: 57, 36
+  offset: 0, 0
+  index: -1
+fish_17_leaf_shadow
+  rotate: true
+  xy: 2, 5
+  size: 250, 103
+  orig: 250, 103
+  offset: 0, 0
+  index: -1
+fish_17_lotus_shadow
+  rotate: true
+  xy: 961, 1097
+  size: 187, 81
+  orig: 187, 81
+  offset: 0, 0
+  index: -1
+fish_17_petalbig_1
+  rotate: false
+  xy: 1756, 324
+  size: 55, 58
+  orig: 55, 58
+  offset: 0, 0
+  index: -1
+fish_17_petalbig_2
+  rotate: false
+  xy: 1126, 342
+  size: 42, 77
+  orig: 42, 77
+  offset: 0, 0
+  index: -1
+fish_17_petalbig_3
+  rotate: true
+  xy: 1490, 364
+  size: 72, 82
+  orig: 72, 82
+  offset: 0, 0
+  index: -1
+fish_17_petalbig_4
+  rotate: true
+  xy: 1294, 996
+  size: 89, 50
+  orig: 89, 50
+  offset: 0, 0
+  index: -1
+fish_17_petalbig_5
+  rotate: true
+  xy: 1065, 341
+  size: 76, 59
+  orig: 76, 59
+  offset: 0, 0
+  index: -1
+fish_17_petalbig_6
+  rotate: true
+  xy: 1561, 901
+  size: 96, 59
+  orig: 96, 59
+  offset: 0, 0
+  index: -1
+fish_17_petalbig_7
+  rotate: true
+  xy: 1892, 745
+  size: 71, 106
+  orig: 71, 106
+  offset: 0, 0
+  index: -1
+fish_17_petalbig_8
+  rotate: false
+  xy: 847, 994
+  size: 75, 85
+  orig: 75, 85
+  offset: 0, 0
+  index: -1
+fish_17_petalbig_front
+  rotate: true
+  xy: 592, 258
+  size: 79, 38
+  orig: 79, 38
+  offset: 0, 0
+  index: -1
+fish_17_petalsmall_1
+  rotate: true
+  xy: 1795, 146
+  size: 35, 37
+  orig: 35, 37
+  offset: 0, 0
+  index: -1
+fish_17_petalsmall_2
+  rotate: false
+  xy: 1832, 91
+  size: 34, 28
+  orig: 34, 28
+  offset: 0, 0
+  index: -1
+fish_17_petalsmall_3
+  rotate: false
+  xy: 927, 2
+  size: 39, 25
+  orig: 39, 25
+  offset: 0, 0
+  index: -1
+fish_17_petalsmall_4
+  rotate: true
+  xy: 1816, 660
+  size: 39, 31
+  orig: 39, 31
+  offset: 0, 0
+  index: -1
+fish_17_petalsmall_front
+  rotate: true
+  xy: 1872, 97
+  size: 23, 35
+  orig: 23, 35
+  offset: 0, 0
+  index: -1
+fish_17_petalsmall_shadow
+  rotate: false
+  xy: 1693, 346
+  size: 61, 45
+  orig: 61, 45
+  offset: 0, 0
+  index: -1
+fish_17_r_eyeball
+  rotate: false
+  xy: 1345, 685
+  size: 61, 39
+  orig: 61, 39
+  offset: 0, 0
+  index: -1
+fish_17_r_eyeguard
+  rotate: false
+  xy: 1960, 200
+  size: 40, 23
+  orig: 40, 23
+  offset: 0, 0
+  index: -1
+fish_17_r_eyeguard1
+  rotate: false
+  xy: 1960, 175
+  size: 40, 23
+  orig: 40, 23
+  offset: 0, 0
+  index: -1
+fish_17_r_eyeguard2
+  rotate: false
+  xy: 1755, 210
+  size: 40, 23
+  orig: 40, 23
+  offset: 0, 0
+  index: -1
+fish_17_r_leg_0
+  rotate: true
+  xy: 1805, 928
+  size: 70, 37
+  orig: 70, 37
+  offset: 0, 0
+  index: -1
+fish_17_r_leg_1
+  rotate: false
+  xy: 1677, 1087
+  size: 56, 52
+  orig: 56, 52
+  offset: 0, 0
+  index: -1
+fish_17_r_leg_2
+  rotate: false
+  xy: 1764, 540
+  size: 50, 38
+  orig: 50, 38
+  offset: 0, 0
+  index: -1
+fish_17_r_leg_3
+  rotate: false
+  xy: 1791, 81
+  size: 34, 28
+  orig: 34, 28
+  offset: 0, 0
+  index: -1
+fish_17_shadow
+  rotate: true
+  xy: 611, 994
+  size: 290, 120
+  orig: 290, 120
+  offset: 0, 0
+  index: -1
+fish_17_stem
+  rotate: false
+  xy: 1844, 990
+  size: 47, 20
+  orig: 47, 20
+  offset: 0, 0
+  index: -1
+fish_17_tailspike
+  rotate: true
+  xy: 825, 1081
+  size: 203, 55
+  orig: 203, 55
+  offset: 0, 0
+  index: -1
+fish_17_teeth
+  rotate: false
+  xy: 1865, 60
+  size: 18, 29
+  orig: 18, 29
+  offset: 0, 0
+  index: -1
+fish_17_teeth_2
+  rotate: false
+  xy: 1986, 115
+  size: 29, 17
+  orig: 29, 17
+  offset: 0, 0
+  index: -1
+fish_18_vfx
+  rotate: true
+  xy: 1841, 59
+  size: 30, 22
+  orig: 30, 22
+  offset: 0, 0
+  index: -1
+fish_18_vfxcopy11
+  rotate: false
+  xy: 1908, 78
+  size: 17, 17
+  orig: 17, 17
+  offset: 0, 0
+  index: -1
+fish_2_body
+  rotate: false
+  xy: 1796, 1115
+  size: 47, 42
+  orig: 47, 42
+  offset: 0, 0
+  index: -1
+fish_2_bubble
+  rotate: true
+  xy: 2012, 937
+  size: 16, 19
+  orig: 16, 19
+  offset: 0, 0
+  index: -1
+fish_2_eye
+  rotate: false
+  xy: 1933, 7
+  size: 15, 15
+  orig: 15, 15
+  offset: 0, 0
+  index: -1
+fish_2_fin
+  rotate: true
+  xy: 687, 128
+  size: 17, 12
+  orig: 17, 12
+  offset: 0, 0
+  index: -1
+fish_2_shadow
+  rotate: false
+  xy: 1960, 255
+  size: 40, 29
+  orig: 40, 29
+  offset: 0, 0
+  index: -1
+fish_2_tail
+  rotate: false
+  xy: 1753, 90
+  size: 36, 27
+  orig: 36, 27
+  offset: 0, 0
+  index: -1
+fish_5_body
+  rotate: true
+  xy: 851, 570
+  size: 48, 36
+  orig: 48, 36
+  offset: 0, 0
+  index: -1
+fish_5_extratail2
+  rotate: true
+  xy: 245, 257
+  size: 13, 25
+  orig: 13, 25
+  offset: 0, 0
+  index: -1
+fish_5_midtail
+  rotate: false
+  xy: 1659, 147
+  size: 44, 44
+  orig: 44, 44
+  offset: 0, 0
+  index: -1
+fish_5_shadow
+  rotate: false
+  xy: 1848, 534
+  size: 41, 32
+  orig: 41, 32
+  offset: 0, 0
+  index: -1
+fish_5_sidetail2
+  rotate: true
+  xy: 1705, 40
+  size: 32, 26
+  orig: 32, 26
+  offset: 0, 0
+  index: -1
+fish_5_whisker
+  rotate: true
+  xy: 1574, 126
+  size: 7, 14
+  orig: 7, 14
+  offset: 0, 0
+  index: -1
+fish_6_1
+  rotate: true
+  xy: 1733, 221
+  size: 43, 20
+  orig: 43, 20
+  offset: 0, 0
+  index: -1
+fish_6_2
+  rotate: true
+  xy: 1733, 86
+  size: 37, 18
+  orig: 37, 18
+  offset: 0, 0
+  index: -1
+fish_6_3
+  rotate: false
+  xy: 1670, 193
+  size: 26, 15
+  orig: 26, 15
+  offset: 0, 0
+  index: -1
+fish_6_body
+  rotate: false
+  xy: 1693, 295
+  size: 60, 49
+  orig: 60, 49
+  offset: 0, 0
+  index: -1
+fish_6_clawb1
+  rotate: true
+  xy: 1896, 34
+  size: 18, 16
+  orig: 18, 16
+  offset: 0, 0
+  index: -1
+fish_6_clawb2
+  rotate: false
+  xy: 2012, 1153
+  size: 19, 38
+  orig: 19, 38
+  offset: 0, 0
+  index: -1
+fish_6_close
+  rotate: true
+  xy: 687, 113
+  size: 13, 12
+  orig: 13, 12
+  offset: 0, 0
+  index: -1
+fish_6_frontclaw
+  rotate: false
+  xy: 1960, 374
+  size: 57, 34
+  orig: 57, 34
+  offset: 0, 0
+  index: -1
+fish_6_frontclaw2
+  rotate: false
+  xy: 1849, 864
+  size: 42, 29
+  orig: 42, 29
+  offset: 0, 0
+  index: -1
+fish_6_shadow
+  rotate: true
+  xy: 1408, 682
+  size: 62, 40
+  orig: 62, 40
+  offset: 0, 0
+  index: -1
+fish_7_body
+  rotate: true
+  xy: 1583, 574
+  size: 108, 31
+  orig: 108, 31
+  offset: 0, 0
+  index: -1
+fish_7_claw1
+  rotate: true
+  xy: 1941, 298
+  size: 37, 17
+  orig: 37, 17
+  offset: 0, 0
+  index: -1
+fish_7_leg1
+  rotate: false
+  xy: 2018, 1264
+  size: 13, 20
+  orig: 13, 20
+  offset: 0, 0
+  index: -1
+fish_7_leg2
+  rotate: true
+  xy: 2012, 991
+  size: 17, 19
+  orig: 17, 19
+  offset: 0, 0
+  index: -1
+fish_7_shadow
+  rotate: true
+  xy: 1317, 347
+  size: 74, 30
+  orig: 74, 30
+  offset: 0, 0
+  index: -1
+fish_7_tail1
+  rotate: false
+  xy: 825, 1059
+  size: 20, 20
+  orig: 20, 20
+  offset: 0, 0
+  index: -1
+fish_7_tail2
+  rotate: false
+  xy: 2012, 1010
+  size: 19, 21
+  orig: 19, 21
+  offset: 0, 0
+  index: -1
+fish_7_whisker
+  rotate: true
+  xy: 2007, 805
+  size: 50, 24
+  orig: 50, 24
+  offset: 0, 0
+  index: -1
+fish_8_body
+  rotate: true
+  xy: 1428, 431
+  size: 139, 41
+  orig: 139, 41
+  offset: 0, 0
+  index: -1
+fish_8_bot1
+  rotate: false
+  xy: 1918, 163
+  size: 38, 22
+  orig: 38, 22
+  offset: 0, 0
+  index: -1
+fish_8_bot2
+  rotate: true
+  xy: 687, 218
+  size: 39, 12
+  orig: 39, 12
+  offset: 0, 0
+  index: -1
+fish_8_fin1
+  rotate: true
+  xy: 2000, 701
+  size: 30, 31
+  orig: 30, 31
+  offset: 0, 0
+  index: -1
+fish_8_fin2
+  rotate: true
+  xy: 1915, 7
+  size: 23, 16
+  orig: 23, 16
+  offset: 0, 0
+  index: -1
+fish_8_fin3
+  rotate: false
+  xy: 309, 2
+  size: 22, 13
+  orig: 22, 13
+  offset: 0, 0
+  index: -1
+fish_8_shadow
+  rotate: true
+  xy: 1849, 674
+  size: 71, 41
+  orig: 71, 41
+  offset: 0, 0
+  index: -1
+fish_8_topfin
+  rotate: true
+  xy: 2017, 106
+  size: 26, 14
+  orig: 26, 14
+  offset: 0, 0
+  index: -1
+frame1
+  rotate: true
+  xy: 1205, 893
+  size: 101, 41
+  orig: 101, 41
+  offset: 0, 0
+  index: -1
+frame2
+  rotate: true
+  xy: 1796, 1000
+  size: 113, 46
+  orig: 113, 46
+  offset: 0, 0
+  index: -1
+frame3
+  rotate: false
+  xy: 889, 571
+  size: 134, 47
+  orig: 134, 47
+  offset: 0, 0
+  index: -1
+frame4
+  rotate: true
+  xy: 1082, 421
+  size: 148, 52
+  orig: 148, 52
+  offset: 0, 0
+  index: -1
+frame5
+  rotate: true
+  xy: 146, 720
+  size: 167, 63
+  orig: 167, 63
+  offset: 0, 0
+  index: -1
+vfx_outerglow
+  rotate: true
+  xy: 956, 891
+  size: 101, 97
+  orig: 101, 97
+  offset: 0, 0
+  index: -1
