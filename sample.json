@@ -1,0 +1,31 @@
+{
+  "title": "Khai Bút Tuân Xuân",
+  "gameId": "9761",
+  "cocosVersion": "3.7.3",
+  "kproject": "N/A",
+  "links": {
+    "drive": "https://drive.google.com/drive/folders/1D8N3bKEvgUiHJH5tMimh-_sH2Z-gglRX",
+    "gdd": "https://docs.google.com/document/d/11j7P2oUaShpkPthSHMxC3tASVuqP-W_fUmC45Did9Gk/edit?tab=t.0",
+    "jira": "https://seastudio.atlassian.net/jira/software/projects/KTS9761/boards/657",
+    "wbs": "https://docs.google.com/spreadsheets/d/1waVaUvR5p269CSQOAujAuusGZHO1u3W9ME-OcPMcEGo/edit?gid=1219632985#gid=1219632985",
+    "api": "https://drive.google.com/drive/folders/1NdoEBUCaQ3mup-SefYTyzmS1-SeR-ud6",
+    "git": "https://github.com/seastudiofe/cc30-tet-9761"
+  },
+  "gitRequestAccess": [
+    "seastudiofe",
+    "cc30-tet-9761",
+    "abo18tuoi",
+    "naht-725-fe",
+    "sulong-729",
+    "DONE"
+  ],
+  "team": {
+    "gd": "Kyuu",
+    "pm": "Kai",
+    "art": "369",
+    "anim": "Nam",
+    "fe": ["naht_725_fe", "sulong_729_fe"]
+  }
+}
+
+

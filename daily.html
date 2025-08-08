@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>FE Daily Report - Project Tools</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div class="header-row">
+          <div>
+            <h1>FE Daily Report</h1>
+            <p>Soạn báo cáo hằng ngày cho FE</p>
+          </div>
+          <a href="./index.html" class="btn">← Back</a>
+        </div>
+      </header>
+
+      <section class="panel">
+        <h2>Date</h2>
+        <form id="dailyForm" autocomplete="off">
+          <label class="field">
+            <span>Ngày báo cáo</span>
+            <div class="date-inline">
+              <input id="dailyDate" type="date" />
+              <button type="button" id="btnOpenDate" class="btn" aria-label="Open date picker">🗓</button>
+            </div>
+          </label>
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>DONE</h2>
+        <label class="field">
+          <textarea id="dailyDone" rows="6" spellcheck="false"></textarea>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>IN-PROGRESS</h2>
+        <label class="field">
+          <textarea id="dailyInProgress" rows="6" spellcheck="false"></textarea>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>REMAINING</h2>
+        <label class="field">
+          <textarea id="dailyRemaining" rows="6" spellcheck="false"></textarea>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>NOTE</h2>
+        <label class="field">
+          <textarea id="dailyNote" rows="6" spellcheck="false"></textarea>
+        </label>
+      </section>
+
+      <section class="panel">
+        <h2>Output</h2>
+        <div class="output-actions">
+          <button id="btnDailyCopyTop">Copy</button>
+        </div>
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div>
+            <h3 style="margin: 0 0 8px;">Text</h3>
+            <textarea id="outputDaily" rows="20" spellcheck="false"></textarea>
+          </div>
+          <div>
+            <h3 style="margin: 0 0 8px;">Preview</h3>
+            <div id="previewDaily" class="preview-box"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <small>Built for quick formatting. No data stored.</small>
+      </footer>
+      <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
+    </main>
+
+    <script src="./daily-app.js"></script>
+  </body>
+  </html>
+
+

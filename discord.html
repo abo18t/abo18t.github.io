@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Info - Project Tools</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="container">
+      <header class="header">
+        <div class="header-row">
+          <div>
+            <h1>Project Info</h1>
+            <p>Tạo nhanh nội dung tổng hợp dự án để dán vào Discord</p>
+          </div>
+          <a href="./index.html" class="btn">← Back</a>
+        </div>
+      </header>
+
+      <section class="panel">
+        <h2>Project</h2>
+        <form id="infoForm" autocomplete="off">
+          <div class="grid">
+            <label class="field">
+              <span>Title</span>
+              <input id="title" type="text" placeholder="Khai Bút Tuân Xuân" />
+            </label>
+
+            <label class="field">
+              <span>Game ID</span>
+              <input id="gameId" type="text" placeholder="9761" />
+            </label>
+
+            <label class="field">
+              <span>Cocos Version</span>
+              <select id="cocosVersion"></select>
+            </label>
+
+            <label class="field">
+              <span>Kproject</span>
+              <select id="kproject"></select>
+            </label>
+          </div>
+
+          <div class="links">
+            <h3>Links</h3>
+            <div class="grid">
+              <label class="field"><span>Drive</span><input id="linkDrive" type="url" /></label>
+              <label class="field"><span>GDD</span><input id="linkGdd" type="url" /></label>
+              <label class="field"><span>Jira</span><input id="linkJira" type="url" /></label>
+              <label class="field"><span>WBS</span><input id="linkWbs" type="url" /></label>
+              <label class="field"><span>API</span><input id="linkApi" type="url" /></label>
+              <label class="field"><span>Git</span><input id="linkGit" type="url" /></label>
+            </div>
+          </div>
+
+          <div class="links">
+            <h3>Access</h3>
+            <div class="grid">
+              <label class="field">
+                <span>Git request access (auto)</span>
+                <input id="gitRequestAccess" type="text" placeholder="auto generated" disabled />
+              </label>
+            </div>
+          </div>
+
+          <div class="links">
+            <h3>Team</h3>
+            <div class="grid">
+              <label class="field"><span>GD</span><select id="gd"></select></label>
+              <label class="field"><span>PM</span><select id="pm"></select></label>
+              <label class="field"><span>Art</span><select id="art"></select></label>
+              <label class="field"><span>Anim</span><select id="anim"></select></label>
+              <label class="field">
+                <span>FE</span>
+                <div id="feContainer" class="checkbox-list"></div>
+              </label>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button type="button" id="btnSample">Load Sample</button>
+            <button type="button" id="btnLoad">Load JSON</button>
+            <button type="button" id="btnSave">Save JSON</button>
+            <button type="reset" id="btnReset">Reset</button>
+          </div>
+          <input type="file" id="fileLoader" accept="application/json" style="display:none" />
+        </form>
+      </section>
+
+      <section class="panel">
+        <h2>Output</h2>
+        <div class="output-actions">
+          <button id="btnCopy">Copy</button>
+        </div>
+        <textarea id="output" rows="12" spellcheck="false"></textarea>
+      </section>
+
+      <footer class="footer">
+        <small>Built for quick formatting. No data stored.</small>
+      </footer>
+      <div id="toast" class="toast" aria-live="polite" aria-atomic="true"></div>
+    </main>
+
+    <script src="./discord-app.js"></script>
+  </body>
+  </html>
+
+

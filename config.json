@@ -1,0 +1,30 @@
+{
+  "cocosVersions": ["3.8.5", "3.7.3", "3.6.3", "2.1.3"],
+  "kprojects": ["N/A", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12", "C13", "C14", "C15", "C16", "C17"],
+  "roles": {
+    "gd": ["Kyuu", "Hieu", "MinhNA"],
+    "pm": ["Kai"],
+    "art": ["369"],
+    "anim": ["Nam"],
+    "fe": ["naht_725_fe", "sulong_729_fe", "abo18t"]
+  },
+  "defaults": {
+    "cocosVersion": "3.7.3",
+    "kproject": "N/A",
+    "gd": "MinhNA",
+    "pm": "Kai",
+    "art": "369",
+    "anim": "Nam"
+  },
+  "gitAccess": {
+    "prefixTokens": ["seastudiofe"],
+    "suffixTokens": ["DONE"],
+    "ownerRepo": true,
+    "extraTokens": [],
+    "feGitMap": {
+      "naht_725_fe": "naht-725-fe",
+      "sulong_729_fe": "sulong-729",
+      "abo18t": "abo18tuoi"
+    }
+  }
+}
