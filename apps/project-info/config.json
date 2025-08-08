@@ -2,19 +2,19 @@
   "cocosVersions": ["3.8.5", "3.7.3", "3.6.3", "2.1.3"],
   "kprojects": ["N/A", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12", "C13", "C14", "C15", "C16", "C17"],
   "roles": {
-    "gd": ["Kyuu", "Hieu", "MinhNA"],
-    "pm": ["Kai"],
-    "art": ["369"],
-    "anim": ["Nam"],
+    "gd": ["N/A", "Kyuu", "Hieu", "MinhNA"],
+    "pm": ["N/A", "Kai"],
+    "art": ["N/A", "369"],
+    "anim": ["N/A", "Nam"],
     "fe": ["naht_725_fe", "sulong_729_fe", "abo18t"]
   },
   "defaults": {
     "cocosVersion": "3.7.3",
     "kproject": "N/A",
-    "gd": "MinhNA",
-    "pm": "Kai",
-    "art": "369",
-    "anim": "Nam"
+    "gd": "N/A",
+    "pm": "N/A",
+    "art": "N/A",
+    "anim": "N/A"
   },
   "gitAccess": {
     "prefixTokens": ["seastudiofe"],

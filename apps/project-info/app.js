@@ -31,23 +31,41 @@ const $fileLoader = document.getElementById('fileLoader');
 const $toast = document.getElementById('toast');
 
 function buildDiscordText(info) {
+  const isNA = (v) => !v || String(v).trim().toUpperCase() === 'N/A';
+
+  // Links, skip N/A
   const linkChunks = [];
-  if (info.links.drive) linkChunks.push(`[Drive](${info.links.drive})`);
-  if (info.links.gdd) linkChunks.push(`[GDD](${info.links.gdd})`);
-  if (info.links.jira) linkChunks.push(`[Jira](${info.links.jira})`);
-  if (info.links.wbs) linkChunks.push(`[WBS](${info.links.wbs})`);
-  if (info.links.api) linkChunks.push(`[API](${info.links.api})`);
-  if (info.links.git) linkChunks.push(`[Git](${info.links.git})`);
-  const gitAccess = info.gitRequestAccess.join(',');
+  if (!isNA(info.links.drive)) linkChunks.push(`[Drive](${info.links.drive})`);
+  if (!isNA(info.links.gdd)) linkChunks.push(`[GDD](${info.links.gdd})`);
+  if (!isNA(info.links.jira)) linkChunks.push(`[Jira](${info.links.jira})`);
+  if (!isNA(info.links.wbs)) linkChunks.push(`[WBS](${info.links.wbs})`);
+  if (!isNA(info.links.api)) linkChunks.push(`[API](${info.links.api})`);
+  if (!isNA(info.links.git)) linkChunks.push(`[Git](${info.links.git})`);
+
+  // Version/Kproject line (compose only non-NA)
+  const versionRowParts = [];
+  if (!isNA(info.cocosVersion)) versionRowParts.push(`Cocos Version: ${info.cocosVersion}`);
+  if (!isNA(info.kproject)) versionRowParts.push(`Kproject: ${info.kproject}`);
+
+  // Team line
+  const teamParts = [];
+  if (!isNA(info.team.gd)) teamParts.push(`GD: ${info.team.gd}`);
+  if (!isNA(info.team.pm)) teamParts.push(`PM: ${info.team.pm}`);
+  if (!isNA(info.team.art)) teamParts.push(`Art: ${info.team.art}`);
+  if (!isNA(info.team.anim)) teamParts.push(`Anim: ${info.team.anim}`);
   const feList = info.team.fe && info.team.fe.length > 0 ? info.team.fe.map((n) => `@${n.trim()}`).join(' , ') : '';
-  return (
-    `=== **${info.title}** ===\n` +
-    `- Game ID: **${info.gameId}**\n` +
-    `- Cocos Version: ${info.cocosVersion}  | Kproject: ${info.kproject || 'N/A'}\n` +
-    `- Link: ${linkChunks.join(' | ')}\n` +
-    `- Git request access: ${gitAccess}${gitAccess ? '' : ''}\n` +
-    `- GD: ${info.team.gd || ''}   |   PM: ${info.team.pm || ''}   |   Art: ${info.team.art || ''}   |   Anim: ${info.team.anim || ''}  |   FE:  ${feList}`
-  );
+  if (feList) teamParts.push(`FE:  ${feList}`);
+
+  const lines = [];
+  lines.push(`=== **${info.title}** ===`);
+  lines.push(`- Game ID: **${info.gameId}**`);
+  if (versionRowParts.length > 0) lines.push(`- ${versionRowParts.join('  |  ')}`);
+  if (linkChunks.length > 0) lines.push(`- Link: ${linkChunks.join(' | ')}`);
+  const gitAccess = info.gitRequestAccess.join(',');
+  lines.push(`- Git request access: ${gitAccess}${gitAccess ? '' : ''}`);
+  if (teamParts.length > 0) lines.push(`- ${teamParts.join('   |   ')}`);
+
+  return lines.join('\n');
 }
 
 function collectInfo() {
