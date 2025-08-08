@@ -23,6 +23,7 @@ const $art = document.getElementById('art');
 const $anim = document.getElementById('anim');
 const $feContainer = document.getElementById('feContainer');
 const $output = document.getElementById('output');
+const $preview = document.getElementById('previewInfo');
 const $btnCopy = document.getElementById('btnCopy');
 const $btnSample = document.getElementById('btnSample');
 const $btnSave = document.getElementById('btnSave');
@@ -99,6 +100,7 @@ function render() {
   const info = collectInfo();
   $output.value = buildDiscordText(info);
   $gitRequestAccess.value = info.gitRequestAccess.join(',');
+  if ($preview) $preview.innerHTML = markdownToHtml($output.value);
 }
 
 function copyToClipboard() {
@@ -210,6 +212,15 @@ function parseOwnerRepo(url) {
 function showToast(message, type) {
   if (!$toast) return; $toast.textContent = message; $toast.className = `toast show ${type || ''}`;
   clearTimeout(window.__t); window.__t = setTimeout(() => { $toast.className = 'toast'; $toast.textContent = ''; }, 1500);
+}
+
+function markdownToHtml(md) {
+  const esc = (s) => s.replace(/[&<>]/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  let html = esc(md);
+  html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1<\/strong>');
+  html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1<\/a>');
+  html = html.replace(/\n/g, '<br/>');
+  return html;
 }
 
 function saveJsonToFileAndClipboard() {

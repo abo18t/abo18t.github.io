@@ -94,7 +94,16 @@
         <div class="output-actions">
           <button id="btnCopy">Copy</button>
         </div>
-        <textarea id="output" rows="12" spellcheck="false"></textarea>
+        <div class="grid" style="grid-template-columns: 1fr 1fr; gap: 12px;">
+          <div>
+            <h3 style="margin: 0 0 8px;">Text</h3>
+            <textarea id="output" rows="20" spellcheck="false"></textarea>
+          </div>
+          <div>
+            <h3 style="margin: 0 0 8px;">Preview</h3>
+            <div id="previewInfo" class="preview-box"></div>
+          </div>
+        </div>
       </section>
 
       <footer class="footer">
