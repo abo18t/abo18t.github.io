@@ -1,5 +1,7 @@
 # Project Tools (Project Info + FE Daily Report)
 
+[![Deploy to GitHub Pages](https://github.com/abo18tuoi/abo18tuoi.github.io/actions/workflows/pages.yml/badge.svg)](https://github.com/abo18tuoi/abo18tuoi.github.io/actions/workflows/pages.yml)
+
 A tiny static toolset to generate Discord-ready texts:
 - Project Info: aggregate project metadata (links, team, Git access)
 - FE Daily Report: structured daily report with live Markdown preview
@@ -53,6 +55,8 @@ See `.github/workflows/pages.yml`. It:
 - Checks out the repository
 - Uploads the repository as a Pages artifact
 - Deploys it to GitHub Pages
+
+Caching: GitHub Pages serves static content via its CDN and handles cache invalidation automatically on each deployment. If you still see stale content, hard refresh (Cmd/Ctrl+Shift+R) or clear browser cache.
 
 ## Notes
 - Project Info loads data from `apps/project-info/config.json` and allows JSON import/export.
