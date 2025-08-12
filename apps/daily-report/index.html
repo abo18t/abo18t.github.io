@@ -18,17 +18,13 @@
         </div>
       </header>
 
-      <section class="panel">
-        <h2>Team</h2>
-        <label class="field">
-          <span>Team name</span>
-          <input id="dailyTeam" type="text" placeholder="FE" />
-        </label>
-      </section>
-
-      <section class="panel">
-        <h2>Date</h2>
-        <form id="dailyForm" autocomplete="off">
+      <section class="panel compact">
+        <h2>Meta</h2>
+        <div class="compact-grid">
+          <label class="field">
+            <span>Team name</span>
+            <input id="dailyTeam" type="text" placeholder="FE" />
+          </label>
           <label class="field">
             <span>Ngày báo cáo</span>
             <div class="date-inline">
@@ -36,12 +32,6 @@
               <button type="button" id="btnOpenDate" class="btn" aria-label="Open date picker">🗓</button>
             </div>
           </label>
-        </form>
-      </section>
-
-      <section class="panel">
-        <h2>Project</h2>
-        <div class="grid">
           <label class="field">
             <span>Project ID</span>
             <input id="dailyProjectId" type="text" placeholder="9836" />
