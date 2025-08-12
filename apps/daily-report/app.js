@@ -12,11 +12,26 @@ const $outputDaily = document.getElementById('outputDaily');
 const $toast = document.getElementById('toast');
 const $previewDaily = document.getElementById('previewDaily');
 const $btnOpenDate = document.getElementById('btnOpenDate');
+const STORAGE_KEYS = {
+  team: 'daily.team',
+  projectId: 'daily.projectId',
+  projectName: 'daily.projectName',
+};
 
 function initializeDailyDefaults() {
   const today = new Date(); const yyyy = today.getFullYear(); const mm = String(today.getMonth() + 1).padStart(2, '0'); const dd = String(today.getDate()).padStart(2, '0');
   if ($dailyDate && !$dailyDate.value) $dailyDate.value = `${yyyy}-${mm}-${dd}`;
-  if ($dailyTeam && !$dailyTeam.value) $dailyTeam.value = 'FE';
+  // Load from localStorage
+  try {
+    const savedTeam = localStorage.getItem(STORAGE_KEYS.team);
+    const savedPid = localStorage.getItem(STORAGE_KEYS.projectId);
+    const savedPname = localStorage.getItem(STORAGE_KEYS.projectName);
+    if ($dailyTeam) $dailyTeam.value = savedTeam || $dailyTeam.value || 'FE';
+    if ($dailyProjectId) $dailyProjectId.value = savedPid || $dailyProjectId.value || '';
+    if ($dailyProjectName) $dailyProjectName.value = savedPname || $dailyProjectName.value || '';
+  } catch (_) {
+    if ($dailyTeam && !$dailyTeam.value) $dailyTeam.value = 'FE';
+  }
 }
 
 function linesFromTextarea(el) {
@@ -54,6 +69,14 @@ function renderDaily() {
   if ($previewDaily) $previewDaily.innerHTML = markdownToHtml(text);
 }
 
+function persistMeta() {
+  try {
+    if ($dailyTeam) localStorage.setItem(STORAGE_KEYS.team, $dailyTeam.value || '');
+    if ($dailyProjectId) localStorage.setItem(STORAGE_KEYS.projectId, $dailyProjectId.value || '');
+    if ($dailyProjectName) localStorage.setItem(STORAGE_KEYS.projectName, $dailyProjectName.value || '');
+  } catch (_) { /* ignore quota/privacy errors */ }
+}
+
 function showToast(message, type) {
   if (!$toast) return; $toast.textContent = message; $toast.className = `toast show ${type || ''}`;
   clearTimeout(window.__t2); window.__t2 = setTimeout(() => { $toast.className = 'toast'; $toast.textContent = ''; }, 1500);
@@ -74,7 +97,8 @@ function markdownToHtml(md) {
 }
 
 // Wire
-[$dailyTeam, $dailyDate, $dailyProjectId, $dailyProjectName, $dailyDone, $dailyInProgress, $dailyRemaining, $dailyNote].forEach((el) => el && el.addEventListener('input', renderDaily));
+[$dailyTeam, $dailyDate, $dailyProjectId, $dailyProjectName, $dailyDone, $dailyInProgress, $dailyRemaining, $dailyNote]
+  .forEach((el) => el && el.addEventListener('input', () => { if (el === $dailyTeam || el === $dailyProjectId || el === $dailyProjectName) persistMeta(); renderDaily(); }));
 $btnDailyCopyTop && $btnDailyCopyTop.addEventListener('click', () => copyTextArea($outputDaily));
 $btnOpenDate && $btnOpenDate.addEventListener('click', () => { if ($dailyDate && $dailyDate.showPicker) { try { $dailyDate.showPicker(); return; } catch (_) {} } $dailyDate && $dailyDate.focus(); });
 
