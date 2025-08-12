@@ -16,19 +16,32 @@ const STORAGE_KEYS = {
   team: 'daily.team',
   projectId: 'daily.projectId',
   projectName: 'daily.projectName',
+  projectMap: 'daily.projectMap',
 };
+
+/** In-memory project map (projectId -> projectName) */
+let projectIdToName = {};
 
 function initializeDailyDefaults() {
   const today = new Date(); const yyyy = today.getFullYear(); const mm = String(today.getMonth() + 1).padStart(2, '0'); const dd = String(today.getDate()).padStart(2, '0');
   if ($dailyDate && !$dailyDate.value) $dailyDate.value = `${yyyy}-${mm}-${dd}`;
   // Load from localStorage
   try {
+    // Load project map
+    const rawMap = localStorage.getItem(STORAGE_KEYS.projectMap);
+    if (rawMap) {
+      try { projectIdToName = JSON.parse(rawMap) || {}; } catch (_) { projectIdToName = {}; }
+    }
     const savedTeam = localStorage.getItem(STORAGE_KEYS.team);
     const savedPid = localStorage.getItem(STORAGE_KEYS.projectId);
     const savedPname = localStorage.getItem(STORAGE_KEYS.projectName);
     if ($dailyTeam) $dailyTeam.value = savedTeam || $dailyTeam.value || 'FE';
     if ($dailyProjectId) $dailyProjectId.value = savedPid || $dailyProjectId.value || '';
-    if ($dailyProjectName) $dailyProjectName.value = savedPname || $dailyProjectName.value || '';
+    if ($dailyProjectName) {
+      // If we have a saved name, use it; otherwise try map by ID
+      const mapped = getProjectNameById(($dailyProjectId && $dailyProjectId.value.trim()) || '');
+      $dailyProjectName.value = savedPname || mapped || $dailyProjectName.value || '';
+    }
   } catch (_) {
     if ($dailyTeam && !$dailyTeam.value) $dailyTeam.value = 'FE';
   }
@@ -72,9 +85,30 @@ function renderDaily() {
 function persistMeta() {
   try {
     if ($dailyTeam) localStorage.setItem(STORAGE_KEYS.team, $dailyTeam.value || '');
-    if ($dailyProjectId) localStorage.setItem(STORAGE_KEYS.projectId, $dailyProjectId.value || '');
-    if ($dailyProjectName) localStorage.setItem(STORAGE_KEYS.projectName, $dailyProjectName.value || '');
+    const pid = ($dailyProjectId && $dailyProjectId.value) || '';
+    const pname = ($dailyProjectName && $dailyProjectName.value) || '';
+    if ($dailyProjectId) localStorage.setItem(STORAGE_KEYS.projectId, pid);
+    if ($dailyProjectName) localStorage.setItem(STORAGE_KEYS.projectName, pname);
+    // Update map if both present
+    if (pid.trim() && pname.trim()) {
+      setProjectMapEntry(pid.trim(), pname.trim());
+    }
   } catch (_) { /* ignore quota/privacy errors */ }
+}
+
+function saveProjectMap() {
+  try { localStorage.setItem(STORAGE_KEYS.projectMap, JSON.stringify(projectIdToName)); } catch (_) {}
+}
+
+function getProjectNameById(id) {
+  if (!id) return '';
+  return projectIdToName[id] || '';
+}
+
+function setProjectMapEntry(id, name) {
+  if (!id) return;
+  projectIdToName[id] = name;
+  saveProjectMap();
 }
 
 function showToast(message, type) {
@@ -98,7 +132,24 @@ function markdownToHtml(md) {
 
 // Wire
 [$dailyTeam, $dailyDate, $dailyProjectId, $dailyProjectName, $dailyDone, $dailyInProgress, $dailyRemaining, $dailyNote]
-  .forEach((el) => el && el.addEventListener('input', () => { if (el === $dailyTeam || el === $dailyProjectId || el === $dailyProjectName) persistMeta(); renderDaily(); }));
+  .forEach((el) => el && el.addEventListener('input', () => {
+    if (!el) return;
+    // Special handling for project ID/name mapping
+    if (el === $dailyProjectId) {
+      const id = $dailyProjectId.value.trim();
+      const mapped = getProjectNameById(id);
+      if ($dailyProjectName && mapped) {
+        $dailyProjectName.value = mapped;
+      }
+    }
+    if (el === $dailyProjectName) {
+      const id = ($dailyProjectId && $dailyProjectId.value.trim()) || '';
+      const name = $dailyProjectName.value.trim();
+      if (id && name) setProjectMapEntry(id, name);
+    }
+    if (el === $dailyTeam || el === $dailyProjectId || el === $dailyProjectName) persistMeta();
+    renderDaily();
+  }));
 $btnDailyCopyTop && $btnDailyCopyTop.addEventListener('click', () => copyTextArea($outputDaily));
 $btnOpenDate && $btnOpenDate.addEventListener('click', () => { if ($dailyDate && $dailyDate.showPicker) { try { $dailyDate.showPicker(); return; } catch (_) {} } $dailyDate && $dailyDate.focus(); });
 
