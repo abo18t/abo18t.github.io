@@ -118,7 +118,11 @@ function showToast(message, type) {
 
 function copyTextArea(ta) {
   if (!ta || !ta.value) return;
-  navigator.clipboard.writeText(ta.value).then(() => showToast('Copied to clipboard', 'success')).catch(() => showToast('Copy failed', 'error'));
+  // Persist meta and project map only when copying
+  persistMeta();
+  navigator.clipboard.writeText(ta.value)
+    .then(() => showToast('Copied to clipboard', 'success'))
+    .catch(() => showToast('Copy failed', 'error'));
 }
 
 function markdownToHtml(md) {
@@ -134,20 +138,13 @@ function markdownToHtml(md) {
 [$dailyTeam, $dailyDate, $dailyProjectId, $dailyProjectName, $dailyDone, $dailyInProgress, $dailyRemaining, $dailyNote]
   .forEach((el) => el && el.addEventListener('input', () => {
     if (!el) return;
-    // Special handling for project ID/name mapping
+    // Auto-fill name when typing ID (read-only from map)
     if (el === $dailyProjectId) {
       const id = $dailyProjectId.value.trim();
       const mapped = getProjectNameById(id);
-      if ($dailyProjectName && mapped) {
-        $dailyProjectName.value = mapped;
-      }
+      if ($dailyProjectName && mapped) $dailyProjectName.value = mapped;
     }
-    if (el === $dailyProjectName) {
-      const id = ($dailyProjectId && $dailyProjectId.value.trim()) || '';
-      const name = $dailyProjectName.value.trim();
-      if (id && name) setProjectMapEntry(id, name);
-    }
-    if (el === $dailyTeam || el === $dailyProjectId || el === $dailyProjectName) persistMeta();
+    // Do NOT persist to localStorage on input; only on copy
     renderDaily();
   }));
 $btnDailyCopyTop && $btnDailyCopyTop.addEventListener('click', () => copyTextArea($outputDaily));
