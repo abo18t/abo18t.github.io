@@ -62,7 +62,7 @@ function buildDailyText(dateDisplay, done, prog, remain, note) {
   const projectId = ($dailyProjectId && $dailyProjectId.value.trim()) || '';
   const projectName = ($dailyProjectName && $dailyProjectName.value.trim()) || '';
   const header = `**==== ${teamName} DAILY REPORT ====**\n**===== (${dateDisplay}) =====**\n`;
-  const projectLine = (projectId || projectName) ? `\n**PROJECT:** ${projectId}${projectId && projectName ? ' - ' : ''}${projectName}\n` : '\n';
+  const projectLine = (projectId || projectName) ? `\n**PROJECT:** ${projectId}${projectId && projectName ? ' - ' : ''}${projectName}\n` : '';
   return (
     header +
     projectLine +
