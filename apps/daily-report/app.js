@@ -152,4 +152,65 @@ $btnDailyCopyTop && $btnDailyCopyTop.addEventListener('click', () => copyTextAre
 initializeDailyDefaults();
 renderDaily();
 
+// Optional: fallback inline date picker for browsers that don't show native picker on focus/click
+if ($dailyDate && !('showPicker' in HTMLInputElement.prototype)) {
+  attachLightweightDatePicker($dailyDate);
+}
+
+function attachLightweightDatePicker(input) {
+  let pickerEl = null;
+  function close() { if (pickerEl) { pickerEl.remove(); pickerEl = null; } }
+  function open() {
+    close();
+    const rect = input.getBoundingClientRect();
+    pickerEl = document.createElement('div');
+    pickerEl.className = 'datepicker';
+    const now = input.value ? new Date(input.value) : new Date();
+    let curYear = now.getFullYear();
+    let curMonth = now.getMonth();
+    const selected = input.value ? new Date(input.value) : null;
+    function renderCal() {
+      pickerEl.innerHTML = '';
+      const header = document.createElement('header');
+      const prev = document.createElement('button'); prev.textContent = '‹'; prev.className = 'btn-sm';
+      const next = document.createElement('button'); next.textContent = '›'; next.className = 'btn-sm';
+      const title = document.createElement('div'); title.className = 'title'; title.textContent = `${String(curMonth+1).padStart(2,'0')}/${curYear}`;
+      header.append(prev, title, next); pickerEl.appendChild(header);
+      const grid = document.createElement('div'); grid.className = 'grid';
+      const wds = ['S','M','T','W','T','F','S'];
+      wds.forEach((w) => { const wd = document.createElement('div'); wd.className = 'wd'; wd.textContent = w; grid.appendChild(wd); });
+      const first = new Date(curYear, curMonth, 1);
+      const startDay = first.getDay();
+      const daysInMonth = new Date(curYear, curMonth+1, 0).getDate();
+      for (let i=0;i<startDay;i++){ const empty = document.createElement('div'); empty.className='day'; grid.appendChild(empty); }
+      for (let d=1; d<=daysInMonth; d++) {
+        const day = document.createElement('div'); day.className = 'day'; day.textContent = String(d);
+        const curDate = new Date(curYear, curMonth, d);
+        const today = new Date();
+        if (curDate.toDateString() === today.toDateString()) day.classList.add('today');
+        if (selected && curDate.toDateString() === selected.toDateString()) day.classList.add('sel');
+        day.addEventListener('click', () => {
+          const y = curYear; const m = String(curMonth+1).padStart(2,'0'); const dd = String(d).padStart(2,'0');
+          input.value = `${y}-${m}-${dd}`; input.dispatchEvent(new Event('input')); close();
+        });
+        grid.appendChild(day);
+      }
+      pickerEl.appendChild(grid);
+      prev.onclick = () => { if (curMonth===0) { curMonth=11; curYear--; } else curMonth--; renderCal(); };
+      next.onclick = () => { if (curMonth===11) { curMonth=0; curYear++; } else curMonth++; renderCal(); };
+    }
+    renderCal();
+    pickerEl.style.position = 'fixed';
+    pickerEl.style.left = `${rect.left + window.scrollX}px`;
+    pickerEl.style.top = `${rect.bottom + 6 + window.scrollY}px`;
+    document.body.appendChild(pickerEl);
+    setTimeout(() => {
+      const onDocClick = (e) => { if (pickerEl && !pickerEl.contains(e.target) && e.target !== input) { close(); document.removeEventListener('mousedown', onDocClick); } };
+      document.addEventListener('mousedown', onDocClick);
+    }, 0);
+  }
+  input.addEventListener('focus', open);
+  input.addEventListener('click', open);
+}
+
 

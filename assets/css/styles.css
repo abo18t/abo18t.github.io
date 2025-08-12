@@ -62,6 +62,25 @@ body {
 }
 .date-inline { display: flex; gap: 8px; align-items: center; }
 .date-inline input[type="date"] { flex: 1; }
+.datepicker {
+  position: absolute;
+  z-index: 1000;
+  background: #0b1220;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 8px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  color: var(--text);
+}
+.datepicker header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+.datepicker header .btn-sm { padding: 4px 8px; border-radius: 8px; border: 1px solid var(--border); background: #0b1220; color: var(--text); cursor: pointer; }
+.datepicker header .title { font-size: 13px; color: var(--muted); }
+.datepicker .grid { display: grid; grid-template-columns: repeat(7, 28px); gap: 4px; justify-items: center; }
+.datepicker .day, .datepicker .wd { width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; border-radius: 6px; font-size: 12px; }
+.datepicker .wd { color: var(--muted); }
+.datepicker .day:hover { background: rgba(34,211,238,0.15); cursor: pointer; }
+.datepicker .day.today { outline: 1px dashed rgba(167,139,250,0.6); }
+.datepicker .day.sel { background: rgba(34,211,238,0.25); }
 .field textarea {
   width: 100%;
   padding: 12px;
