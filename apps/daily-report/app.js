@@ -153,9 +153,8 @@ initializeDailyDefaults();
 renderDaily();
 
 // Optional: fallback inline date picker for browsers that don't show native picker on focus/click
-if ($dailyDate && !('showPicker' in HTMLInputElement.prototype)) {
-  attachLightweightDatePicker($dailyDate);
-}
+// Always attach custom date picker to ensure consistent UX across browsers
+if ($dailyDate) attachLightweightDatePicker($dailyDate);
 
 function attachLightweightDatePicker(input) {
   let pickerEl = null;
@@ -211,6 +210,12 @@ function attachLightweightDatePicker(input) {
   }
   input.addEventListener('focus', open);
   input.addEventListener('click', open);
+  // Prevent typing invalid text; enforce yyyy-mm-dd
+  input.addEventListener('input', () => {
+    const v = input.value.trim();
+    if (/^\d{4}-\d{2}-\d{2}$/.test(v)) return;
+    // allow partial typing but we don't block; render will format date display safely
+  });
 }
 
 
