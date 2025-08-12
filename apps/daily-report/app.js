@@ -11,7 +11,6 @@ const $btnDailyCopyTop = document.getElementById('btnDailyCopyTop');
 const $outputDaily = document.getElementById('outputDaily');
 const $toast = document.getElementById('toast');
 const $previewDaily = document.getElementById('previewDaily');
-const $btnOpenDate = document.getElementById('btnOpenDate');
 const STORAGE_KEYS = {
   team: 'daily.team',
   projectId: 'daily.projectId',
@@ -148,7 +147,6 @@ function markdownToHtml(md) {
     renderDaily();
   }));
 $btnDailyCopyTop && $btnDailyCopyTop.addEventListener('click', () => copyTextArea($outputDaily));
-$btnOpenDate && $btnOpenDate.addEventListener('click', () => { if ($dailyDate && $dailyDate.showPicker) { try { $dailyDate.showPicker(); return; } catch (_) {} } $dailyDate && $dailyDate.focus(); });
 
 // Init
 initializeDailyDefaults();
