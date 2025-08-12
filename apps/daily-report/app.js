@@ -1,5 +1,8 @@
 /* FE Daily Report standalone script */
+const $dailyTeam = document.getElementById('dailyTeam');
 const $dailyDate = document.getElementById('dailyDate');
+const $dailyProjectId = document.getElementById('dailyProjectId');
+const $dailyProjectName = document.getElementById('dailyProjectName');
 const $dailyDone = document.getElementById('dailyDone');
 const $dailyInProgress = document.getElementById('dailyInProgress');
 const $dailyRemaining = document.getElementById('dailyRemaining');
@@ -13,6 +16,7 @@ const $btnOpenDate = document.getElementById('btnOpenDate');
 function initializeDailyDefaults() {
   const today = new Date(); const yyyy = today.getFullYear(); const mm = String(today.getMonth() + 1).padStart(2, '0'); const dd = String(today.getDate()).padStart(2, '0');
   if ($dailyDate && !$dailyDate.value) $dailyDate.value = `${yyyy}-${mm}-${dd}`;
+  if ($dailyTeam && !$dailyTeam.value) $dailyTeam.value = 'FE';
 }
 
 function linesFromTextarea(el) {
@@ -26,9 +30,15 @@ function formatDateDisplay(dateInputValue) {
 }
 
 function buildDailyText(dateDisplay, done, prog, remain, note) {
+  const teamName = ($dailyTeam && $dailyTeam.value.trim()) || 'FE';
+  const projectId = ($dailyProjectId && $dailyProjectId.value.trim()) || '';
+  const projectName = ($dailyProjectName && $dailyProjectName.value.trim()) || '';
+  const header = `**==== ${teamName} DAILY REPORT ====**\n**===== (${dateDisplay}) =====**\n`;
+  const projectLine = (projectId || projectName) ? `\n**PROJECT:** ${projectId}${projectId && projectName ? ' - ' : ''}${projectName}\n` : '\n';
   return (
-    `**==== FE DAILY REPORT ====**\n**=====(${dateDisplay})=====**\n\n` +
-    `**DONE: (${done.length})**\n` + (done.length ? done.map((i) => `- ${i}`).join('\n') + '\n\n' : '\n') +
+    header +
+    projectLine +
+    `\n**DONE: (${done.length})**\n` + (done.length ? done.map((i) => `- ${i}`).join('\n') + '\n\n' : '\n') +
     `**IN-PROGRESS: (${prog.length})**\n` + (prog.length ? prog.map((i) => `- ${i}`).join('\n') + '\n\n' : '\n') +
     `**REMAINING: (${remain.length})**\n` + (remain.length ? remain.map((i) => `- ${i}`).join('\n') + '\n\n' : '\n') +
     `**NOTE: (${note.length})**\n` + (note.length ? note.map((i) => `- ${i}`).join('\n') : '')
@@ -64,7 +74,7 @@ function markdownToHtml(md) {
 }
 
 // Wire
-[$dailyDate, $dailyDone, $dailyInProgress, $dailyRemaining, $dailyNote].forEach((el) => el && el.addEventListener('input', renderDaily));
+[$dailyTeam, $dailyDate, $dailyProjectId, $dailyProjectName, $dailyDone, $dailyInProgress, $dailyRemaining, $dailyNote].forEach((el) => el && el.addEventListener('input', renderDaily));
 $btnDailyCopyTop && $btnDailyCopyTop.addEventListener('click', () => copyTextArea($outputDaily));
 $btnOpenDate && $btnOpenDate.addEventListener('click', () => { if ($dailyDate && $dailyDate.showPicker) { try { $dailyDate.showPicker(); return; } catch (_) {} } $dailyDate && $dailyDate.focus(); });
 
