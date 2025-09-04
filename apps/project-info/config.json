@@ -6,7 +6,7 @@
     "pm": ["N/A", "Kai"],
     "art": ["N/A", "369"],
     "anim": ["N/A", "Nam"],
-    "fe": ["naht_725_fe", "sulong_729_fe", "abo18t_527_fe"]
+    "fe": ["naht_725_fe", "sulong_729_fe", "abo18t_527_fe", "ramp_816_FE"]
   },
   "defaults": {
     "cocosVersion": "3.7.3",
@@ -24,7 +24,8 @@
     "feGitMap": {
       "naht_725_fe": "naht-725-fe",
       "sulong_729_fe": "sulong-729",
-      "abo18t_527_fe": "abo18tuoi"
+      "abo18t_527_fe": "abo18tuoi",
+      "ramp_816_FE": "nhannht-seatudio"
     }
   }
 }
