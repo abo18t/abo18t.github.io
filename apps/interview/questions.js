@@ -193,7 +193,13 @@ function getScoreDefinition() {
 }
 
 // Calculate total possible score
-function getMaxScore(questions) {
+function getMaxScore(questions, scores = []) {
+    // If scores provided, calculate based on non-skipped questions
+    if (scores.length > 0) {
+        const nonSkippedCount = scores.filter(score => score !== 'skip').length;
+        return nonSkippedCount * 3;
+    }
+    // Default: all questions count
     return questions.length * 3; // 3 points per question
 }
 
@@ -205,6 +211,11 @@ function calculateGroupScores(questions, scores) {
     questions.forEach((question, index) => {
         const group = question.group;
         const score = scores[index] || 0;
+
+        // Skip questions with 'skip' value
+        if (score === 'skip') {
+            return;
+        }
 
         if (!groupScores[group]) {
             groupScores[group] = 0;
@@ -233,8 +244,10 @@ function checkPassing(questions, scores) {
     const meta = getMetaData();
     if (!meta) return { passed: false, reason: "Không có quy tắc đánh giá" };
 
-    const totalScore = scores.reduce((sum, score) => sum + score, 0);
-    const maxScore = getMaxScore(questions);
+    const totalScore = scores.reduce((sum, score) => {
+        return score === 'skip' ? sum : sum + score;
+    }, 0);
+    const maxScore = getMaxScore(questions, scores);
     const groupScores = calculateGroupScores(questions, scores);
 
     // Tính điểm theo nhóm chính

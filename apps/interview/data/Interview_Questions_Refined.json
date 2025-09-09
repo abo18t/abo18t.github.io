@@ -24,31 +24,16 @@
         "A11",
         "A13",
         "B1",
-        "B2",
         "B3",
-        "B4",
-        "B5",
-        "B9",
-        "B10",
-        "B11",
         "C1",
         "C2",
         "C3",
         "C4",
-        "C5",
-        "C6",
-        "C7",
-        "C8",
-        "C9",
-        "C10",
-        "C11",
         "C13",
         "JS1",
         "JS2",
         "JS4",
         "MEM1",
-        "BR1",
-        "BR2",
         "S1",
         "S2",
         "S4",
@@ -57,7 +42,15 @@
         "JS5"
       ],
       "bonus": [
-        "JS6"
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "B9",
+        "B10"
       ]
     },
     "scoring": {
@@ -435,34 +428,6 @@
       "modelAnswer": "\n- **Tóm tắt cốt lõi:** @ccclass + @property AudioClip; onEnable đăng ký click; handler gọi AudioSource.playOneShot hoặc AudioManager; onDisable/onDestroy gỡ listener.\n- **Chi tiết triển khai/biến thể chấp nhận:** Đăng ký ở onEnable; Gỡ listener onDisable\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** AudioManager trung tâm; Pooling AudioSource; Config volume/channel\n- **Lỗi thường gặp cần tránh:** Không gỡ listener; Đăng ký trong update\n- **Tiêu chí chấm mức 3:** Thêm centralized audio/pooling"
     },
     {
-      "id": "B2",
-      "package": "B",
-      "group": "Engine",
-      "question": "Quản lý Spine event listeners để tránh rò rỉ?",
-      "goal": "Resource/event quản lý",
-      "coreAnswer": "Lưu trackEntry/listener; đăng ký 1 lần; gỡ ở onDisable/onDestroy; tránh đăng ký trùng.",
-      "acceptableVariants": [
-        "Gỡ listener onDisable",
-        "Không đăng ký lặp"
-      ],
-      "upgradeFor3Points": [
-        "SpineEventManager trung tâm",
-        "removeAllListeners khi destroy",
-        "Recycle trackEntry"
-      ],
-      "commonMistakes": [
-        "Đăng ký liên tục mỗi loop",
-        "Không bao giờ gỡ"
-      ],
-      "rubric": {
-        "0": "Không biết",
-        "1": "Nêu đăng ký/gỡ mơ hồ",
-        "2": "Rõ ràng lưu ref + gỡ",
-        "3": "Thêm manager / track reuse"
-      },
-      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Lưu trackEntry/listener; đăng ký 1 lần; gỡ ở onDisable/onDestroy; tránh đăng ký trùng.\n- **Chi tiết triển khai/biến thể chấp nhận:** Gỡ listener onDisable; Không đăng ký lặp\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** SpineEventManager trung tâm; removeAllListeners khi destroy; Recycle trackEntry\n- **Lỗi thường gặp cần tránh:** Đăng ký liên tục mỗi loop; Không bao giờ gỡ\n- **Tiêu chí chấm mức 3:** Thêm manager / track reuse"
-    },
-    {
       "id": "B3",
       "package": "B",
       "group": "Programming",
@@ -488,62 +453,6 @@
         "3": "So sánh được class vs function + constructor"
       },
       "modelAnswer": "\n- **Tóm tắt cốt lõi:** JavaScript có class (ES6+), nhưng thực chất là function đặc biệt. Class có constructor, method, và dễ đọc hơn function. Function vẫn dùng được để tạo object.\n- **Chi tiết triển khai/biến thể chấp nhận:** Class là function đặc biệt; Class dễ đọc hơn\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** So sánh class vs function; Hiểu constructor\n- **Lỗi thường gặp cần tránh:** Nghĩ class khác hoàn toàn function; Không biết JavaScript có class\n- **Tiêu chí chấm mức 3:** So sánh được class vs function + constructor"
-    },
-    {
-      "id": "B4",
-      "package": "B",
-      "group": "Programming",
-      "question": "Microtask vs Macrotask (Promise vs setTimeout) ảnh hưởng cập nhật UI thế nào?",
-      "goal": "Event loop hiểu biết",
-      "coreAnswer": "Promise callbacks (microtask) chạy trước render tiếp theo; setTimeout (macrotask) chạy vòng sau → microtask thích hợp batch logic trước paint; lạm dụng gây starvation.",
-      "acceptableVariants": [
-        "Promise trước timeout",
-        "Microtask chạy sớm hơn"
-      ],
-      "upgradeFor3Points": [
-        "So với requestAnimationFrame",
-        "Batch state trong microtask",
-        "Cảnh báo chain dài"
-      ],
-      "commonMistakes": [
-        "Nói setTimeout nhanh hơn",
-        "Không đề cập thứ tự"
-      ],
-      "rubric": {
-        "0": "Sai thứ tự",
-        "1": "Thiếu tác động UI",
-        "2": "Đúng cơ chế + ảnh hưởng",
-        "3": "Thêm rAF & cảnh báo"
-      },
-      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Promise callbacks (microtask) chạy trước render tiếp theo; setTimeout (macrotask) chạy vòng sau → microtask thích hợp batch logic trước paint; lạm dụng gây starvation.\n- **Chi tiết triển khai/biến thể chấp nhận:** Promise trước timeout; Microtask chạy sớm hơn\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** So với requestAnimationFrame; Batch state trong microtask; Cảnh báo chain dài\n- **Lỗi thường gặp cần tránh:** Nói setTimeout nhanh hơn; Không đề cập thứ tự\n- **Tiêu chí chấm mức 3:** Thêm rAF & cảnh báo"
-    },
-    {
-      "id": "B5",
-      "package": "B",
-      "group": "Programming",
-      "question": "Thiết kế hàm generic getConfig<T>(key) type-safe.",
-      "goal": "Generic TS",
-      "coreAnswer": "Dùng K extends keyof typeof CONFIG; trả typeof CONFIG[K]; optional defaultValue xử lý undefined.",
-      "acceptableVariants": [
-        "keyof CONFIG đảm bảo kiểu",
-        "Trả đúng kiểu theo key"
-      ],
-      "upgradeFor3Points": [
-        "Runtime validate",
-        "Overload có defaultValue",
-        "Tách domain config modules"
-      ],
-      "commonMistakes": [
-        "Dùng any mọi nơi",
-        "Ép cast as T tùy tiện"
-      ],
-      "rubric": {
-        "0": "Không generic",
-        "1": "Generic thiếu an toàn",
-        "2": "K extends keyof + trả đúng",
-        "3": "Thêm validate / overload"
-      },
-      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Dùng K extends keyof typeof CONFIG; trả typeof CONFIG[K]; optional defaultValue xử lý undefined.\n- **Chi tiết triển khai/biến thể chấp nhận:** keyof CONFIG đảm bảo kiểu; Trả đúng kiểu theo key\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Runtime validate; Overload có defaultValue; Tách domain config modules\n- **Lỗi thường gặp cần tránh:** Dùng any mọi nơi; Ép cast as T tùy tiện\n- **Tiêu chí chấm mức 3:** Thêm validate / overload"
     },
     {
       "id": "B9",
@@ -577,7 +486,7 @@
       "id": "B10",
       "package": "B",
       "group": "Performance",
-      "question": "Nêu ≥2 cách giảm draw calls ở gameplay scene.",
+      "question": "Nêu các cách giảm draw calls ở gameplay scene.",
       "goal": "Batching/render tối ưu",
       "coreAnswer": "Atlas; batching; combine static; sort theo material; hạn chế shader/material khác nhau.",
       "acceptableVariants": [
@@ -600,34 +509,6 @@
         "3": "≥3 + giải thích"
       },
       "modelAnswer": "\n- **Tóm tắt cốt lõi:** Atlas; batching; combine static; sort theo material; hạn chế shader/material khác nhau.\n- **Chi tiết triển khai/biến thể chấp nhận:** Atlas + batching; Combine static meshes\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Culling off-screen; Giảm layer alpha; Sort material trước render\n- **Lỗi thường gặp cần tránh:** Tăng RAM; Chỉ nói tối ưu chung\n- **Tiêu chí chấm mức 3:** ≥3 + giải thích"
-    },
-    {
-      "id": "B11",
-      "package": "B",
-      "group": "Feature",
-      "question": "Pipeline từ khi kẻ địch chết đến khi item drop hiển thị trên UI.",
-      "goal": "Quy trình feature logic",
-      "coreAnswer": "Death trigger → chọn bảng random → roll item → spawn prefab → FX → cập nhật UI/inventory → log/report.",
-      "acceptableVariants": [
-        "Random bảng → spawn → UI",
-        "Spawn + FX + log"
-      ],
-      "upgradeFor3Points": [
-        "Rollback nếu spawn fail",
-        "Pooling prefab",
-        "Event dispatch tách module"
-      ],
-      "commonMistakes": [
-        "Bỏ bước random",
-        "Không cập nhật UI"
-      ],
-      "rubric": {
-        "0": "Thiếu nhiều bước",
-        "1": "Một vài bước",
-        "2": "Đủ pipeline core",
-        "3": "Thêm rollback/pooling/event"
-      },
-      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Death trigger → chọn bảng random → roll item → spawn prefab → FX → cập nhật UI/inventory → log/report.\n- **Chi tiết triển khai/biến thể chấp nhận:** Random bảng → spawn → UI; Spawn + FX + log\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Rollback nếu spawn fail; Pooling prefab; Event dispatch tách module\n- **Lỗi thường gặp cần tránh:** Bỏ bước random; Không cập nhật UI\n- **Tiêu chí chấm mức 3:** Thêm rollback/pooling/event"
     },
     {
       "id": "C1",
@@ -1066,33 +947,6 @@
       ]
     },
     {
-      "id": "BR1",
-      "package": "A",
-      "group": "Feature",
-      "question": "Làm sao đảm bảo game chạy tốt trên nhiều trình duyệt khác nhau?",
-      "goal": "Hiểu browser compatibility cơ bản",
-      "modelAnswer": "\n- Test game trên các trình duyệt phổ biến: Chrome, Firefox, Safari, Edge.\n- Kiểm tra trên cả desktop và mobile (iOS Safari, Android Chrome).\n- Sử dụng feature detection: kiểm tra API có tồn tại trước khi dùng.\n- Xử lý trường hợp API không hỗ trợ: có fallback hoặc thông báo lỗi.\n- Kiểm tra performance trên thiết bị yếu, giảm quality nếu cần.",
-      "tags": [
-        "browser-compatibility",
-        "testing",
-        "mobile"
-      ]
-    },
-    {
-      "id": "BR2",
-      "package": "A",
-      "group": "Feature",
-      "question": "Các 'gotcha' trên Mobile Safari/WeChat WebView liên quan WebAudio/WebGL và cách khắc phục.",
-      "goal": "Kinh nghiệm triển khai thực tế",
-      "modelAnswer": "\n- WebAudio bị chặn đến khi user gesture: tạo AudioContext khi tap đầu tiên, resume khi cần.\n- Autoplay policy: preload nhẹ và play muted đầu, sau đó unmute.\n- WebGL context lost: lắng nghe 'webglcontextlost'/'restored' để recreate resources/pipeline.\n- Giới hạn bộ nhớ: tránh tạo nhiều canvas to, giải phóng texture khi rời scene.\n- WeChat WebView đôi khi throttle timer: dựa rAF cho loop, kiểm tra visibilitychange để pause.",
-      "tags": [
-        "ios",
-        "wechat",
-        "webaudio",
-        "webgl"
-      ]
-    },
-    {
       "id": "S1",
       "package": "A",
       "group": "Engine",
@@ -1126,19 +980,6 @@
       "tags": [
         "spine",
         "optimization"
-      ]
-    },
-    {
-      "id": "JS6",
-      "package": "B",
-      "group": "Programming",
-      "question": "ES Module vs CommonJS trong build tool hiện đại (Vite/Rollup/Webpack) và tác động đến tree-shaking.",
-      "goal": "Đóng gói hiệu quả",
-      "modelAnswer": "\n- ESM hỗ trợ tree-shaking tốt hơn vì cú pháp tĩnh; CJS (require) khó loại bỏ code chết.\n- Trong dự án game, ưu tiên ESM; tránh dynamic require; bật 'sideEffects' đúng trong package để tree-shake.\n- Coi chừng default vs named export gây trùng lặp.",
-      "tags": [
-        "modules",
-        "bundling",
-        "tree-shaking"
       ]
     }
   ]

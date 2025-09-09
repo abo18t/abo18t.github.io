@@ -257,7 +257,7 @@ class InterviewApp {
             return;
         }
 
-        // Save current score
+        // Save current score (including 'skip')
         this.scores[this.currentQuestionIndex] = this.currentScore;
 
         // Move to next question
