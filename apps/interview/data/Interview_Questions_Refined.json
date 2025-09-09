@@ -1,0 +1,1145 @@
+{
+  "meta": {
+    "title": "Bộ Câu Hỏi Phỏng Vấn Junior Game Dev (Cocos Creator) - Refined",
+    "version": "2.0",
+    "date": "2025-09-09",
+    "source": "Merged & enriched from original Question.json + new JS/TS/Memory/Browser/Spine items",
+    "notes": [
+      "Đã loại các câu domain-specific: A12, B12, C12",
+      "Mọi câu có 'modelAnswer' chi tiết hơn; có thêm followUps/redFlags ở nhiều câu",
+      "Chia bộ Core/Bonus để chọn nhanh theo thời lượng"
+    ],
+    "sets": {
+      "core": [
+        "A1",
+        "A2",
+        "A3",
+        "A4",
+        "A5",
+        "A6",
+        "A7",
+        "A8",
+        "A9",
+        "A10",
+        "A11",
+        "A13",
+        "B1",
+        "B2",
+        "B3",
+        "B4",
+        "B5",
+        "B9",
+        "B10",
+        "B11",
+        "C1",
+        "C2",
+        "C3",
+        "C4",
+        "C5",
+        "C6",
+        "C7",
+        "C8",
+        "C9",
+        "C10",
+        "C11",
+        "C13",
+        "JS1",
+        "JS2",
+        "JS4",
+        "MEM1",
+        "BR1",
+        "BR2",
+        "S1",
+        "S2",
+        "S4",
+        "MEM2",
+        "MEM3",
+        "JS5"
+      ],
+      "bonus": [
+        "JS6"
+      ]
+    },
+    "scoring": {
+      "perQuestion": "0-3",
+      "rubricLevel3": "Đúng đầy đủ + best practice + ví dụ hoặc cảnh báo"
+    }
+  },
+  "questions": [
+    {
+      "id": "A1",
+      "package": "A",
+      "group": "Engine",
+      "question": "Giải thích Prefab là gì trong Cocos Creator và khác việc tạo Node thuần bằng code. Tình huống spawn nhiều item giống nhau chọn cách nào? Vì sao?",
+      "goal": "Hiểu bản chất prefab, tái sử dụng, bảo trì, workflow",
+      "coreAnswer": "Prefab là template serialized (node + component + thuộc tính). Thay đổi prefab gốc áp dụng các instance mới; tạo node code thủ công phải khai báo lại → dễ sai lệch. Spawn lặp nên dùng prefab để giảm code lặp, hỗ trợ designer, dễ pooling.",
+      "acceptableVariants": [
+        "Prefab = mẫu tái sử dụng đồng bộ",
+        "Prefab giúp designer chỉnh không cần sửa code",
+        "Dùng prefab + pool tối ưu spawn"
+      ],
+      "upgradeFor3Points": [
+        "Nêu preload prefab",
+        "So sánh drift config khi code tạo thủ công",
+        "Workflow designer ↔ dev",
+        "Pool kết hợp giảm GC"
+      ],
+      "commonMistakes": [
+        "Nói prefab chạy nhanh hơn node code (không đúng bản chất)",
+        "Không phân biệt template và instance"
+      ],
+      "rubric": {
+        "0": "Không phân biệt hoặc sai",
+        "1": "Chỉ nói tái sử dụng",
+        "2": "Template + đồng bộ + use case spawn nhiều",
+        "3": "Thêm workflow, pooling, bảo trì, tối ưu"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Prefab là template serialized (node + component + thuộc tính). Thay đổi prefab gốc áp dụng các instance mới; tạo node code thủ công phải khai báo lại → dễ sai lệch. Spawn lặp nên dùng prefab để giảm code lặp, hỗ trợ designer, dễ pooling.\n- **Chi tiết triển khai/biến thể chấp nhận:** Prefab = mẫu tái sử dụng đồng bộ; Prefab giúp designer chỉnh không cần sửa code; Dùng prefab + pool tối ưu spawn\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Nêu preload prefab; So sánh drift config khi code tạo thủ công; Workflow designer ↔ dev; Pool kết hợp giảm GC\n- **Lỗi thường gặp cần tránh:** Nói prefab chạy nhanh hơn node code (không đúng bản chất); Không phân biệt template và instance\n- **Tiêu chí chấm mức 3:** Thêm workflow, pooling, bảo trì, tối ưu"
+    },
+    {
+      "id": "A2",
+      "package": "A",
+      "group": "Engine",
+      "question": "Mô tả vai trò onLoad, onEnable, start, update, onDisable, onDestroy. Đặt đăng ký input và hủy timer ở đâu?",
+      "goal": "Nắm lifecycle thành phần",
+      "coreAnswer": "onLoad: khởi tạo tham chiếu. onEnable: đăng ký event/input. start: logic phụ thuộc node khác. update: frame logic nhẹ. onDisable: gỡ listener/timer. onDestroy: cleanup cuối cùng (release asset, dừng tween). Input đăng ký onEnable, gỡ onDisable.",
+      "acceptableVariants": [
+        "start sau onLoad dùng khi cần node khác sẵn sàng",
+        "onDisable gỡ sự kiện, onDestroy dọn vĩnh viễn"
+      ],
+      "upgradeFor3Points": [
+        "Nhắc cleanup tween/spine trong onDisable",
+        "Phân biệt tạm (disable) vs vĩnh viễn (destroy)",
+        "Cảnh báo tránh logic nặng trong update"
+      ],
+      "commonMistakes": [
+        "Nhầm thứ tự onLoad và start",
+        "Đăng ký event onLoad không gỡ"
+      ],
+      "rubric": {
+        "0": "Sai thứ tự",
+        "1": "Liệt kê thiếu vai trò",
+        "2": "Đủ vai trò + ví dụ input",
+        "3": "Thêm cleanup chi tiết + cảnh báo"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** onLoad: khởi tạo tham chiếu. onEnable: đăng ký event/input. start: logic phụ thuộc node khác. update: frame logic nhẹ. onDisable: gỡ listener/timer. onDestroy: cleanup cuối cùng (release asset, dừng tween). Input đăng ký onEnable, gỡ onDisable.\n- **Chi tiết triển khai/biến thể chấp nhận:** start sau onLoad dùng khi cần node khác sẵn sàng; onDisable gỡ sự kiện, onDestroy dọn vĩnh viễn\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Nhắc cleanup tween/spine trong onDisable; Phân biệt tạm (disable) vs vĩnh viễn (destroy); Cảnh báo tránh logic nặng trong update\n- **Lỗi thường gặp cần tránh:** Nhầm thứ tự onLoad và start; Đăng ký event onLoad không gỡ\n- **Tiêu chí chấm mức 3:** Thêm cleanup chi tiết + cảnh báo"
+    },
+    {
+      "id": "A3",
+      "package": "A",
+      "group": "Engine",
+      "question": "Bạn giảm số request và draw call trong UI nhiều hình ảnh như thế nào?",
+      "goal": "Tối ưu atlas + batching",
+      "coreAnswer": "Dùng sprite atlas để gộp textures (giảm request + tăng batch). Batching (static/dynamic). Giảm alpha dư. Preload nhóm. Tách bundle theo scene.",
+      "acceptableVariants": [
+        "Atlas + batching",
+        "Atlas + preload",
+        "Atlas + giảm overdraw"
+      ],
+      "upgradeFor3Points": [
+        "Nhắc compress (webp)",
+        "Sort/hierarchy phẳng hỗ trợ batch",
+        "Giải thích alpha chồng phá batching"
+      ],
+      "commonMistakes": [
+        "Nói tạo nhiều prefab",
+        "Chỉ nói tối ưu code chung chung"
+      ],
+      "rubric": {
+        "0": "Không liên quan",
+        "1": "Một giải pháp",
+        "2": "≥2 giải pháp đúng",
+        "3": "≥3 + giải thích tác động"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Dùng sprite atlas để gộp textures (giảm request + tăng batch). Batching (static/dynamic). Giảm alpha dư. Preload nhóm. Tách bundle theo scene.\n- **Chi tiết triển khai/biến thể chấp nhận:** Atlas + batching; Atlas + preload; Atlas + giảm overdraw\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Nhắc compress (webp); Sort/hierarchy phẳng hỗ trợ batch; Giải thích alpha chồng phá batching\n- **Lỗi thường gặp cần tránh:** Nói tạo nhiều prefab; Chỉ nói tối ưu code chung chung\n- **Tiêu chí chấm mức 3:** ≥3 + giải thích tác động"
+    },
+    {
+      "id": "A4",
+      "package": "A",
+      "group": "Engine",
+      "question": "Vì sao dùng object pool cho coin FX và các bước triển khai chính?",
+      "goal": "Hiểu pooling giảm GC",
+      "coreAnswer": "Create/destroy liên tục gây GC stutter. Pool: prewarm N instance, get (pop), reset trạng thái, dùng, release (stop tween, inactive, push back).",
+      "acceptableVariants": [
+        "Pool giảm tạo/destroy",
+        "Get → dùng → trả"
+      ],
+      "upgradeFor3Points": [
+        "Giới hạn size + chính sách nở",
+        "Thống kê usage điều chỉnh prewarm",
+        "Reset đầy đủ scale/opacity"
+      ],
+      "commonMistakes": [
+        "Vẫn destroy thay vì release",
+        "Không reset trạng thái"
+      ],
+      "rubric": {
+        "0": "Không hiểu",
+        "1": "Chỉ nói tái sử dụng",
+        "2": "Lý do + get/reset/release",
+        "3": "Thêm prewarm/limit/statistics"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Create/destroy liên tục gây GC stutter. Pool: prewarm N instance, get (pop), reset trạng thái, dùng, release (stop tween, inactive, push back).\n- **Chi tiết triển khai/biến thể chấp nhận:** Pool giảm tạo/destroy; Get → dùng → trả\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Giới hạn size + chính sách nở; Thống kê usage điều chỉnh prewarm; Reset đầy đủ scale/opacity\n- **Lỗi thường gặp cần tránh:** Vẫn destroy thay vì release; Không reset trạng thái\n- **Tiêu chí chấm mức 3:** Thêm prewarm/limit/statistics"
+    },
+    {
+      "id": "A5",
+      "package": "A",
+      "group": "Engine",
+      "question": "Khi nào chọn Tween, AnimationClip, và Spine? Ví dụ button scale nhẹ và nhân vật có bộ xương.",
+      "goal": "Chọn công cụ animation phù hợp",
+      "coreAnswer": "Button scale nhẹ: Tween (nhanh, runtime). Nhiều thuộc tính timeline lặp: AnimationClip. Nhân vật xương phức tạp: Spine (skeletal, event, blending).",
+      "acceptableVariants": [
+        "Tween UI transitions",
+        "Spine cho nhân vật skeletal",
+        "Clip cho chuỗi phức"
+      ],
+      "upgradeFor3Points": [
+        "Trade-off bảo trì",
+        "Spine có event/hitbox",
+        "Cảnh báo lạm dụng Tween chuỗi dài"
+      ],
+      "commonMistakes": [
+        "Dùng Spine cho button",
+        "Tạo Clip chỉ để scale đơn giản"
+      ],
+      "rubric": {
+        "0": "Lẫn lộn",
+        "1": "Chọn đúng 1 phần",
+        "2": "Mapping đúng + lý do",
+        "3": "Thêm trade-off & event"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Button scale nhẹ: Tween (nhanh, runtime). Nhiều thuộc tính timeline lặp: AnimationClip. Nhân vật xương phức tạp: Spine (skeletal, event, blending).\n- **Chi tiết triển khai/biến thể chấp nhận:** Tween UI transitions; Spine cho nhân vật skeletal; Clip cho chuỗi phức\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Trade-off bảo trì; Spine có event/hitbox; Cảnh báo lạm dụng Tween chuỗi dài\n- **Lỗi thường gặp cần tránh:** Dùng Spine cho button; Tạo Clip chỉ để scale đơn giản\n- **Tiêu chí chấm mức 3:** Thêm trade-off & event"
+    },
+    {
+      "id": "A6",
+      "package": "A",
+      "group": "Programming",
+      "question": "Closure là gì? Ví dụ tạo spawner giữ counter riêng không dùng biến global.",
+      "goal": "Hiểu closure + áp dụng",
+      "coreAnswer": "Closure: hàm con giữ lexical scope biến cha sau khi cha kết thúc. Ví dụ createSpawner() trả hàm spawn tăng count.",
+      "acceptableVariants": [
+        "Closure giữ được biến bên ngoài",
+        "Ví dụ đếm coin thu"
+      ],
+      "upgradeFor3Points": [
+        "Cảnh báo giữ reference lớn → leak",
+        "Dùng cho private state/encapsulation"
+      ],
+      "commonMistakes": [
+        "Nhầm với callback chung",
+        "Nói closure là biến global"
+      ],
+      "rubric": {
+        "0": "Sai định nghĩa",
+        "1": "Định nghĩa thiếu, ví dụ kém",
+        "2": "Định nghĩa + ví dụ đúng",
+        "3": "Thêm cảnh báo / ứng dụng"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Closure: hàm con giữ lexical scope biến cha sau khi cha kết thúc. Ví dụ createSpawner() trả hàm spawn tăng count.\n- **Chi tiết triển khai/biến thể chấp nhận:** Closure giữ được biến bên ngoài; Ví dụ đếm coin thu\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Cảnh báo giữ reference lớn → leak; Dùng cho private state/encapsulation\n- **Lỗi thường gặp cần tránh:** Nhầm với callback chung; Nói closure là biến global\n- **Tiêu chí chấm mức 3:** Thêm cảnh báo / ứng dụng"
+    },
+    {
+      "id": "A7",
+      "package": "A",
+      "group": "Programming",
+      "question": "So sánh Promise chaining và async/await về readability & error handling. Ví dụ load config rồi user data.",
+      "goal": "Bất đồng bộ cơ bản",
+      "coreAnswer": "async/await là cú pháp sugar Promise giúp code tuyến tính và try/catch tập trung. Promise chaining dùng then/catch dễ dài. Cả hai dựa trên Promise.",
+      "acceptableVariants": [
+        "async/await dễ đọc hơn",
+        "Promise.all để chạy song song"
+      ],
+      "upgradeFor3Points": [
+        "Nhắc tránh await tuần tự nếu không cần",
+        "Dùng Promise.all cho tasks độc lập",
+        "Stack trace khác biệt"
+      ],
+      "commonMistakes": [
+        "Nói async/await không dùng Promise",
+        "Không minh họa xử lý lỗi"
+      ],
+      "rubric": {
+        "0": "Sai bản chất",
+        "1": "So sánh chung chung",
+        "2": "So sánh + ví dụ rõ",
+        "3": "Thêm song song & cảnh báo"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** async/await là cú pháp sugar Promise giúp code tuyến tính và try/catch tập trung. Promise chaining dùng then/catch dễ dài. Cả hai dựa trên Promise.\n- **Chi tiết triển khai/biến thể chấp nhận:** async/await dễ đọc hơn; Promise.all để chạy song song\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Nhắc tránh await tuần tự nếu không cần; Dùng Promise.all cho tasks độc lập; Stack trace khác biệt\n- **Lỗi thường gặp cần tránh:** Nói async/await không dùng Promise; Không minh họa xử lý lỗi\n- **Tiêu chí chấm mức 3:** Thêm song song & cảnh báo"
+    },
+    {
+      "id": "A8",
+      "package": "A",
+      "group": "Programming",
+      "question": "Interface, type alias và class trong TypeScript khác nhau như thế nào? Khi nào dùng cái nào?",
+      "goal": "Hiểu các cách định nghĩa kiểu dữ liệu trong TypeScript",
+      "coreAnswer": "Interface: định nghĩa cấu trúc object, có thể mở rộng. Type alias: đặt tên cho kiểu dữ liệu phức tạp. Class: tạo object có constructor và method. Dùng: interface cho object shape, type cho union/intersection, class cho logic và state.",
+      "acceptableVariants": [
+        "Interface mở rộng được",
+        "Type cho union phức",
+        "Class có runtime"
+      ],
+      "upgradeFor3Points": [
+        "Discriminated union",
+        "Cảnh báo God class",
+        "Const assertion"
+      ],
+      "commonMistakes": [
+        "Interface có runtime",
+        "Nhầm type và enum"
+      ],
+      "rubric": {
+        "0": "Lẫn khái niệm",
+        "1": "Chỉ nêu 1–2 phần",
+        "2": "Đủ 3 + use case",
+        "3": "Thêm merging/union/cảnh báo"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Interface: định nghĩa shape, mở rộng, merging. Type alias: đặt tên union/intersection. Class: runtime có constructor, method. Dùng: interface cho contract, type cho union state, class cho logic + state runtime.\n- **Chi tiết triển khai/biến thể chấp nhận:** Interface mở rộng được; Type cho union phức; Class có runtime\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Discriminated union; Cảnh báo God class; Const assertion\n- **Lỗi thường gặp cần tránh:** Interface có runtime; Nhầm type và enum\n- **Tiêu chí chấm mức 3:** Thêm merging/union/cảnh báo"
+    },
+    {
+      "id": "A9",
+      "package": "A",
+      "group": "Programming",
+      "question": "Thiết kế fetchLeaderboard: timeout 5s, retry 2 lần lỗi mạng/5xx, không retry 4xx.",
+      "goal": "Robust networking",
+      "coreAnswer": "Dùng AbortController để timeout 5s. fetch rồi nếu !ok: 4xx trả lỗi không retry; 5xx/network retry tối đa 2 với backoff nhẹ. try/catch bao quanh.",
+      "acceptableVariants": [
+        "AbortController + phân loại 4xx/5xx",
+        "Retry giới hạn"
+      ],
+      "upgradeFor3Points": [
+        "Exponential backoff + jitter",
+        "Không retry 429 hoặc chờ",
+        "Telemetry/log lỗi"
+      ],
+      "commonMistakes": [
+        "Retry cả 404",
+        "Không có timeout"
+      ],
+      "rubric": {
+        "0": "Chỉ fetch đơn giản",
+        "1": "Có try/catch nhưng thiếu phân loại",
+        "2": "Timeout + phân loại + retry",
+        "3": "Thêm backoff, telemetry"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Dùng AbortController để timeout 5s. fetch rồi nếu !ok: 4xx trả lỗi không retry; 5xx/network retry tối đa 2 với backoff nhẹ. try/catch bao quanh.\n- **Chi tiết triển khai/biến thể chấp nhận:** AbortController + phân loại 4xx/5xx; Retry giới hạn\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Exponential backoff + jitter; Không retry 429 hoặc chờ; Telemetry/log lỗi\n- **Lỗi thường gặp cần tránh:** Retry cả 404; Không có timeout\n- **Tiêu chí chấm mức 3:** Thêm backoff, telemetry"
+    },
+    {
+      "id": "A10",
+      "package": "A",
+      "group": "Performance",
+      "question": "Làm sao biết game bị lag và cách kiểm tra cơ bản?",
+      "goal": "Nhận diện performance issues",
+      "coreAnswer": "Dấu hiệu: game chạy chậm, giật lag, phản hồi chậm. Kiểm tra: bật FPS counter, xem console warnings, test trên device thật, giảm quality settings.",
+      "acceptableVariants": [
+        "FPS counter",
+        "Test trên device thật"
+      ],
+      "upgradeFor3Points": [
+        "Biết dùng profiler cơ bản",
+        "Kiểm tra memory usage",
+        "So sánh trước/sau tối ưu"
+      ],
+      "commonMistakes": [
+        "Chỉ test trên máy mạnh",
+        "Không kiểm tra trên mobile"
+      ],
+      "rubric": {
+        "0": "Không biết cách kiểm tra",
+        "1": "Chỉ nói cảm giác lag",
+        "2": "FPS counter + test device",
+        "3": "Thêm profiler + memory check"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Dấu hiệu: game chạy chậm, giật lag, phản hồi chậm. Kiểm tra: bật FPS counter, xem console warnings, test trên device thật, giảm quality settings.\n- **Chi tiết triển khai/biến thể chấp nhận:** FPS counter; Test trên device thật\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Biết dùng profiler cơ bản; Kiểm tra memory usage; So sánh trước/sau tối ưu\n- **Lỗi thường gặp cần tránh:** Chỉ test trên máy mạnh; Không kiểm tra trên mobile\n- **Tiêu chí chấm mức 3:** Thêm profiler + memory check"
+    },
+    {
+      "id": "A11",
+      "package": "A",
+      "group": "Performance",
+      "question": "Nguồn memory leak phổ biến trong Cocos Creator H5?",
+      "goal": "Nhận diện leak",
+      "coreAnswer": "Không gỡ event/listener; giữ ref asset/prefab không release; closure giữ object lớn; circular refs; quên interval/timer; pool không trả về.",
+      "acceptableVariants": [
+        "Listener không gỡ",
+        "Giữ texture không release"
+      ],
+      "upgradeFor3Points": [
+        "Memory snapshot so sánh",
+        "Gợi ý weak ref (nơi phù hợp)",
+        "Logging phân tích"
+      ],
+      "commonMistakes": [
+        "Đổ lỗi RAM thiết bị",
+        "Chỉ nói dùng nhiều asset"
+      ],
+      "rubric": {
+        "0": "Lạc đề",
+        "1": "Một nguyên nhân chung",
+        "2": "≥3 nguyên nhân + cơ chế",
+        "3": "Thêm phương pháp kiểm tra"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Không gỡ event/listener; giữ ref asset/prefab không release; closure giữ object lớn; circular refs; quên interval/timer; pool không trả về.\n- **Chi tiết triển khai/biến thể chấp nhận:** Listener không gỡ; Giữ texture không release\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Memory snapshot so sánh; Gợi ý weak ref (nơi phù hợp); Logging phân tích\n- **Lỗi thường gặp cần tránh:** Đổ lỗi RAM thiết bị; Chỉ nói dùng nhiều asset\n- **Tiêu chí chấm mức 3:** Thêm phương pháp kiểm tra"
+    },
+    {
+      "id": "A13",
+      "package": "A",
+      "group": "Soft",
+      "question": "Bạn phát hiện task sẽ trễ 2 ngày. Quy trình hành động?",
+      "goal": "Communication & mitigation",
+      "coreAnswer": "Báo sớm + % hoàn thành + nguyên nhân; đề xuất phương án (cắt scope / hỗ trợ / flag); cập nhật estimate; lesson learned; cập nhật tiến độ định kỳ.",
+      "acceptableVariants": [
+        "Báo sớm và đề xuất cắt scope",
+        "Xin hỗ trợ chia phần"
+      ],
+      "upgradeFor3Points": [
+        "Tiêu chí chọn phần cắt",
+        "Kênh cập nhật cụ thể",
+        "Feature flag tránh chặn release"
+      ],
+      "commonMistakes": [
+        "Im lặng cố làm",
+        "Chỉ nói làm thêm giờ"
+      ],
+      "rubric": {
+        "0": "Không quy trình",
+        "1": "Chỉ báo lead",
+        "2": "Báo + nguyên nhân + phương án + estimate",
+        "3": "Thêm triage + flag + lesson"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Báo sớm + % hoàn thành + nguyên nhân; đề xuất phương án (cắt scope / hỗ trợ / flag); cập nhật estimate; lesson learned; cập nhật tiến độ định kỳ.\n- **Chi tiết triển khai/biến thể chấp nhận:** Báo sớm và đề xuất cắt scope; Xin hỗ trợ chia phần\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Tiêu chí chọn phần cắt; Kênh cập nhật cụ thể; Feature flag tránh chặn release\n- **Lỗi thường gặp cần tránh:** Im lặng cố làm; Chỉ nói làm thêm giờ\n- **Tiêu chí chấm mức 3:** Thêm triage + flag + lesson"
+    },
+    {
+      "id": "B1",
+      "package": "B",
+      "group": "Engine",
+      "question": "Tạo component ButtonSound phát âm thanh khi click và cleanup đúng?",
+      "goal": "Component + sự kiện",
+      "coreAnswer": "@ccclass + @property AudioClip; onEnable đăng ký click; handler gọi AudioSource.playOneShot hoặc AudioManager; onDisable/onDestroy gỡ listener.",
+      "acceptableVariants": [
+        "Đăng ký ở onEnable",
+        "Gỡ listener onDisable"
+      ],
+      "upgradeFor3Points": [
+        "AudioManager trung tâm",
+        "Pooling AudioSource",
+        "Config volume/channel"
+      ],
+      "commonMistakes": [
+        "Không gỡ listener",
+        "Đăng ký trong update"
+      ],
+      "rubric": {
+        "0": "Sai/lạc",
+        "1": "Thiếu cleanup",
+        "2": "Đủ đăng ký + phát + gỡ",
+        "3": "Thêm centralized audio/pooling"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** @ccclass + @property AudioClip; onEnable đăng ký click; handler gọi AudioSource.playOneShot hoặc AudioManager; onDisable/onDestroy gỡ listener.\n- **Chi tiết triển khai/biến thể chấp nhận:** Đăng ký ở onEnable; Gỡ listener onDisable\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** AudioManager trung tâm; Pooling AudioSource; Config volume/channel\n- **Lỗi thường gặp cần tránh:** Không gỡ listener; Đăng ký trong update\n- **Tiêu chí chấm mức 3:** Thêm centralized audio/pooling"
+    },
+    {
+      "id": "B2",
+      "package": "B",
+      "group": "Engine",
+      "question": "Quản lý Spine event listeners để tránh rò rỉ?",
+      "goal": "Resource/event quản lý",
+      "coreAnswer": "Lưu trackEntry/listener; đăng ký 1 lần; gỡ ở onDisable/onDestroy; tránh đăng ký trùng.",
+      "acceptableVariants": [
+        "Gỡ listener onDisable",
+        "Không đăng ký lặp"
+      ],
+      "upgradeFor3Points": [
+        "SpineEventManager trung tâm",
+        "removeAllListeners khi destroy",
+        "Recycle trackEntry"
+      ],
+      "commonMistakes": [
+        "Đăng ký liên tục mỗi loop",
+        "Không bao giờ gỡ"
+      ],
+      "rubric": {
+        "0": "Không biết",
+        "1": "Nêu đăng ký/gỡ mơ hồ",
+        "2": "Rõ ràng lưu ref + gỡ",
+        "3": "Thêm manager / track reuse"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Lưu trackEntry/listener; đăng ký 1 lần; gỡ ở onDisable/onDestroy; tránh đăng ký trùng.\n- **Chi tiết triển khai/biến thể chấp nhận:** Gỡ listener onDisable; Không đăng ký lặp\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** SpineEventManager trung tâm; removeAllListeners khi destroy; Recycle trackEntry\n- **Lỗi thường gặp cần tránh:** Đăng ký liên tục mỗi loop; Không bao giờ gỡ\n- **Tiêu chí chấm mức 3:** Thêm manager / track reuse"
+    },
+    {
+      "id": "B3",
+      "package": "B",
+      "group": "Programming",
+      "question": "JavaScript có class không? Nếu có thì khác gì với function?",
+      "goal": "Hiểu class và function trong JavaScript",
+      "coreAnswer": "JavaScript có class (ES6+), nhưng thực chất là function đặc biệt. Class có constructor, method, và dễ đọc hơn function. Function vẫn dùng được để tạo object.",
+      "acceptableVariants": [
+        "Class là function đặc biệt",
+        "Class dễ đọc hơn"
+      ],
+      "upgradeFor3Points": [
+        "So sánh class vs function",
+        "Hiểu constructor"
+      ],
+      "commonMistakes": [
+        "Nghĩ class khác hoàn toàn function",
+        "Không biết JavaScript có class"
+      ],
+      "rubric": {
+        "0": "Không biết class trong JS",
+        "1": "Biết class nhưng không hiểu khác gì function",
+        "2": "Hiểu class và function cơ bản",
+        "3": "So sánh được class vs function + constructor"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** JavaScript có class (ES6+), nhưng thực chất là function đặc biệt. Class có constructor, method, và dễ đọc hơn function. Function vẫn dùng được để tạo object.\n- **Chi tiết triển khai/biến thể chấp nhận:** Class là function đặc biệt; Class dễ đọc hơn\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** So sánh class vs function; Hiểu constructor\n- **Lỗi thường gặp cần tránh:** Nghĩ class khác hoàn toàn function; Không biết JavaScript có class\n- **Tiêu chí chấm mức 3:** So sánh được class vs function + constructor"
+    },
+    {
+      "id": "B4",
+      "package": "B",
+      "group": "Programming",
+      "question": "Microtask vs Macrotask (Promise vs setTimeout) ảnh hưởng cập nhật UI thế nào?",
+      "goal": "Event loop hiểu biết",
+      "coreAnswer": "Promise callbacks (microtask) chạy trước render tiếp theo; setTimeout (macrotask) chạy vòng sau → microtask thích hợp batch logic trước paint; lạm dụng gây starvation.",
+      "acceptableVariants": [
+        "Promise trước timeout",
+        "Microtask chạy sớm hơn"
+      ],
+      "upgradeFor3Points": [
+        "So với requestAnimationFrame",
+        "Batch state trong microtask",
+        "Cảnh báo chain dài"
+      ],
+      "commonMistakes": [
+        "Nói setTimeout nhanh hơn",
+        "Không đề cập thứ tự"
+      ],
+      "rubric": {
+        "0": "Sai thứ tự",
+        "1": "Thiếu tác động UI",
+        "2": "Đúng cơ chế + ảnh hưởng",
+        "3": "Thêm rAF & cảnh báo"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Promise callbacks (microtask) chạy trước render tiếp theo; setTimeout (macrotask) chạy vòng sau → microtask thích hợp batch logic trước paint; lạm dụng gây starvation.\n- **Chi tiết triển khai/biến thể chấp nhận:** Promise trước timeout; Microtask chạy sớm hơn\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** So với requestAnimationFrame; Batch state trong microtask; Cảnh báo chain dài\n- **Lỗi thường gặp cần tránh:** Nói setTimeout nhanh hơn; Không đề cập thứ tự\n- **Tiêu chí chấm mức 3:** Thêm rAF & cảnh báo"
+    },
+    {
+      "id": "B5",
+      "package": "B",
+      "group": "Programming",
+      "question": "Thiết kế hàm generic getConfig<T>(key) type-safe.",
+      "goal": "Generic TS",
+      "coreAnswer": "Dùng K extends keyof typeof CONFIG; trả typeof CONFIG[K]; optional defaultValue xử lý undefined.",
+      "acceptableVariants": [
+        "keyof CONFIG đảm bảo kiểu",
+        "Trả đúng kiểu theo key"
+      ],
+      "upgradeFor3Points": [
+        "Runtime validate",
+        "Overload có defaultValue",
+        "Tách domain config modules"
+      ],
+      "commonMistakes": [
+        "Dùng any mọi nơi",
+        "Ép cast as T tùy tiện"
+      ],
+      "rubric": {
+        "0": "Không generic",
+        "1": "Generic thiếu an toàn",
+        "2": "K extends keyof + trả đúng",
+        "3": "Thêm validate / overload"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Dùng K extends keyof typeof CONFIG; trả typeof CONFIG[K]; optional defaultValue xử lý undefined.\n- **Chi tiết triển khai/biến thể chấp nhận:** keyof CONFIG đảm bảo kiểu; Trả đúng kiểu theo key\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Runtime validate; Overload có defaultValue; Tách domain config modules\n- **Lỗi thường gặp cần tránh:** Dùng any mọi nơi; Ép cast as T tùy tiện\n- **Tiêu chí chấm mức 3:** Thêm validate / overload"
+    },
+    {
+      "id": "B9",
+      "package": "B",
+      "group": "Programming",
+      "question": "Nêu một code smell phổ biến và cách refactor.",
+      "goal": "Thiết kế & maintainability",
+      "coreAnswer": "God Object (GameManager đa trách nhiệm) → tách ScoreManager, SpawnManager, UIController; áp dụng SRP, event bus.",
+      "acceptableVariants": [
+        "God object phân rã",
+        "SRP tách module"
+      ],
+      "upgradeFor3Points": [
+        "Refactor incremental",
+        "Thêm test bảo toàn hành vi",
+        "Ví dụ file 1000 dòng tách"
+      ],
+      "commonMistakes": [
+        "Nói code dài mà không giải pháp",
+        "Refactor dồn dập không kiểm"
+      ],
+      "rubric": {
+        "0": "Không nêu smell",
+        "1": "Smell chung chung",
+        "2": "God object + refactor cụ thể",
+        "3": "Thêm kế hoạch/test"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** God Object (GameManager đa trách nhiệm) → tách ScoreManager, SpawnManager, UIController; áp dụng SRP, event bus.\n- **Chi tiết triển khai/biến thể chấp nhận:** God object phân rã; SRP tách module\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Refactor incremental; Thêm test bảo toàn hành vi; Ví dụ file 1000 dòng tách\n- **Lỗi thường gặp cần tránh:** Nói code dài mà không giải pháp; Refactor dồn dập không kiểm\n- **Tiêu chí chấm mức 3:** Thêm kế hoạch/test"
+    },
+    {
+      "id": "B10",
+      "package": "B",
+      "group": "Performance",
+      "question": "Nêu ≥2 cách giảm draw calls ở gameplay scene.",
+      "goal": "Batching/render tối ưu",
+      "coreAnswer": "Atlas; batching; combine static; sort theo material; hạn chế shader/material khác nhau.",
+      "acceptableVariants": [
+        "Atlas + batching",
+        "Combine static meshes"
+      ],
+      "upgradeFor3Points": [
+        "Culling off-screen",
+        "Giảm layer alpha",
+        "Sort material trước render"
+      ],
+      "commonMistakes": [
+        "Tăng RAM",
+        "Chỉ nói tối ưu chung"
+      ],
+      "rubric": {
+        "0": "Sai",
+        "1": "Một cách",
+        "2": "≥2 chính xác",
+        "3": "≥3 + giải thích"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Atlas; batching; combine static; sort theo material; hạn chế shader/material khác nhau.\n- **Chi tiết triển khai/biến thể chấp nhận:** Atlas + batching; Combine static meshes\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Culling off-screen; Giảm layer alpha; Sort material trước render\n- **Lỗi thường gặp cần tránh:** Tăng RAM; Chỉ nói tối ưu chung\n- **Tiêu chí chấm mức 3:** ≥3 + giải thích"
+    },
+    {
+      "id": "B11",
+      "package": "B",
+      "group": "Feature",
+      "question": "Pipeline từ khi kẻ địch chết đến khi item drop hiển thị trên UI.",
+      "goal": "Quy trình feature logic",
+      "coreAnswer": "Death trigger → chọn bảng random → roll item → spawn prefab → FX → cập nhật UI/inventory → log/report.",
+      "acceptableVariants": [
+        "Random bảng → spawn → UI",
+        "Spawn + FX + log"
+      ],
+      "upgradeFor3Points": [
+        "Rollback nếu spawn fail",
+        "Pooling prefab",
+        "Event dispatch tách module"
+      ],
+      "commonMistakes": [
+        "Bỏ bước random",
+        "Không cập nhật UI"
+      ],
+      "rubric": {
+        "0": "Thiếu nhiều bước",
+        "1": "Một vài bước",
+        "2": "Đủ pipeline core",
+        "3": "Thêm rollback/pooling/event"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Death trigger → chọn bảng random → roll item → spawn prefab → FX → cập nhật UI/inventory → log/report.\n- **Chi tiết triển khai/biến thể chấp nhận:** Random bảng → spawn → UI; Spawn + FX + log\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Rollback nếu spawn fail; Pooling prefab; Event dispatch tách module\n- **Lỗi thường gặp cần tránh:** Bỏ bước random; Không cập nhật UI\n- **Tiêu chí chấm mức 3:** Thêm rollback/pooling/event"
+    },
+    {
+      "id": "C1",
+      "package": "C",
+      "group": "Engine",
+      "question": "Các bước để hai vật thể va chạm và xử lý sự kiện collision/physics.",
+      "goal": "Thiết lập physics cơ bản",
+      "coreAnswer": "Bật collision/physics manager; gắn collider; set group/mask; lắng nghe onBegin/EndContact.",
+      "acceptableVariants": [
+        "Enable manager + collider",
+        "Lắng nghe contact callback"
+      ],
+      "upgradeFor3Points": [
+        "Chỉnh restitution/friction",
+        "Debug draw line",
+        "Giảm collider động để tối ưu"
+      ],
+      "commonMistakes": [
+        "Quên gắn collider",
+        "Không bật manager"
+      ],
+      "rubric": {
+        "0": "Không tạo collision",
+        "1": "Thiếu bước quan trọng",
+        "2": "Đủ bước cơ bản",
+        "3": "Thêm tinh chỉnh & tối ưu"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Bật collision/physics manager; gắn collider; set group/mask; lắng nghe onBegin/EndContact.\n- **Chi tiết triển khai/biến thể chấp nhận:** Enable manager + collider; Lắng nghe contact callback\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Chỉnh restitution/friction; Debug draw line; Giảm collider động để tối ưu\n- **Lỗi thường gặp cần tránh:** Quên gắn collider; Không bật manager\n- **Tiêu chí chấm mức 3:** Thêm tinh chỉnh & tối ưu"
+    },
+    {
+      "id": "C2",
+      "package": "C",
+      "group": "Engine",
+      "question": "Ngoài pooling, tối ưu spawn hàng loạt (ví dụ hàng trăm coin) thế nào?",
+      "goal": "Spawn tối ưu",
+      "coreAnswer": "Prewarm; giới hạn active; reuse tween hoặc batch update; tránh extra allocation; spread spawn qua nhiều frame.",
+      "acceptableVariants": [
+        "Prewarm + limit",
+        "Spawn giãn frame"
+      ],
+      "upgradeFor3Points": [
+        "Group update",
+        "Tắt component không cần",
+        "Profile xác nhận bottleneck"
+      ],
+      "commonMistakes": [
+        "Chỉ nhắc pool",
+        "Tạo new object mỗi frame"
+      ],
+      "rubric": {
+        "0": "Không thêm gì ngoài pool",
+        "1": "1 biện pháp",
+        "2": "≥2 biện pháp ngoài pool",
+        "3": "≥3 + profile"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Prewarm; giới hạn active; reuse tween hoặc batch update; tránh extra allocation; spread spawn qua nhiều frame.\n- **Chi tiết triển khai/biến thể chấp nhận:** Prewarm + limit; Spawn giãn frame\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Group update; Tắt component không cần; Profile xác nhận bottleneck\n- **Lỗi thường gặp cần tránh:** Chỉ nhắc pool; Tạo new object mỗi frame\n- **Tiêu chí chấm mức 3:** ≥3 + profile"
+    },
+    {
+      "id": "C3",
+      "package": "C",
+      "group": "Engine",
+      "question": "Lưu ý quan trọng khi build phiên bản web mobile nhiều asset.",
+      "goal": "Deployment tối ưu",
+      "coreAnswer": "Giảm bundle size (split, nén); lazy load; touch compatibility; compress texture (webp); tránh blocking main thread.",
+      "acceptableVariants": [
+        "Split bundle + lazy load",
+        "Compress images"
+      ],
+      "upgradeFor3Points": [
+        "Deferred load FX nặng",
+        "CDN caching headers",
+        "Đo Time to Interactive"
+      ],
+      "commonMistakes": [
+        "Nói giống desktop",
+        "Không nhắc kích thước bundle"
+      ],
+      "rubric": {
+        "0": "Sai/thiếu",
+        "1": "1 ý rời",
+        "2": "≥3 ý chính",
+        "3": "Thêm TTI/CDN/defer"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Giảm bundle size (split, nén); lazy load; touch compatibility; compress texture (webp); tránh blocking main thread.\n- **Chi tiết triển khai/biến thể chấp nhận:** Split bundle + lazy load; Compress images\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Deferred load FX nặng; CDN caching headers; Đo Time to Interactive\n- **Lỗi thường gặp cần tránh:** Nói giống desktop; Không nhắc kích thước bundle\n- **Tiêu chí chấm mức 3:** Thêm TTI/CDN/defer"
+    },
+    {
+      "id": "C4",
+      "package": "C",
+      "group": "Programming",
+      "question": "Closure có thể gây rò bộ nhớ khi nào? Ví dụ.",
+      "goal": "Memory awareness",
+      "coreAnswer": "Closure giữ reference object lớn không cần nữa → không GC. Ví dụ listener giữ large config.",
+      "acceptableVariants": [
+        "Giữ object lớn trong scope",
+        "Listener closure giữ data"
+      ],
+      "upgradeFor3Points": [
+        "Giải pháp: null hóa, tách logic",
+        "Tránh closure trong loop lớn"
+      ],
+      "commonMistakes": [
+        "Phủ nhận closure ảnh hưởng",
+        "Không ví dụ"
+      ],
+      "rubric": {
+        "0": "Sai",
+        "1": "Mơ hồ",
+        "2": "Cơ chế + ví dụ",
+        "3": "Thêm giải pháp"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Closure giữ reference object lớn không cần nữa → không GC. Ví dụ listener giữ large config.\n- **Chi tiết triển khai/biến thể chấp nhận:** Giữ object lớn trong scope; Listener closure giữ data\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Giải pháp: null hóa, tách logic; Tránh closure trong loop lớn\n- **Lỗi thường gặp cần tránh:** Phủ nhận closure ảnh hưởng; Không ví dụ\n- **Tiêu chí chấm mức 3:** Thêm giải pháp"
+    },
+    {
+      "id": "C5",
+      "package": "C",
+      "group": "Programming",
+      "question": "Observer pattern trong event bus: mô tả ưu/nhược.",
+      "goal": "Pattern kiến trúc",
+      "coreAnswer": "Subject giữ observers và notify khi thay đổi; decouple publisher-subscriber. Nhược: khó trace, dễ leak nếu không unsubscribe.",
+      "acceptableVariants": [
+        "Decouple gửi/nhận",
+        "Leak nếu quên unregister"
+      ],
+      "upgradeFor3Points": [
+        "So với Pub/Sub theo topic",
+        "Logging event flow",
+        "Use case scoreboard/item drop"
+      ],
+      "commonMistakes": [
+        "Nhầm với Factory",
+        "Nói chỉ truyền dữ liệu đơn giản"
+      ],
+      "rubric": {
+        "0": "Sai pattern",
+        "1": "Thiếu ưu/nhược",
+        "2": "Mô tả + ưu/nhược",
+        "3": "Thêm so sánh & tooling"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Subject giữ observers và notify khi thay đổi; decouple publisher-subscriber. Nhược: khó trace, dễ leak nếu không unsubscribe.\n- **Chi tiết triển khai/biến thể chấp nhận:** Decouple gửi/nhận; Leak nếu quên unregister\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** So với Pub/Sub theo topic; Logging event flow; Use case scoreboard/item drop\n- **Lỗi thường gặp cần tránh:** Nhầm với Factory; Nói chỉ truyền dữ liệu đơn giản\n- **Tiêu chí chấm mức 3:** Thêm so sánh & tooling"
+    },
+    {
+      "id": "C6",
+      "package": "C",
+      "group": "Programming",
+      "question": "Nhược điểm chính khi dùng Singleton GameManager dày đặc.",
+      "goal": "Thiết kế testability",
+      "coreAnswer": "Tight coupling; khó test; global hidden state; khó mở rộng song song.",
+      "acceptableVariants": [
+        "Khó test vì global",
+        "Coupling cao"
+      ],
+      "upgradeFor3Points": [
+        "Đề xuất DI/service locator nhẹ",
+        "Reset state cho test",
+        "Interface tách module"
+      ],
+      "commonMistakes": [
+        "Nói không có nhược điểm",
+        "Chỉ nói 'khó' chung chung"
+      ],
+      "rubric": {
+        "0": "Không nêu nhược điểm",
+        "1": "1 ý mơ hồ",
+        "2": "≥3 nhược điểm rõ",
+        "3": "Thêm giải pháp thay thế"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Tight coupling; khó test; global hidden state; khó mở rộng song song.\n- **Chi tiết triển khai/biến thể chấp nhận:** Khó test vì global; Coupling cao\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Đề xuất DI/service locator nhẹ; Reset state cho test; Interface tách module\n- **Lỗi thường gặp cần tránh:** Nói không có nhược điểm; Chỉ nói 'khó' chung chung\n- **Tiêu chí chấm mức 3:** Thêm giải pháp thay thế"
+    },
+    {
+      "id": "C7",
+      "package": "C",
+      "group": "Programming",
+      "question": "Áp dụng Single Responsibility Principle (SRP) vào hệ ItemDrop.",
+      "goal": "Refactor SRP",
+      "coreAnswer": "Tách DropCalculator (xác suất) khỏi SpawnExecutor (tạo prefab) và FXPresenter (hiệu ứng) + Logger/Audit.",
+      "acceptableVariants": [
+        "Tách tính xác suất và spawn",
+        "Thêm presenter riêng"
+      ],
+      "upgradeFor3Points": [
+        "Luồng sự kiện minh bạch",
+        "Dễ test từng phần",
+        "Logger/Audit module"
+      ],
+      "commonMistakes": [
+        "Chỉ nói chia file",
+        "Không nêu vai trò từng phần"
+      ],
+      "rubric": {
+        "0": "Không áp dụng",
+        "1": "Chung chung",
+        "2": "Phân tách rõ vai trò",
+        "3": "Thêm luồng + test"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Tách DropCalculator (xác suất) khỏi SpawnExecutor (tạo prefab) và FXPresenter (hiệu ứng) + Logger/Audit.\n- **Chi tiết triển khai/biến thể chấp nhận:** Tách tính xác suất và spawn; Thêm presenter riêng\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Luồng sự kiện minh bạch; Dễ test từng phần; Logger/Audit module\n- **Lỗi thường gặp cần tránh:** Chỉ nói chia file; Không nêu vai trò từng phần\n- **Tiêu chí chấm mức 3:** Thêm luồng + test"
+    },
+    {
+      "id": "C8",
+      "package": "C",
+      "group": "Programming",
+      "question": "Thiết kế Factory pattern cho nhiều loại đạn (normal, laser, explosive).",
+      "goal": "Pattern khởi tạo",
+      "coreAnswer": "Interface IBullet; registry map type → class; BulletFactory.create(type, params); dễ mở rộng không sửa switch lớn.",
+      "acceptableVariants": [
+        "Map type tới class",
+        "Factory trả instance interface"
+      ],
+      "upgradeFor3Points": [
+        "Registry dynamic plugin",
+        "DI cung cấp config",
+        "Tầng pooling dưới factory"
+      ],
+      "commonMistakes": [
+        "Switch-case khổng lồ không abstraction",
+        "Không tách interface"
+      ],
+      "rubric": {
+        "0": "Không phải factory",
+        "1": "Switch đơn thuần",
+        "2": "Registry + interface",
+        "3": "Thêm mở rộng + pooling"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Interface IBullet; registry map type → class; BulletFactory.create(type, params); dễ mở rộng không sửa switch lớn.\n- **Chi tiết triển khai/biến thể chấp nhận:** Map type tới class; Factory trả instance interface\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Registry dynamic plugin; DI cung cấp config; Tầng pooling dưới factory\n- **Lỗi thường gặp cần tránh:** Switch-case khổng lồ không abstraction; Không tách interface\n- **Tiêu chí chấm mức 3:** Thêm mở rộng + pooling"
+    },
+    {
+      "id": "C9",
+      "package": "C",
+      "group": "Programming",
+      "question": "Quy trình xử lý conflict Git phức tạp đảm bảo an toàn.",
+      "goal": "Quy trình version control",
+      "coreAnswer": "git fetch; tạo branch; merge/rebase; xem diff; giải conflict; test; commit; push PR.",
+      "acceptableVariants": [
+        "Fetch rồi merge kiểm tra",
+        "Test trước push"
+      ],
+      "upgradeFor3Points": [
+        "Partial staging",
+        "CI pipeline",
+        "Rerere hỗ trợ"
+      ],
+      "commonMistakes": [
+        "Force push bỏ thay đổi",
+        "Giải xong không test"
+      ],
+      "rubric": {
+        "0": "Sai nguy hiểm",
+        "1": "Bước thiếu test",
+        "2": "Quy trình đầy đủ",
+        "3": "Thêm CI/rerere"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** git fetch; tạo branch; merge/rebase; xem diff; giải conflict; test; commit; push PR.\n- **Chi tiết triển khai/biến thể chấp nhận:** Fetch rồi merge kiểm tra; Test trước push\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Partial staging; CI pipeline; Rerere hỗ trợ\n- **Lỗi thường gặp cần tránh:** Force push bỏ thay đổi; Giải xong không test\n- **Tiêu chí chấm mức 3:** Thêm CI/rerere"
+    },
+    {
+      "id": "C10",
+      "package": "C",
+      "group": "Performance",
+      "question": "Nguồn gây FPS drop phổ biến và cách phân tách script vs render.",
+      "goal": "Phân tích hiệu năng",
+      "coreAnswer": "Quá nhiều node, overdraw, GC spikes, physics nặng. Dùng profiler tách script time vs render; flame chart; disable từng subsystem để khoanh vùng.",
+      "acceptableVariants": [
+        "Profiler tách script/render",
+        "Overdraw + GC spikes"
+      ],
+      "upgradeFor3Points": [
+        "Instrument custom markers",
+        "Binary search tắt subsystem",
+        "Ghi baseline so sánh"
+      ],
+      "commonMistakes": [
+        "Chỉ nói nhiều object",
+        "Không mention công cụ đo"
+      ],
+      "rubric": {
+        "0": "Mơ hồ",
+        "1": "Một nguyên nhân",
+        "2": "≥3 nguyên nhân + phân tách",
+        "3": "Thêm kỹ thuật phân đoạn"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Quá nhiều node, overdraw, GC spikes, physics nặng. Dùng profiler tách script time vs render; flame chart; disable từng subsystem để khoanh vùng.\n- **Chi tiết triển khai/biến thể chấp nhận:** Profiler tách script/render; Overdraw + GC spikes\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Instrument custom markers; Binary search tắt subsystem; Ghi baseline so sánh\n- **Lỗi thường gặp cần tránh:** Chỉ nói nhiều object; Không mention công cụ đo\n- **Tiêu chí chấm mức 3:** Thêm kỹ thuật phân đoạn"
+    },
+    {
+      "id": "C11",
+      "package": "C",
+      "group": "Performance",
+      "question": "Khi nào không nên dùng object pool?",
+      "goal": "Hiểu trade-off pooling",
+      "coreAnswer": "Object ít xuất hiện hoặc sống dài → overhead quản lý pool cao, giữ memory nhàn rỗi, tăng phức tạp.",
+      "acceptableVariants": [
+        "Ít instance thì không pool",
+        "Object sống dài"
+      ],
+      "upgradeFor3Points": [
+        "Đo tần suất trước khi pool",
+        "Tránh pool object phức tạp",
+        "Chỉ pool khi churn cao"
+      ],
+      "commonMistakes": [
+        "Nói luôn pool mọi thứ",
+        "Không đưa lý do chi phí"
+      ],
+      "rubric": {
+        "0": "Sai",
+        "1": "Một điều mơ hồ",
+        "2": "Nêu đúng trường hợp chính",
+        "3": "Thêm đo lường & tiêu chí"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Object ít xuất hiện hoặc sống dài → overhead quản lý pool cao, giữ memory nhàn rỗi, tăng phức tạp.\n- **Chi tiết triển khai/biến thể chấp nhận:** Ít instance thì không pool; Object sống dài\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Đo tần suất trước khi pool; Tránh pool object phức tạp; Chỉ pool khi churn cao\n- **Lỗi thường gặp cần tránh:** Nói luôn pool mọi thứ; Không đưa lý do chi phí\n- **Tiêu chí chấm mức 3:** Thêm đo lường & tiêu chí"
+    },
+    {
+      "id": "C13",
+      "package": "C",
+      "group": "Soft",
+      "question": "Quy trình chia nhỏ task cho feature mới để estimate và theo dõi.",
+      "goal": "Planning & estimation",
+      "coreAnswer": "Phân tích yêu cầu → liệt kê module → xác định dependencies → estimate từng phần → ưu tiên rủi ro → lập timeline.",
+      "acceptableVariants": [
+        "Liệt kê module và estimate",
+        "Xác định dependencies"
+      ],
+      "upgradeFor3Points": [
+        "Buffer risk",
+        "Daily review burn-down",
+        "Retrofit estimate sau khi hoàn tất"
+      ],
+      "commonMistakes": [
+        "Chỉ nói làm lần lượt",
+        "Không đề cập phân rã"
+      ],
+      "rubric": {
+        "0": "Không quy trình",
+        "1": "Ý rời rạc",
+        "2": "Chuỗi bước hợp lý",
+        "3": "Thêm buffer + cải tiến"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Phân tích yêu cầu → liệt kê module → xác định dependencies → estimate từng phần → ưu tiên rủi ro → lập timeline.\n- **Chi tiết triển khai/biến thể chấp nhận:** Liệt kê module và estimate; Xác định dependencies\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Buffer risk; Daily review burn-down; Retrofit estimate sau khi hoàn tất\n- **Lỗi thường gặp cần tránh:** Chỉ nói làm lần lượt; Không đề cập phân rã\n- **Tiêu chí chấm mức 3:** Thêm buffer + cải tiến"
+    },
+    {
+      "id": "JS1",
+      "package": "A",
+      "group": "Programming",
+      "question": "Tại sao nên dùng TypeScript thay vì JavaScript thuần trong dự án game?",
+      "goal": "Hiểu lợi ích TypeScript cơ bản",
+      "modelAnswer": "\n- TypeScript giúp phát hiện lỗi sớm hơn JavaScript thuần.\n- Có type checking: biết biến là string, number hay object.\n- IntelliSense tốt hơn: gợi ý code, autocomplete.\n- Dễ refactor: đổi tên biến/hàm an toàn hơn.\n- Code dễ đọc và maintain hơn, đặc biệt khi làm việc nhóm.\n- Cocos Creator hỗ trợ TypeScript tốt, có thể dùng song song với JavaScript.",
+      "followUps": [
+        "Bạn có gặp khó khăn gì khi học TypeScript không?"
+      ],
+      "redFlags": [
+        "Không biết TypeScript là gì.",
+        "Nói TypeScript không cần thiết."
+      ],
+      "tags": [
+        "typescript",
+        "javascript",
+        "development"
+      ]
+    },
+    {
+      "id": "JS2",
+      "package": "A",
+      "group": "Programming",
+      "question": "Làm sao quản lý trạng thái game (playing, paused, game over) một cách rõ ràng?",
+      "goal": "Quản lý state cơ bản",
+      "modelAnswer": "\n- **State Machine**: Tạo class StateMachine với currentState và transitions.\n- **States**: Định nghĩa các trạng thái (playing, paused, gameOver) và chuyển đổi hợp lệ.\n- **Transitions**: Chỉ cho phép chuyển đổi giữa các state hợp lệ (playing → paused, paused → playing).\n- **Actions**: Mỗi state có enter(), update(), exit() methods.\n- **Event-driven**: Chuyển state khi có sự kiện (pause, resume, game over).",
+      "codeExample": "// State Machine Pattern\nclass StateMachine {\n  constructor() {\n    this.currentState = null;\n    this.states = {};\n    this.transitions = {};\n  }\n\n  addState(name, state) {\n    this.states[name] = state;\n  }\n\n  addTransition(from, to) {\n    if (!this.transitions[from]) {\n      this.transitions[from] = [];\n    }\n    this.transitions[from].push(to);\n  }\n\n  changeState(newState) {\n    if (this.canTransition(newState)) {\n      if (this.currentState && this.currentState.exit) {\n        this.currentState.exit();\n      }\n      this.currentState = this.states[newState];\n      if (this.currentState && this.currentState.enter) {\n        this.currentState.enter();\n      }\n    }\n  }\n\n  canTransition(toState) {\n    return !this.currentState || \n           this.transitions[this.currentState.name]?.includes(toState);\n  }\n\n  update() {\n    if (this.currentState && this.currentState.update) {\n      this.currentState.update();\n    }\n  }\n}\n\n// Sử dụng\nconst gameSM = new StateMachine();\n\n// Định nghĩa states\nconst playingState = {\n  name: 'playing',\n  enter: () => console.log('Game started'),\n  update: () => { /* game logic */ },\n  exit: () => console.log('Game paused')\n};\n\nconst pausedState = {\n  name: 'paused',\n  enter: () => console.log('Game paused'),\n  update: () => { /* pause logic */ },\n  exit: () => console.log('Game resumed')\n};\n\n// Thêm states và transitions\ngameSM.addState('playing', playingState);\ngameSM.addState('paused', pausedState);\ngameSM.addTransition('playing', 'paused');\ngameSM.addTransition('paused', 'playing');\n\n// Chuyển state\ngameSM.changeState('playing'); // Game started\ngameSM.changeState('paused');  // Game paused",
+      "tags": [
+        "javascript",
+        "state-management",
+        "game-logic"
+      ]
+    },
+    {
+      "id": "JS4",
+      "package": "A",
+      "group": "Programming",
+      "question": "Khi nào nên dùng setTimeout, setInterval và requestAnimationFrame trong game?",
+      "goal": "Hiểu timing functions cơ bản",
+      "modelAnswer": "\n- setTimeout: thực hiện code sau một khoảng thời gian (delay), chỉ chạy 1 lần.\n- setInterval: lặp lại code theo chu kỳ, chạy liên tục cho đến khi clear.\n- requestAnimationFrame: đồng bộ với refresh rate màn hình, phù hợp cho animation mượt.\n- Game loop: dùng requestAnimationFrame thay vì setInterval để tránh giật lag.\n- Delay đơn giản: dùng setTimeout cho hiệu ứng delay, countdown timer.",
+      "followUps": [
+        "Tại sao requestAnimationFrame tốt hơn setInterval cho animation?"
+      ],
+      "tags": [
+        "javascript",
+        "timing",
+        "animation"
+      ]
+    },
+    {
+      "id": "JS5",
+      "package": "A",
+      "group": "Programming",
+      "question": "Immutability: khác nhau giữa shallow copy/deep copy; khi nào dùng structuredClone; các bẫy phổ biến?",
+      "goal": "Quản lý state an toàn & hiệu quả",
+      "modelAnswer": "\n- Shallow copy (spread/Array.slice) chỉ sao chép 1 mức, nested object vẫn tham chiếu chung → dễ mutation ngoài ý muốn.\n- Deep copy dùng structuredClone an toàn cho hầu hết object JSON-serializable; tránh JSON.stringify do mất Date/Map/Set/Infinity.\n- Đối với đối tượng có phương thức/ vòng tham chiếu → cần thư viện hoặc thiết kế state thuần dữ liệu.\n- Trong game loop, ưu tiên mutate có kiểm soát + Pool để giảm allocation thay vì deep copy bừa bãi.",
+      "tags": [
+        "immutability",
+        "state"
+      ]
+    },
+    {
+      "id": "MEM1",
+      "package": "A",
+      "group": "Performance",
+      "question": "Các kiểu memory leak phổ biến trên web game Cocos Creator và quy trình tìm bằng Chrome DevTools.",
+      "goal": "Nhận diện & xử lý leak hệ thống",
+      "modelAnswer": "\n- Quên gỡ event listener/timer (setInterval/tween) khi node disable/destroy.\n- Giữ reference asset/prefab/texture không release → assetManager.releaseAsset/releaseUnusedAssets.\n- Closure giữ object lớn/ cache toàn cục không giới hạn.\n- Quy trình đo: Heap snapshot trước/sau; so sánh Dominator; xem Retainers để biết ai giữ ref; dùng 'Allocation instrumentation on timeline' để bắt rò theo thời gian.\n- Dùng WeakMap/WeakRef cho cache có thể thu hồi; log pool size và tần suất.",
+      "tags": [
+        "memory",
+        "profiling",
+        "chrome-devtools"
+      ]
+    },
+    {
+      "id": "MEM2",
+      "package": "A",
+      "group": "Programming",
+      "question": "Làm sao tránh rò rỉ bộ nhớ trong game? Khi nào cần giải phóng tài nguyên?",
+      "goal": "Hiểu quản lý bộ nhớ cơ bản",
+      "modelAnswer": "\n- Giải phóng tài nguyên khi không dùng: texture, audio, animation.\n- Hủy event listener khi destroy node để tránh tham chiếu.\n- Dùng object pooling cho object tạo/xóa nhiều (bullet, particle).\n- Kiểm tra memory leak bằng Chrome DevTools.\n- Tránh giữ reference trong global variable.",
+      "tags": [
+        "memory",
+        "performance",
+        "cleanup"
+      ]
+    },
+    {
+      "id": "MEM3",
+      "package": "A",
+      "group": "Performance",
+      "question": "Quản lý vòng đời Texture/Spine trong Cocos Creator H5: giải phóng đúng cách để tránh văng trên iOS.",
+      "goal": "Asset lifecycle thực tế",
+      "modelAnswer": "\n- Load qua assetManager: theo dõi dependency (atlas, textures). Khi màn chơi xong, gọi releaseAsset cho root asset và để engine release chain.\n- Tránh giữ static reference trong singleton; khi đổi scene, gọi releaseUnusedAssets.\n- Đối với Spine: hủy track, gỡ listener, stop animation trước khi destroy node; đảm bảo không còn timer/tween trỏ tới node đó.\n- iOS có giới hạn bộ nhớ WebKit (jetsam): cần profile, hạn chế texture khổng lồ, dùng nén (WebP/ASTC khi native).",
+      "tags": [
+        "texture",
+        "spine",
+        "lifecycle"
+      ]
+    },
+    {
+      "id": "BR1",
+      "package": "A",
+      "group": "Feature",
+      "question": "Làm sao đảm bảo game chạy tốt trên nhiều trình duyệt khác nhau?",
+      "goal": "Hiểu browser compatibility cơ bản",
+      "modelAnswer": "\n- Test game trên các trình duyệt phổ biến: Chrome, Firefox, Safari, Edge.\n- Kiểm tra trên cả desktop và mobile (iOS Safari, Android Chrome).\n- Sử dụng feature detection: kiểm tra API có tồn tại trước khi dùng.\n- Xử lý trường hợp API không hỗ trợ: có fallback hoặc thông báo lỗi.\n- Kiểm tra performance trên thiết bị yếu, giảm quality nếu cần.",
+      "tags": [
+        "browser-compatibility",
+        "testing",
+        "mobile"
+      ]
+    },
+    {
+      "id": "BR2",
+      "package": "A",
+      "group": "Feature",
+      "question": "Các 'gotcha' trên Mobile Safari/WeChat WebView liên quan WebAudio/WebGL và cách khắc phục.",
+      "goal": "Kinh nghiệm triển khai thực tế",
+      "modelAnswer": "\n- WebAudio bị chặn đến khi user gesture: tạo AudioContext khi tap đầu tiên, resume khi cần.\n- Autoplay policy: preload nhẹ và play muted đầu, sau đó unmute.\n- WebGL context lost: lắng nghe 'webglcontextlost'/'restored' để recreate resources/pipeline.\n- Giới hạn bộ nhớ: tránh tạo nhiều canvas to, giải phóng texture khi rời scene.\n- WeChat WebView đôi khi throttle timer: dựa rAF cho loop, kiểm tra visibilitychange để pause.",
+      "tags": [
+        "ios",
+        "wechat",
+        "webaudio",
+        "webgl"
+      ]
+    },
+    {
+      "id": "S1",
+      "package": "A",
+      "group": "Engine",
+      "question": "So sánh Realtime/Shared Cache/Private Cache trong Spine Renderer của Cocos Creator và tiêu chí chọn mode.",
+      "goal": "Trade-off performance vs flexibility",
+      "modelAnswer": "\n- Realtime: đầy đủ tính năng (event, blending, overlay), CPU cao – dùng cho nhân vật chính/boss.\n- Shared Cache: pre-bake shared pose, CPU thấp, memory tiết kiệm khi nhiều instance giống nhau; hạn chế blending, events giới hạn, không đổi texture runtime.\n- Private Cache: hiệu năng cao như cache, nhưng riêng từng instance → đổi texture/skin runtime được; tốn memory hơn Shared.\n- Tiêu chí: số lượng instance, nhu cầu đổi skin/events/blend, hạn memory; đo thực nghiệm trước khi quyết định.",
+      "tags": [
+        "spine",
+        "cache-mode"
+      ]
+    },
+    {
+      "id": "S2",
+      "package": "A",
+      "group": "Engine",
+      "question": "Premultiplied Alpha: nguyên lý, khi bật/tắt và quy trình debug viền đen/bóng mờ trong Spine.",
+      "goal": "Alpha blending đúng chuẩn",
+      "modelAnswer": "\n- Premultiplied Alpha nhân RGB với A trước khi blend giúp tránh viền tối.\n- Nếu vùng trong suốt xuất hiện mảng màu → tắt premultiplied; nếu vùng bán trong suốt bị đen → bật lại.\n- Đảm bảo export setting từ Spine khớp với pipeline; kiểm tra atlas premultiplied hay straight.\n- So sánh render test trên nền sáng/tối để xác nhận.",
+      "tags": [
+        "spine",
+        "alpha"
+      ]
+    },
+    {
+      "id": "S4",
+      "package": "A",
+      "group": "Engine",
+      "question": "Tối ưu Spine trên mobile: atlas/texture, batching, animation setup và metrics cần theo dõi.",
+      "goal": "Bộ thực hành tốt",
+      "modelAnswer": "\n- Gộp atlas hợp lý; giảm resolution phù hợp màn hình; bật nén (WebP/ETC/ASTC tùy nền tảng).\n- Enable batching khi có thể (cùng material/texture).\n- Giảm keyframe dư, mesh complexity; hạn concurrent animations.\n- Đo: draw calls, frame time (script vs render), GC spikes, memory footprint của atlas/texture; tạo baseline trước tối ưu.",
+      "tags": [
+        "spine",
+        "optimization"
+      ]
+    },
+    {
+      "id": "JS6",
+      "package": "B",
+      "group": "Programming",
+      "question": "ES Module vs CommonJS trong build tool hiện đại (Vite/Rollup/Webpack) và tác động đến tree-shaking.",
+      "goal": "Đóng gói hiệu quả",
+      "modelAnswer": "\n- ESM hỗ trợ tree-shaking tốt hơn vì cú pháp tĩnh; CJS (require) khó loại bỏ code chết.\n- Trong dự án game, ưu tiên ESM; tránh dynamic require; bật 'sideEffects' đúng trong package để tree-shake.\n- Coi chừng default vs named export gây trùng lặp.",
+      "tags": [
+        "modules",
+        "bundling",
+        "tree-shaking"
+      ]
+    }
+  ]
+}

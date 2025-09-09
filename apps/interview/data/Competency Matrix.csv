@@ -1,0 +1,154 @@
+Competency,Fresher,Junior,Mid,Senior
+I. Game Engine Expertise (Cocos Creator),,,,
+Cocos Creator Editor,"- Understand the basic layout of the Cocos Creator editor, can create, open, and save projects.
+-  Familiar with the scene editor, hierarchy panel, and inspector. 
+- Able to add basic game objects (sprites, labels, etc.) to the scene.
+-  Understand the concept of nodes and their transformable properties (position, scale, rotation). 
+- Basic asset management (importing, using, and organizing assets)
+- Basic UI creation and manipulation using the editor","- Proficient in using the scene editor to create complex game layouts. 
+- Comfortable with different component types and their properties. (Canvas, Camera etc..)
+- Able to use the prefab system effectively. 
+- Understand and utilize the physics engine for basic interactions. 
+- Intermediate asset management (creating atlases, using different asset types).
+","- Deep understanding of the editor's features (batch memory) and workflows. 
+- Able to optimize scenes for performance. 
+- Proficient in creating and managing complex UI systems.
+- Able to create custom editor tools or extensions. 
+- Deep understanding Cocos build process and able to build multi platforms: web desktop, mobile, native (Android, iOS)
+","- Expert-level knowledge of the Cocos Creator editor and its architecture. 
+- Able to develop advanced custom editor tools and workflows. 
+- Deep understanding of the rendering pipeline and its implications for editor workflow.
+"
+ CCClass and CCComponent Script Knowledge,"- Able to write simple scripts to control game objects & UI Components. 
+- Familiar with CCClass and CCComponent. 
+- Understand the component lifecycle (onLoad, start, update etc..). 
+- Able to access and modify node properties through scripts. 
+- Basic event handling.","- Able to create custom Cocos UI components. 
+- Solid understanding of the component lifecycle and how to use it effectively. 
+- Experience with different types of events and event handling. 
+- Basic understanding of the Collision System or physics engine API.","- Deep understanding of the scripting API. 
+- Proficient in using the  Collision System or physics engine API (VP3) or Rendering pipeline (VP1) etc..
+- Able to design and implement complex game feature using Cocos
+- Experience with debugging and profiling scripts.
+- Contribute to the improvement of scripting performance and best practices","- Able to develop advanced custom components and frameworks. 
+- Deep understanding of the engine's architecture and its implications for scripting."
+Animation System,"- Basic understanding of animation principles (timing, easing)
+- Use CCAction for simple animations
+- Understand the Tween system and its basic usage (Tween properties of game objects)
+- Basic understanding of Spine integration and usage (Import and use Spine animations in Cocos Creator)
+- Control Spine animations through scripting via Spine API","- Proficient in using Tween and/or CCAction for complex animations and transitions 
+- Understand animation curves and easing functions
+- Proficient in using Spine for skeletal animations 
+- Quản lí thêm/xoá khi sử dụng tween
+- Spine event listener
+","- Advanced animation techniques (timelines, animation blending, state machines) 
+- Optimize animation performance and memory usage
+- Advanced Spine features (skins, attachments, IK, dressing etc...) ","- Deep understanding of Tween + CCAction internals and limitations( nên biết từ mid)
+- Optimize Spine animation performance"
+II. Programming Proficiency ,,,,
+II.1 JavaScript/TypeScript,,,,
+Language Fundamentals,"- Variables, data types, operators, control flow 
+- Basic understanding of functions and objects","- Prototypes, closures, asynchronous programming 
+- Working with events and event listeners
+-  Basic understanding of TypeScript types, interfaces, and classes
+","- Advanced JavaScript concepts (e.g., promises, async/await, generators, iterators, modules)
+- Proficient in TypeScript, using advanced features like generics, decorators, union and intersection types, conditional types 
+- Experience with advanced scripting techniques (e.g., inheritance, polymorphism).
+","- Deep understanding of JavaScript internals (e.g., event loop, memory management) 
+- Meta-programming and advanced techniques
+- Deep understanding of TypeScript's type system and compiler 
+- Architecting large-scale projects using TypeScript 
+- Contributing to TypeScript definitions and tooling 
+- Advanced type manipulation and metaprogramming in TypeScript"
+II.2 Coding Skills,,,,
+Code Quality & Best Practices,"- Write basic, readable code following style guides 
+- Perform basic debugging","- Write clean, efficient, and maintainable code 
+- Implement basic unit tests"," - Write well-documented and testable code 
+- Perform code reviews and contribute to code quality 
+- Implement linting and code formatting tools","- Establish coding standards and best practices 
+- Develop tools for code analysis and testing 
+- Advocate for code quality and maintainability 
+- Lead and mentor on code quality practices"
+Network Knowledge,- Basic understanding of client-server architecture.,"- Experience with basic network communication (e.g., HTTP requests).
+- Understands basic WebSocket features (e.g., sending/receiving messages, basic connection management, fish movement synchronization).","- Comfortable working with WebSockets for real-time communication.
+- Handles network data (serialization, deserialization).
+- Can use network debugging tools.","- Experienced in developing and implementing robust and scalable networking solutions (reliable message delivery, synchronization, handling latency)."
+Version Control ,"- Basic understanding of Git concepts (commits, branches) 
+- Use Git for basic version control","- Proficient in using Git for version control (branching, merging, resolving conflicts) 
+- Collaborate with team members using Git","-  Experience with advanced Git workflows (e.g., Gitflow) 
+- Manage code repositories and branching strategies
+- Manage code quality of a small team via Git",N/A
+Design Patterns,"- Familiar with the concept of Design Patterns.
+- Can recognize and understand the purpose of some basic patterns (Singleton, Factory).","- Understand the benefits and drawbacks of different patterns
+- Understands SOLID principles.
+","- Can choose and apply appropriate design patterns effectively (Strategy, State, Decorator, Factory, Pool etc..) for different situations within a project.
+- Design and implement complex systems using design patterns.","- Deep understanding of design pattern principles and best practices 
+- Ability to develop complex structure using a variet of design patterns."
+"II.3 Performance, Optimization & Debugging",,,,
+"Performance Awareness
+","- Understands the basic concept of frame rate (FPS) and its importance. 
+- Recognizes that performance is a consideration in game development.","- Can identify common performance issues (e.g., slow frame rate, lag)","- Understands the trade-off between visual quality and performance.
+- Proactively considers performance during development. 
+- Can use basic profiling tools to identify bottlenecks.","- Champions performance best practices within the team. 
+- Can architect systems for optimal performance from the outset."
+Profiling & Debugging,- Can use console.log and basic debugging techniques to identify simple performance issues.,"- Can use browser/editor developer tools for basic profiling.
+","- Proficient in using profiling tools (Cocos Creator profiler, external profilers) to pinpoint performance bottlenecks. 
+- Can analyze profiling data and identify areas for improvement.","-  Can use advanced profiling techniques (e.g., memory profiling, native platform profiling). 
+- Can interpret complex profiling data and develop targeted optimization strategies."
+Platform-Specific Optimization,N/A,"- Aware of platform-specific performance considerations (e.g., mobile vs. web).",-  Can optimize game performance for different target platforms.,-  Deep understanding of cross-platform optimization strategies.
+Memory Management & Optimization Techniques,NA,"- Basic awareness of memory usage
+- Can apply basic optimizations (e.g., using sprite sheets, minimizing transparent objects).","- Can use memory profiling tools.
+- Can identify and fix simple memory leaks in JS/TS code. 
+- Know how and when to apply some design patterns to manage memory
+- Proficient in a range of optimization techniques (e.g., object pooling, culling, level of detail).","Deep understanding of memory management and garbage collection.
+- Deep understanding of optimization strategies across all game systems. 
+- Can develop custom optimizations and tools."
+III.4 Codebase knowledge (Fishbase),,,,
+Base game,"- Can setup and open game successfully.
+- Implement basic UI elements replacement. 
+- Understands basic codebase structures.","- Able to customize a various of effects such as CoinFX, Bigwin etc..
+- Ability to create FE-BE Base Contract
+- Ability to customize base scene to create new game with very basic gameplay","- Designs and implements robust core gameplay systems, effects, and UI.
+- Can optimize for performance and manage data efficiently.","- Architects the base game module for scalability and maintainability. 
+- Leads the development and optimization of core gameplay systems."
+Event,- Reskin UI and implement basic animation sequence on demand,"- Can handle a partial part of event such as item drop, or cutscene etc..","- Can manage a small team to bring a successful Event Project
+",- N/A
+Special Feature,- Reskin UI and implement basic animation sequence on demand,"- Can handle a partial part of Feature such as item drop, or burst VFX etc..
+- Able to implement some basic feature such as Laser or Bomb","- Can build structure for whole feature
+- Able to break into many small tasks with detailed description",- N/A
+Jackpot Feature,- Reskin UI and implement basic animation sequence on demand,- Can individually handle a Jackpot feature with basic mechanic such as Dragon,"- Build full flow for Jackpot feature and integrate this module with many existed modules (Boss Module, Fish Manager, Effect layer, Boss Effect etc...)
+- Able to break into many small tasks with detailed description",- N/A
+Fish Parade,- Able to apply existed fish parade from template to new game,"- Understand fishMoveAction
+- Can modify existed template fishParade to a new one","- Customize or create complex fishMoveAction
+- Create new Fish Parade
+",- N/A
+III.Other Skills,,,,
+Self-Management & Task-Breaking,"- Follows basic instructions
+- Asks clarifying questions when needed.","- Manages own time effectively within assigned tasks.
+- Proactively communicates potential delays.","- Independently manages multiple tasks and priorities. 
+- Takes ownership of assigned work and delivers consistently.
+- Able to create WBS from initialization of Project through GDD
+- Manage and follow WBS to bring on time commitment","- Effectively plans and organizes own work and the work of others. 
+- Proactively identifies and mitigates risks."
+Estimation,- Provides rough estimates for simple tasks.,- Provides reasonably accurate estimates for well-defined tasks.,"- Provides accurate estimates for complex tasks based on experience. 
+- Can break down tasks for better estimation.","- Provides reliable estimates for large projects and features. 
+- Can factor in contingencies and risks."
+Soft Skills,- Basic communication,"- Effective communication, teamwork","- Active participation in team discussions, problem-solving 
+- Provides constructive feedback","- Mentorship, leadership, cross-functional collaboration 
+- Drives team collaboration and knowledge sharing"
+Problem-Solving & Critical Thinking,"- Can identify and fix simple bugs. 
+- Asks for help when needed
+- Accepts feedback and applies it.","- Can independently troubleshoot and solve common problems. 
+- Can research solutions online.
+- Can evaluate different approaches and choose the best one.
+- Can identify potential issues with proposed solutions.","- Can effectively analyze complex problems and develop solutions. 
+- Can identify root causes of problems.
+- Can analyze requirements and identify potential gaps or inconsistencies.
+- Can propose alternative solutions and justify them.","-Can solve complex, ambiguous problems with limited information. 
+- Can develop creative solutions.
+- Can critically evaluate complex systems and identify areas for improvement.
+- Can anticipate potential problems and develop mitigation strategies."
+Passion & Creativity,- Enthusiasm for games,- Strong interest in game development,"- Contributes creative ideas and suggestions.
+- Actively seeks opportunities to improve the game.
+- Demonstrates a passion for quality and innovation.","- Inspires and motivates others with their passion and creativity. 
+- Fosters a culture of innovation within the team."

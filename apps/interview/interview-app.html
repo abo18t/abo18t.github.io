@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phỏng vấn Junior Game Developer - Cocos Creator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🎮 Phỏng vấn Junior Game Developer</h1>
+            <p>Cocos Creator & TypeScript</p>
+        </header>
+
+        <div class="start-panel" id="startPanel">
+            <h2>🎯 Bắt đầu phỏng vấn</h2>
+            <div class="start-form">
+                <div class="form-group">
+                    <label for="candidateName">Tên ứng viên:</label>
+                    <input type="text" id="candidateName" placeholder="Nhập tên ứng viên..." required>
+                </div>
+                <div class="form-group">
+                    <label for="questionCount">Số câu hỏi:</label>
+                    <select id="questionCount">
+                        <option value="5">5 câu hỏi (nhanh)</option>
+                        <option value="10" selected>10 câu hỏi (chuẩn)</option>
+                        <option value="15">15 câu hỏi (đầy đủ)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="interviewType">Loại câu hỏi:</label>
+                    <select id="interviewType">
+                        <option value="core" selected>Core Set (câu hỏi cơ bản)</option>
+                        <option value="full">Full Set (bao gồm câu nâng cao)</option>
+                    </select>
+                </div>
+                <div class="form-actions">
+                    <button id="startNewInterview" class="btn btn-primary">Bắt đầu mới</button>
+                    <button id="resumeInterview" class="btn btn-secondary" style="display: none;">Tiếp tục phỏng vấn</button>
+                    <button id="clearSession" class="btn btn-danger" style="display: none;">🗑️ Xóa session</button>
+                </div>
+            </div>
+            <div class="session-info" id="sessionInfo" style="display: none;">
+                <h3>📋 Thông tin phiên phỏng vấn</h3>
+                <div class="session-details">
+                    <p><strong>Ứng viên:</strong> <span id="sessionCandidateName"></span></p>
+                    <p><strong>Bắt đầu:</strong> <span id="sessionStartTime"></span></p>
+                    <p><strong>Tiến độ:</strong> <span id="sessionProgress"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="interview-panel" id="interviewPanel" style="display: none;">
+            <div class="question-section">
+                <div class="question-header">
+                    <button id="backToMain" class="btn-back">🏠</button>
+                    <div class="question-tags">
+                        <span class="question-id" id="questionId">A1</span>
+                        <span class="question-group" id="questionGroup">Engine</span>
+                    </div>
+                </div>
+
+                <div class="question-content">
+                    <h2 id="questionText">Câu hỏi sẽ hiển thị ở đây...</h2>
+                    <div class="question-goal">
+                        <strong>Mục tiêu:</strong> <span id="questionGoal">Mục tiêu câu hỏi</span>
+                    </div>
+                    <div class="core-answer">
+                        <strong>Đáp án cốt lõi:</strong>
+                        <div id="coreAnswer" class="answer-content">Đáp án sẽ hiển thị ở đây...</div>
+
+                        <div class="scoring-section">
+                            <h4>📊 Đánh giá câu trả lời:</h4>
+                            <div class="scoring-options">
+                                <label class="score-option">
+                                    <input type="radio" name="score" value="0">
+                                    <span class="score-value">0 điểm</span>
+                                    <span class="score-desc">Sai / Không chạm ý chính</span>
+                                </label>
+                                <label class="score-option">
+                                    <input type="radio" name="score" value="1">
+                                    <span class="score-value">1 điểm</span>
+                                    <span class="score-desc">Đúng 1 phần nhỏ, thiếu cấu trúc</span>
+                                </label>
+                                <label class="score-option">
+                                    <input type="radio" name="score" value="2">
+                                    <span class="score-value">2 điểm</span>
+                                    <span class="score-desc">Đủ ý cốt lõi cấp Junior</span>
+                                </label>
+                                <label class="score-option">
+                                    <input type="radio" name="score" value="3">
+                                    <span class="score-value">3 điểm</span>
+                                    <span class="score-desc">Đầy đủ + best practice / cảnh báo / ví dụ</span>
+                                </label>
+                            </div>
+
+                            <div class="upgrade-tips">
+                                <strong>💡 Để đạt 3 điểm:</strong>
+                                <ul id="upgradeTips"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="results-panel" id="resultsPanel" style="display: none;">
+            <h2>📊 Kết quả phỏng vấn</h2>
+
+            <div class="score-summary">
+                <div class="total-score">
+                    <h3>Tổng điểm: <span id="totalScore">0</span>/<span id="maxScore">0</span></h3>
+                    <div class="score-bar">
+                        <div class="score-fill" id="scoreFill"></div>
+                    </div>
+                </div>
+
+                <div class="group-scores">
+                    <h4>Điểm theo nhóm:</h4>
+                    <div class="group-stats" id="groupStats"></div>
+                </div>
+            </div>
+
+            <div class="detailed-results">
+                <div class="strengths">
+                    <h3>✅ Điểm mạnh</h3>
+                    <ul id="strengthsList"></ul>
+                </div>
+
+                <div class="improvements">
+                    <h3>⚠️ Điểm cần lưu ý</h3>
+                    <ul id="improvementsList"></ul>
+                </div>
+            </div>
+
+            <div class="recommendation">
+                <h3>🎯 Đánh giá tổng thể</h3>
+                <div id="recommendation"></div>
+            </div>
+
+            <div class="actions">
+                <button id="restartInterview" class="btn btn-primary">Bắt đầu phỏng vấn mới</button>
+                <button id="exportResults" class="btn btn-success">📄 Xuất JSON</button>
+                <button id="exportPDF" class="btn btn-secondary">📋 Xuất PDF</button>
+            </div>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+            <span class="progress-text" id="progressText">0/10 câu hỏi</span>
+            <div class="progress-actions">
+                <button id="prevQuestion" class="btn btn-secondary btn-nav">⬅ Câu trước</button>
+                <button id="finishInterview" class="btn btn-success btn-finish">🏁 Kết thúc</button>
+                <button id="nextQuestion" class="btn btn-primary btn-nav">Tiếp theo ➡</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="questions.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
