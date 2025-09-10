@@ -6,7 +6,7 @@
     "pm": ["N/A", "Kai"],
     "art": ["N/A", "369"],
     "anim": ["N/A", "Nam"],
-    "fe": ["naht_725_fe", "sulong_729_fe", "abo18t_527_fe", "ramp_816_FE"]
+    "fe": ["naht_725_fe", "sulong_729_fe", "abo18t_527_fe", "ramp_816_FE", "Bumble_831_FE", "livi_728_fe"]
   },
   "defaults": {
     "cocosVersion": "3.7.3",
@@ -25,7 +25,9 @@
       "naht_725_fe": "naht-725-fe",
       "sulong_729_fe": "sulong-729",
       "abo18t_527_fe": "abo18tuoi",
-      "ramp_816_FE": "nhannht-seatudio"
+      "ramp_816_FE": "nhannht-seatudio",
+      "Bumble_831_FE": "phuongnguyen-831-fe",
+      "livi_728_fe": "Livi728FE"
     }
   }
 }
