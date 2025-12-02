@@ -1,12 +1,12 @@
 {
-  "cocosVersions": ["3.8.5", "3.7.3", "3.6.3", "2.1.3"],
+  "cocosVersions": ["3.8.5", "3.7.3", "3.6.3", "2.1.3", "2.4.15"],
   "kprojects": ["N/A", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8", "C9", "C10", "C11", "C12", "C13", "C14", "C15", "C16", "C17"],
   "roles": {
-    "gd": ["N/A", "Kyuu", "Hieu", "MinhNA"],
+    "gd": ["N/A", "Kyuu", "Hieu", "Sơn"],
     "pm": ["N/A", "Kai"],
     "art": ["N/A", "369"],
-    "anim": ["N/A", "Nam"],
-    "fe": ["naht_725_fe", "sulong_729_fe", "abo18t_527_fe", "ramp_816_FE", "Bumble_831_FE", "livi_728_fe", "Zodiac-871-FE"]
+    "anim": ["N/A", "Nam", "Sin"],
+    "fe": ["naht_725_fe", "sulong_729_fe", "abo18t_527_fe", "ramp_816_FE", "Bumble_831_FE", "livi_728_fe", "Zodiac-871-FE", "LepKep_108_FE"]
   },
   "defaults": {
     "cocosVersion": "3.7.3",
@@ -17,18 +17,19 @@
     "anim": "N/A"
   },
   "gitAccess": {
-    "prefixTokens": ["seastudiofe"],
+    "prefixTokens": ["tektale"],
     "suffixTokens": ["DONE"],
     "ownerRepo": true,
     "extraTokens": [],
     "feGitMap": {
       "naht_725_fe": "naht-725-fe",
       "sulong_729_fe": "sulong-729",
-      "abo18t_527_fe": "abo18tuoi",
+      "abo18t_527_fe": "abo18t",
       "ramp_816_FE": "nhannht-seatudio",
       "Bumble_831_FE": "Bumble-831",
       "livi_728_fe": "Livi728FE",
-      "Zodiac-871-FE": "zodiac-sea"
+      "Zodiac-871-FE": "zodiac-sea",
+      "LepKep_108_FE": "LepKepKep"
     }
   }
 }
