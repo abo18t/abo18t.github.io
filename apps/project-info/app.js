@@ -190,7 +190,8 @@ function buildDiscordText(info) {
   const gitAccess = info.gitRequestAccess.join(',');
   if (gitAccess) {
     lines.push('');
-    lines.push(`🔑  **Git Access:** \`${gitAccess}\``);
+    lines.push(`🔑  **Git Access:**`);
+    lines.push('```' + gitAccess + '```');
   }
 
   return lines.join('\n');
