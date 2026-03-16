@@ -41,6 +41,11 @@
               <span>Kproject</span>
               <select id="kproject"></select>
             </label>
+
+            <label class="field" style="grid-column: 1 / -1;">
+              <span>Scope</span>
+              <input id="scope" type="text" placeholder="e.g. Reskin game 9876, New gameplay..." />
+            </label>
           </div>
 
           <div class="links">
@@ -68,14 +73,12 @@
           <div class="links">
             <h3>Team</h3>
             <div class="grid">
-              <label class="field"><span>GD</span><select id="gd"></select></label>
+              <label class="field"><span>PU</span><select id="puSelect"></select></label>
               <label class="field"><span>PM</span><select id="pm"></select></label>
-              <label class="field"><span>Art</span><select id="art"></select></label>
-              <label class="field"><span>Anim</span><select id="anim"></select></label>
-              <label class="field">
-                <span>FE</span>
-                <div id="feContainer" class="checkbox-list"></div>
-              </label>
+              <label class="field"><span>GD</span><span id="gdDisplay" class="member-display"></span></label>
+              <label class="field"><span>Art (Static + UI)</span><span id="artDisplay" class="member-display"></span></label>
+              <label class="field"><span>Anim</span><span id="animDisplay" class="member-display"></span></label>
+              <label class="field"><span>FE</span><span id="feDisplay" class="member-display"></span></label>
             </div>
           </div>
 

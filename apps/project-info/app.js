@@ -1,15 +1,16 @@
 /* Project Info standalone script */
 
 /** @typedef {{
- *  title: string; gameId: string; cocosVersion: string; kproject: string;
+ *  title: string; gameId: string; cocosVersion: string; kproject: string; scope: string;
  *  links: { drive?: string; gdd?: string; jira?: string; wbs?: string; api?: string; git?: string };
- *  gitRequestAccess: string[]; team: { gd?: string; pm?: string; art?: string; anim?: string; fe?: string[] };
+ *  gitRequestAccess: string[]; team: { pu?: string; gd?: string; pm?: string; art?: string; anim?: string; fe?: string };
  * }} ProjectInfo */
 
 const $title = document.getElementById('title');
 const $gameId = document.getElementById('gameId');
 const $cocosVersion = document.getElementById('cocosVersion');
 const $kproject = document.getElementById('kproject');
+const $scope = document.getElementById('scope');
 const $linkDrive = document.getElementById('linkDrive');
 const $linkGdd = document.getElementById('linkGdd');
 const $linkJira = document.getElementById('linkJira');
@@ -17,11 +18,12 @@ const $linkWbs = document.getElementById('linkWbs');
 const $linkApi = document.getElementById('linkApi');
 const $linkGit = document.getElementById('linkGit');
 const $gitRequestAccess = document.getElementById('gitRequestAccess');
-const $gd = document.getElementById('gd');
+const $puSelect = document.getElementById('puSelect');
 const $pm = document.getElementById('pm');
-const $art = document.getElementById('art');
-const $anim = document.getElementById('anim');
-const $feContainer = document.getElementById('feContainer');
+const $gdDisplay = document.getElementById('gdDisplay');
+const $artDisplay = document.getElementById('artDisplay');
+const $animDisplay = document.getElementById('animDisplay');
+const $feDisplay = document.getElementById('feDisplay');
 const $output = document.getElementById('output');
 const $preview = document.getElementById('previewInfo');
 const $btnCopy = document.getElementById('btnCopy');
@@ -31,51 +33,180 @@ const $btnLoad = document.getElementById('btnLoad');
 const $fileLoader = document.getElementById('fileLoader');
 const $toast = document.getElementById('toast');
 
+/** Parsed CSV data */
+let puData = {};
+
+/* ─── CSV Parsing ─── */
+
+function parseCSV(text) {
+  const lines = text.trim().replace(/\r/g, '').split('\n');
+  if (lines.length < 2) return {};
+
+  const result = {};
+  let currentPU = null;
+
+  for (let i = 1; i < lines.length; i++) {
+    const cols = lines[i].split(',');
+    const pu = cols[0]?.trim();
+    const id = cols[1]?.trim();
+    const member = cols[2]?.trim();
+    const nickname = cols[3]?.trim();
+    const team = cols[4]?.trim();
+    const level = cols[5]?.trim();
+
+    if (pu && pu !== '') currentPU = pu;
+    if (!currentPU || !team) continue;
+    if (currentPU === 'HoS') continue;
+
+    if (!result[currentPU]) result[currentPU] = {};
+    if (!result[currentPU][team]) result[currentPU][team] = [];
+
+    const displayName = nickname || member;
+    result[currentPU][team].push({ name: member, nickname, displayName, id, level });
+  }
+
+  return result;
+}
+
+function loadCSVResource(csvPath) {
+  return fetch(csvPath, { cache: 'no-store' })
+    .then((r) => r.text())
+    .then((text) => {
+      puData = parseCSV(text);
+      return puData;
+    });
+}
+
+/* ─── PU-based population ─── */
+
+function populatePUSelect() {
+  $puSelect.innerHTML = '';
+  const puNames = Object.keys(puData);
+  puNames.forEach((pu) => {
+    const opt = document.createElement('option');
+    opt.value = pu;
+    opt.textContent = pu;
+    $puSelect.appendChild(opt);
+  });
+  if (puNames.length > 0) {
+    $puSelect.value = puNames[0];
+    onPUChange();
+  }
+}
+
+function formatMemberDisplay(members) {
+  if (!members || members.length === 0) return '—';
+  return members.map((m) => `${m.displayName} (${m.level})`).join(', ');
+}
+
+function onPUChange() {
+  const pu = $puSelect.value;
+  const data = puData[pu] || {};
+
+  $gdDisplay.textContent = formatMemberDisplay(data['GD']);
+  $artDisplay.textContent = formatMemberDisplay([...(data['Static'] || []), ...(data['UI'] || [])]);
+  $animDisplay.textContent = formatMemberDisplay(data['Anim']);
+  $feDisplay.textContent = formatMemberDisplay(data['FE']);
+
+  autoGenerateGitAccess();
+  render();
+}
+
+function getMembersText(members) {
+  if (!members || members.length === 0) return '';
+  return members.map((m) => m.displayName).join(', ');
+}
+
+function getPUTeamForOutput() {
+  const pu = $puSelect.value;
+  const data = puData[pu] || {};
+  return {
+    pu,
+    gd: getMembersText(data['GD']),
+    art: getMembersText([...(data['Static'] || []), ...(data['UI'] || [])]),
+    anim: getMembersText(data['Anim']),
+    fe: getMembersText(data['FE']),
+  };
+}
+
+/** Get all FE member IDs for the selected PU */
+function getFEMemberIds() {
+  const pu = $puSelect.value;
+  const data = puData[pu] || {};
+  return (data['FE'] || []).map((m) => m.id);
+}
+
+/* ─── Discord text ─── */
+
 function buildDiscordText(info) {
   const isNA = (v) => !v || String(v).trim().toUpperCase() === 'N/A';
-
-  // Links, skip N/A
-  const linkChunks = [];
-  if (!isNA(info.links.drive)) linkChunks.push(`[Drive](${info.links.drive})`);
-  if (!isNA(info.links.gdd)) linkChunks.push(`[GDD](${info.links.gdd})`);
-  if (!isNA(info.links.jira)) linkChunks.push(`[Jira](${info.links.jira})`);
-  if (!isNA(info.links.wbs)) linkChunks.push(`[WBS](${info.links.wbs})`);
-  if (!isNA(info.links.api)) linkChunks.push(`[API](${info.links.api})`);
-  if (!isNA(info.links.git)) linkChunks.push(`[Git](${info.links.git})`);
-
-  // Version/Kproject line (compose only non-NA)
-  const versionRowParts = [];
-  if (!isNA(info.cocosVersion)) versionRowParts.push(`Cocos Version: ${info.cocosVersion}`);
-  if (!isNA(info.kproject)) versionRowParts.push(`Kproject: ${info.kproject}`);
-
-  // Team line
-  const teamParts = [];
-  if (!isNA(info.team.gd)) teamParts.push(`GD: ${info.team.gd}`);
-  if (!isNA(info.team.pm)) teamParts.push(`PM: ${info.team.pm}`);
-  if (!isNA(info.team.art)) teamParts.push(`Art: ${info.team.art}`);
-  if (!isNA(info.team.anim)) teamParts.push(`Anim: ${info.team.anim}`);
-  const feList = info.team.fe && info.team.fe.length > 0 ? info.team.fe.map((n) => `@${n.trim()}`).join(' , ') : '';
-  if (feList) teamParts.push(`FE:  ${feList}`);
+  const isEmpty = (v) => !v || String(v).trim() === '';
+  const SEP = '━━━━━━━━━━━━━━━━━━━━━━━━━━━━';
 
   const lines = [];
-  lines.push(`=== **${info.title}** ===`);
-  lines.push(`- Game ID: **${info.gameId}**`);
-  if (versionRowParts.length > 0) lines.push(`- ${versionRowParts.join('  |  ')}`);
-  if (linkChunks.length > 0) lines.push(`- Link: ${linkChunks.join(' | ')}`);
+
+  // Header
+  lines.push(SEP);
+  lines.push(`🎰  **${info.gameId}** - **${info.title}**`);
+  lines.push(SEP);
+
+  // Info block
+  const infoParts = [];
+  if (!isNA(info.cocosVersion)) infoParts.push(`**Cocos:** ${info.cocosVersion}`);
+  if (!isNA(info.kproject)) infoParts.push(`**Kproject:** ${info.kproject}`);
+  if (infoParts.length > 0) lines.push(`📋  ${infoParts.join('  ·  ')}`);
+
+  // Scope
+  if (!isEmpty(info.scope)) {
+    lines.push(`🎯  **Scope:** ${info.scope}`);
+  }
+
+  // Links
+  const linkChunks = [];
+  if (!isEmpty(info.links.drive)) linkChunks.push(`[Drive](${info.links.drive})`);
+  if (!isEmpty(info.links.gdd)) linkChunks.push(`[GDD](${info.links.gdd})`);
+  if (!isEmpty(info.links.jira)) linkChunks.push(`[Jira](${info.links.jira})`);
+  if (!isEmpty(info.links.wbs)) linkChunks.push(`[WBS](${info.links.wbs})`);
+  if (!isEmpty(info.links.api)) linkChunks.push(`[API](${info.links.api})`);
+  if (!isEmpty(info.links.git)) linkChunks.push(`[Git](${info.links.git})`);
+  if (linkChunks.length > 0) {
+    lines.push(`🔗  ${linkChunks.join(' · ')}`);
+  }
+
+  // Team
+  lines.push('');
+  if (!isNA(info.team.pu)) lines.push(`👥  **Team — ${info.team.pu}**`);
+
+  const roleLine = (emoji, label, value) => {
+    if (!isEmpty(value)) lines.push(`${emoji}  ${label}: ${value}`);
+  };
+  if (!isNA(info.team.pm)) roleLine('┣', '**PM**', info.team.pm);
+  roleLine('┣', '**GD**', info.team.gd);
+  roleLine('┣', '**Art**', info.team.art);
+  roleLine('┣', '**Anim**', info.team.anim);
+  roleLine('┗', '**FE**', info.team.fe);
+
+  // Git Access
   const gitAccess = info.gitRequestAccess.join(',');
-  lines.push(`- Git request access: ${gitAccess}${gitAccess ? '' : ''}`);
-  if (teamParts.length > 0) lines.push(`- ${teamParts.join('   |   ')}`);
+  if (gitAccess) {
+    lines.push('');
+    lines.push(`🔑  **Git Access:** \`${gitAccess}\``);
+  }
 
   return lines.join('\n');
 }
 
+/* ─── Collect & Render ─── */
+
 function collectInfo() {
+  const puTeam = getPUTeamForOutput();
   /** @type {ProjectInfo} */
   const info = {
     title: $title.value.trim() || 'Khai Bút Tuân Xuân',
     gameId: $gameId.value.trim() || '0000',
     cocosVersion: $cocosVersion.value || '3.7.3',
     kproject: $kproject.value || 'N/A',
+    scope: $scope.value.trim(),
     links: {
       drive: $linkDrive.value.trim(),
       gdd: $linkGdd.value.trim(),
@@ -86,11 +217,12 @@ function collectInfo() {
     },
     gitRequestAccess: computeGitAccessFromInputs(),
     team: {
-      gd: $gd.value,
+      pu: puTeam.pu,
+      gd: puTeam.gd,
       pm: $pm.value,
-      art: $art.value,
-      anim: $anim.value,
-      fe: getSelectedFENames(),
+      art: puTeam.art,
+      anim: puTeam.anim,
+      fe: puTeam.fe,
     },
   };
   return info;
@@ -118,13 +250,17 @@ function loadSample() {
       $gameId.value = sample.gameId;
       $cocosVersion.value = sample.cocosVersion;
       $kproject.value = sample.kproject;
+      $scope.value = sample.scope || '';
       $linkDrive.value = sample.links.drive;
       $linkGdd.value = sample.links.gdd;
       $linkJira.value = sample.links.jira;
       $linkWbs.value = sample.links.wbs;
       $linkApi.value = sample.links.api;
       $linkGit.value = sample.links.git;
-      setCheckedFE(sample.team.fe);
+      if (sample.team?.pu && puData[sample.team.pu]) {
+        $puSelect.value = sample.team.pu;
+        onPUChange();
+      }
       autoGenerateGitAccess();
       render();
     })
@@ -138,52 +274,35 @@ function loadConfigAndPopulate() {
       window.__CFG__ = cfg;
       populateSelect($cocosVersion, cfg.cocosVersions, cfg.defaults?.cocosVersion);
       populateSelect($kproject, cfg.kprojects, cfg.defaults?.kproject);
-      populateSelect($gd, cfg.roles?.gd, cfg.defaults?.gd);
       populateSelect($pm, cfg.roles?.pm, cfg.defaults?.pm);
-      populateSelect($art, cfg.roles?.art, cfg.defaults?.art);
-      populateSelect($anim, cfg.roles?.anim, cfg.defaults?.anim);
-      populateFECheckboxes(cfg.roles?.fe || []);
-      render();
+
+      const csvPath = cfg.resourceCSV || '../../assets/Slot Planning - Ressource.csv';
+      loadCSVResource(csvPath).then(() => {
+        populatePUSelect();
+        render();
+      });
     })
     .catch(() => { render(); });
 }
 
-function populateSelect(selectEl, items = [], defaultValue, isMulti = false) {
+function populateSelect(selectEl, items = [], defaultValue) {
   selectEl.innerHTML = '';
   items.forEach((val) => {
     const opt = document.createElement('option');
     opt.value = val; opt.textContent = val; selectEl.appendChild(opt);
   });
-  if (!isMulti && defaultValue) selectEl.value = defaultValue;
-}
-
-function populateFECheckboxes(feNames) {
-  $feContainer.innerHTML = '';
-  feNames.forEach((name, idx) => {
-    const id = `fe_${idx}`;
-    const wrapper = document.createElement('div');
-    wrapper.className = 'checkbox-item';
-    const cb = document.createElement('input'); cb.type = 'checkbox'; cb.id = id; cb.value = name;
-    const label = document.createElement('label'); label.setAttribute('for', id); label.textContent = name;
-    wrapper.appendChild(cb); wrapper.appendChild(label); $feContainer.appendChild(wrapper);
-    cb.addEventListener('change', () => { autoGenerateGitAccess(); render(); });
-  });
-}
-
-function getSelectedFENames() {
-  return Array.from($feContainer.querySelectorAll('input[type="checkbox"]:checked')).map(el => el.value);
-}
-
-function setCheckedFE(list) {
-  const set = new Set(list);
-  $feContainer.querySelectorAll('input[type="checkbox"]').forEach((el) => { el.checked = set.has(el.value); });
+  if (defaultValue) selectEl.value = defaultValue;
 }
 
 function computeGitAccessFromInputs() {
   const cfg = window.__CFG__ || {};
   const feGitMap = (cfg.gitAccess && cfg.gitAccess.feGitMap) || {};
-  const feListRaw = getSelectedFENames();
-  const feTokens = feListRaw.map((name) => feGitMap[name.trim()] || name.trim());
+  const alwaysIds = cfg.gitAccess?.alwaysIncludeIds || [];
+
+  const feIds = getFEMemberIds();
+  const allIds = Array.from(new Set([...alwaysIds, ...feIds]));
+  const feTokens = allIds.map((id) => feGitMap[id] || id);
+
   const gitUrl = $linkGit.value.trim();
   const ownerRepo = parseOwnerRepo(gitUrl);
   const tokens = [];
@@ -219,6 +338,7 @@ function markdownToHtml(md) {
   let html = esc(md);
   html = html.replace(/\*\*(.*?)\*\*/g, '<strong>$1<\/strong>');
   html = html.replace(/\[(.*?)\]\((.*?)\)/g, '<a href="$2" target="_blank" rel="noopener noreferrer">$1<\/a>');
+  html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
   html = html.replace(/\n/g, '<br/>');
   return html;
 }
@@ -240,22 +360,30 @@ function onChooseJsonFile(e) {
 function applyInfoToForm(info) {
   $title.value = info.title || ''; $gameId.value = info.gameId || '';
   if (info.cocosVersion) $cocosVersion.value = info.cocosVersion; if (info.kproject) $kproject.value = info.kproject;
+  $scope.value = info.scope || '';
   if (info.links) { $linkDrive.value = info.links.drive || ''; $linkGdd.value = info.links.gdd || ''; $linkJira.value = info.links.jira || ''; $linkWbs.value = info.links.wbs || ''; $linkApi.value = info.links.api || ''; $linkGit.value = info.links.git || ''; }
-  if (info.team) { if (info.team.gd) $gd.value = info.team.gd; if (info.team.pm) $pm.value = info.team.pm; if (info.team.art) $art.value = info.team.art; if (info.team.anim) $anim.value = info.team.anim; if (Array.isArray(info.team.fe)) setCheckedFE(info.team.fe); }
+  if (info.team) {
+    if (info.team.pu && puData[info.team.pu]) {
+      $puSelect.value = info.team.pu;
+      onPUChange();
+    }
+    if (info.team.pm) $pm.value = info.team.pm;
+  }
 }
 
 function validateLoadedSchema(obj) {
   if (typeof obj !== 'object' || obj === null) return false;
   if (typeof obj.title !== 'string') return false; if (typeof obj.gameId !== 'string') return false;
   if (typeof obj.cocosVersion !== 'string') return false; if (typeof obj.kproject !== 'string') return false;
-  if (typeof obj.links !== 'object' || obj.links === null) return false; if (typeof obj.links.git !== 'string') return false;
-  if (typeof obj.team !== 'object' || obj.team === null) return false; if (typeof obj.team.gd !== 'string') return false;
-  if (typeof obj.team.pm !== 'string') return false; if (typeof obj.team.art !== 'string') return false; if (typeof obj.team.anim !== 'string') return false; if (!Array.isArray(obj.team.fe)) return false; return true;
+  if (typeof obj.links !== 'object' || obj.links === null) return false;
+  if (typeof obj.team !== 'object' || obj.team === null) return false;
+  return true;
 }
 
 // Wire events
-[$title, $gameId, $cocosVersion, $kproject, $linkDrive, $linkGdd, $linkJira, $linkWbs, $linkApi, $linkGit, $gd, $pm, $art, $anim]
+[$title, $gameId, $cocosVersion, $kproject, $scope, $linkDrive, $linkGdd, $linkJira, $linkWbs, $linkApi, $linkGit, $pm]
   .forEach((el) => el && el.addEventListener('input', () => { autoGenerateGitAccess(); render(); }));
+$puSelect.addEventListener('change', onPUChange);
 $btnCopy.addEventListener('click', copyToClipboard);
 $btnSample.addEventListener('click', loadSample);
 $btnSave.addEventListener('click', saveJsonToFileAndClipboard);
@@ -265,5 +393,3 @@ $fileLoader.addEventListener('change', onChooseJsonFile);
 // Init
 loadConfigAndPopulate();
 render();
-
-

@@ -127,6 +127,18 @@ select[multiple] {
 .checkbox-item input[type="checkbox"] { width: 16px; height: 16px; }
 .checkbox-item label { font-size: 13px; color: var(--text); cursor: pointer; }
 
+.member-display {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #0b1220;
+  font-size: 13px;
+  color: var(--text);
+  min-height: 38px;
+  line-height: 1.4;
+}
+
 /* Buttons and links */
 .button-link, .btn {
   display: inline-block;
