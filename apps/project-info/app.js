@@ -317,6 +317,14 @@ function computeGitAccessFromInputs() {
 
 function autoGenerateGitAccess() { const list = computeGitAccessFromInputs(); $gitRequestAccess.value = list.join(','); }
 
+function copyGitAccess() {
+  const v = $gitRequestAccess.value;
+  if (!v) return;
+  navigator.clipboard.writeText(v)
+    .then(() => showToast('Git access copied!', 'success'))
+    .catch(() => showToast('Copy failed', 'error'));
+}
+
 function parseOwnerRepo(url) {
   try {
     const u = new URL(url);
@@ -384,6 +392,8 @@ function validateLoadedSchema(obj) {
 [$title, $gameId, $cocosVersion, $kproject, $scope, $linkDrive, $linkGdd, $linkJira, $linkWbs, $linkApi, $linkGit, $pm]
   .forEach((el) => el && el.addEventListener('input', () => { autoGenerateGitAccess(); render(); }));
 $puSelect.addEventListener('change', onPUChange);
+$gitRequestAccess.addEventListener('click', copyGitAccess);
+$gitRequestAccess.style.cursor = 'pointer';
 $btnCopy.addEventListener('click', copyToClipboard);
 $btnSample.addEventListener('click', loadSample);
 $btnSave.addEventListener('click', saveJsonToFileAndClipboard);
