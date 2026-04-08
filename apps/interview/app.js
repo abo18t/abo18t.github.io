@@ -90,9 +90,8 @@ class InterviewApp {
 
     startInterview() {
         // Generate random questions using new structure
-        const useCoreSet = this.interviewType === 'core';
-        this.questions = QuestionsData.getRandomQuestions(this.questionCount, useCoreSet);
-        this.scores = new Array(this.questionCount).fill(0);
+        this.questions = QuestionsData.getRandomQuestions(this.questionCount, this.interviewType);
+        this.scores = new Array(this.questions.length).fill(0);
         this.currentQuestionIndex = 0;
         this.isInterviewActive = true;
 

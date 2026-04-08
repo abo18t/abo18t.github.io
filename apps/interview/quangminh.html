@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview Plan - Quang Minh</title>
+    <!-- Modern Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Marked.js for parsing Markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        :root {
+            --bg-dark: #0f172a;
+            --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --glass-bg: rgba(30, 41, 59, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --text-primary: #f8fafc;
+            --text-secondary: #cbd5e1;
+            --text-muted: #94a3b8;
+            --accent-glow: #3b82f6;
+            --accent-text: #60a5fa;
+            --accent-gradient: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-gradient);
+            color: var(--text-primary);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Glassmorphism Container */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 40px 50px;
+            max-width: 850px;
+            width: 100%;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .glass-panel:hover {
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.05);
+        }
+
+        /* Loading Spinner */
+        .loader-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 200px;
+        }
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 4px solid var(--glass-border);
+            border-top: 4px solid var(--accent-text);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Markdown Styles */
+        .content { display: none; animation: fadeIn 0.8s ease-out; line-height: 1.7; }
+        .content.loaded { display: block; }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            text-align: center;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 40px;
+            letter-spacing: -0.5px;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            color: #fff;
+            margin-top: 40px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid var(--glass-border);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+            color: var(--accent-text);
+            margin-top: 25px;
+        }
+
+        p { color: var(--text-secondary); margin-bottom: 16px; }
+        
+        ul { padding-left: 20px; color: var(--text-secondary); }
+        li { margin-bottom: 12px; }
+        li::marker { color: var(--accent-text); }
+
+        strong { color: #f8fafc; font-weight: 600; }
+        em { color: var(--text-muted); font-style: italic; }
+
+        hr {
+            border: none;
+            border-top: 1px dashed var(--glass-border);
+            margin: 40px 0;
+        }
+
+        /* Micro-animations */
+        li {
+            transition: transform 0.2s ease, color 0.2s ease;
+        }
+        li:hover {
+            transform: translateX(4px);
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            .glass-panel { padding: 30px 20px; }
+            h1 { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="glass-panel">
+        <div id="loader" class="loader-container">
+            <div class="spinner"></div>
+        </div>
+        <div id="md-content" class="content"></div>
+    </div>
+
+    <script>
+        // Optional: configure marked options
+        marked.use({
+            gfm: true,
+            breaks: true
+        });
+
+        // Tải nội dung từ file markdown cùng thư mục con 'data'
+        fetch('data/interview_plan_quang_minh.md')
+            .then(response => {
+                if (!response.ok) throw new Error('Không tìm thấy file hoặc lỗi kết nối.');
+                return response.text();
+            })
+            .then(text => {
+                const loader = document.getElementById('loader');
+                const content = document.getElementById('md-content');
+                
+                loader.style.display = 'none';
+                content.innerHTML = marked.parse(text);
+                content.classList.add('loaded'); // Kích hoạt animation
+            })
+            .catch(error => {
+                const loader = document.getElementById('loader');
+                const content = document.getElementById('md-content');
+                
+                loader.style.display = 'none';
+                content.innerHTML = `<h2 style="text-align: center; border:none; color: #ef4444;">Oops! Lỗi Tải Dữ Liệu</h2>
+                                     <p style="text-align: center;">${error.message}</p>`;
+                content.classList.add('loaded');
+            });
+    </script>
+</body>
+</html>
