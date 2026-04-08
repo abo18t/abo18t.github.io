@@ -25,6 +25,16 @@ class InterviewApp {
             // Check for existing session
             this.checkExistingSession();
 
+            // Handle auto-config via URL parameter
+            const urlParams = new URLSearchParams(window.location.search);
+            const candidate = urlParams.get('candidate');
+            if (candidate === 'quangminh') {
+                const nameInput = document.getElementById('candidateName');
+                const typeSelect = document.getElementById('interviewType');
+                if (nameInput) nameInput.value = 'Đặng Vũ Quang Minh';
+                if (typeSelect) typeSelect.value = 'quangminh';
+            }
+
         } catch (error) {
             console.error('Lỗi khởi tạo ứng dụng:', error);
             this.showError('Không thể khởi tạo ứng dụng phỏng vấn');
