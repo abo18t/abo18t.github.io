@@ -91,6 +91,29 @@ function getQuestionsByGroup(groupName) {
     return questions.filter(q => q.group === groupName);
 }
 
+const QUESTION_GROUP_ORDER = [
+    'Engine',
+    'Programming',
+    'Performance',
+    'AI Dev Workflow',
+    'Soft'
+];
+
+function sortQuestionsByGroup(questions) {
+    return [...questions].sort((a, b) => {
+        const groupA = QUESTION_GROUP_ORDER.indexOf(a.group);
+        const groupB = QUESTION_GROUP_ORDER.indexOf(b.group);
+        const orderA = groupA === -1 ? QUESTION_GROUP_ORDER.length : groupA;
+        const orderB = groupB === -1 ? QUESTION_GROUP_ORDER.length : groupB;
+
+        if (orderA !== orderB) {
+            return orderA - orderB;
+        }
+
+        return a.id.localeCompare(b.id, 'vi', { numeric: true });
+    });
+}
+
 // Get random questions with difficulty distribution
 function getRandomQuestions(count = 10, interviewType = 'core') {
     const meta = getMetaData();
@@ -120,7 +143,7 @@ function getRandomQuestions(count = 10, interviewType = 'core') {
         selectedQuestions.push(questionsToPick[i]);
     }
 
-    return selectedQuestions;
+    return sortQuestionsByGroup(selectedQuestions);
 }
 
 // Legacy function for backward compatibility
