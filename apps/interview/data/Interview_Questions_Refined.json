@@ -3,11 +3,12 @@
     "title": "Bộ Câu Hỏi Phỏng Vấn Junior Game Dev (Cocos Creator) - Refined",
     "version": "2.0",
     "date": "2025-09-09",
-    "source": "Merged & enriched from original Question.json + new JS/TS/Memory/Browser/Spine items",
+    "source": "Merged & enriched from original Question.json + new JS/TS/Memory/Browser/Spine/AI Dev Workflow items",
     "notes": [
       "Đã loại các câu domain-specific: A12, B12, C12",
       "Mọi câu có 'modelAnswer' chi tiết hơn; có thêm followUps/redFlags ở nhiều câu",
-      "Chia bộ Core/Bonus để chọn nhanh theo thời lượng"
+      "Chia bộ Core/Bonus để chọn nhanh theo thời lượng",
+      "Thêm nhóm câu hỏi AI Dev Workflow: tool, model, prompt, context, review và bảo mật khi dùng AI trong development"
     ],
     "sets": {
       "core": [
@@ -39,7 +40,11 @@
         "S4",
         "MEM2",
         "MEM3",
-        "JS5"
+        "JS5",
+        "AI1",
+        "AI2",
+        "AI3",
+        "AI4"
       ],
       "bonus": [
         "C5",
@@ -50,7 +55,9 @@
         "C10",
         "C11",
         "B9",
-        "B10"
+        "B10",
+        "AI5",
+        "AI6"
       ]
     },
     "scoring": {
@@ -981,6 +988,180 @@
         "spine",
         "optimization"
       ]
+    },
+    {
+      "id": "AI1",
+      "package": "AI",
+      "group": "AI Dev Workflow",
+      "question": "Bạn thường dùng những AI tools nào trong quá trình dev và dùng cho bước nào: phân tích yêu cầu, viết code, debug, review hay viết test?",
+      "goal": "Đánh giá khả năng dùng AI có mục đích, biết chọn tool theo task thay vì dùng chung chung.",
+      "coreAnswer": "Ứng viên nên nêu được 2-3 tool cụ thể như ChatGPT/Claude/Gemini/Copilot/Cursor/Amp và phân biệt use case: hỏi kiến trúc, sinh boilerplate, giải thích lỗi, gợi ý test, review diff. Tool chỉ hỗ trợ, dev vẫn phải đọc hiểu và kiểm chứng.",
+      "acceptableVariants": [
+        "Copilot/Cursor cho autocomplete và chỉnh sửa cục bộ",
+        "ChatGPT/Claude/Gemini cho phân tích, debug, review, viết test",
+        "DevTools/log/test runner vẫn là nguồn xác thực cuối cùng"
+      ],
+      "upgradeFor3Points": [
+        "Nêu workflow rõ ràng từ yêu cầu → prompt → diff → test",
+        "Biết giới hạn AI: hallucination, context thiếu, code sai version API",
+        "Có thói quen yêu cầu AI giải thích trade-off và rủi ro"
+      ],
+      "commonMistakes": [
+        "Chỉ nói “dùng ChatGPT để code” nhưng không có quy trình kiểm chứng",
+        "Copy-paste code AI mà không hiểu hoặc không chạy test"
+      ],
+      "rubric": {
+        "0": "Không dùng hoặc dùng mơ hồ, không nêu được ví dụ",
+        "1": "Nêu tên tool nhưng chưa phân biệt mục đích",
+        "2": "Có workflow cơ bản và biết verify output",
+        "3": "Có quy trình rõ, biết rủi ro, kết hợp test/review/tooling"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Dùng AI theo từng bước: Copilot/Cursor/Amp cho autocomplete và chỉnh sửa code; ChatGPT/Claude/Gemini cho phân tích yêu cầu, debug, review diff, viết test. AI là trợ lý, kết quả phải được dev đọc hiểu, chạy test và so với docs/log thực tế.\n- **Chi tiết triển khai/biến thể chấp nhận:** Nêu 2-3 tool cụ thể; Phân biệt coding assistant với chat model; Có bước verify bằng test, build, console/log, docs chính thức\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Mô tả workflow yêu cầu → prompt → diff → test; Yêu cầu AI đưa trade-off/rủi ro; Biết khi nào không nên dùng AI cho phần nhạy cảm hoặc thiếu context\n- **Lỗi thường gặp cần tránh:** Copy-paste code AI không hiểu; Tin output khi chưa chạy; Dùng một prompt chung cho mọi việc\n- **Tiêu chí chấm mức 3:** Có quy trình cụ thể + kiểm chứng + hiểu giới hạn AI"
+    },
+    {
+      "id": "AI2",
+      "package": "AI",
+      "group": "AI Dev Workflow",
+      "question": "Khi chọn model AI cho task dev, bạn cân nhắc gì giữa model nhanh, model reasoning mạnh và model code-completion trong IDE?",
+      "goal": "Kiểm tra khả năng chọn model phù hợp chi phí/thời gian/độ phức tạp thay vì mặc định dùng model mạnh nhất.",
+      "coreAnswer": "Task nhỏ như rename, autocomplete, snippet dùng model nhanh hoặc completion trong IDE. Debug khó, kiến trúc, review security/performance dùng model reasoning mạnh hơn. Cần cân bằng tốc độ, chi phí, context window, khả năng đọc file/diff và độ tin cậy.",
+      "acceptableVariants": [
+        "Model nhanh cho hỏi đáp ngắn/sinh boilerplate",
+        "Reasoning model cho bug phức tạp, design, code review",
+        "IDE completion cho viết code lặp trong context file hiện tại"
+      ],
+      "upgradeFor3Points": [
+        "Nhắc context window và dữ liệu đầu vào quyết định chất lượng",
+        "Chọn model nhỏ trước, escalate khi task có rủi ro cao",
+        "So sánh latency/chi phí với độ chính xác cần thiết"
+      ],
+      "commonMistakes": [
+        "Luôn dùng model mạnh nhất dù task đơn giản",
+        "Không biết model thiếu context repo sẽ dễ trả lời sai"
+      ],
+      "rubric": {
+        "0": "Không phân biệt được loại model/tool",
+        "1": "Chỉ nói model mạnh/yếu chung chung",
+        "2": "Biết chọn theo task và trade-off cơ bản",
+        "3": "Nêu được latency/chi phí/context/rủi ro và chiến lược escalate"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Model nhanh phù hợp hỏi đáp ngắn, boilerplate, rename, transform đơn giản. Model reasoning mạnh phù hợp debug khó, design, review rủi ro, phân tích nhiều file. Code-completion trong IDE phù hợp hoàn thiện dòng/hàm theo context cục bộ. Chọn theo độ khó, rủi ro, context, latency và chi phí.\n- **Chi tiết triển khai/biến thể chấp nhận:** Nêu model nhanh vs reasoning vs completion; Dùng model mạnh cho bug/architecture/review; Dùng model nhẹ cho tác vụ lặp\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Escalate khi task thất bại hoặc rủi ro cao; Cân nhắc context window và khả năng đọc diff/file; Ghi rõ tiêu chí chấp nhận để model tự kiểm\n- **Lỗi thường gặp cần tránh:** Dùng model mạnh nhất cho mọi thứ; Hỏi model khi chưa cung cấp log/diff; Bỏ qua chi phí/latency\n- **Tiêu chí chấm mức 3:** Chọn model theo task + trade-off + chiến lược escalate"
+    },
+    {
+      "id": "AI3",
+      "package": "AI",
+      "group": "AI Dev Workflow",
+      "question": "Viết một prompt tốt để nhờ AI hỗ trợ sửa bug “button click bị gọi 2 lần sau khi mở/đóng popup nhiều lần” trong Cocos Creator. Prompt cần có những phần nào?",
+      "goal": "Đánh giá kỹ năng prompt engineering thực dụng: cung cấp context, repro, expected/actual, code liên quan và yêu cầu output cụ thể.",
+      "coreAnswer": "Prompt tốt gồm bối cảnh engine/version, mô tả bug, bước tái hiện, expected vs actual, đoạn code đăng ký/hủy listener, log nếu có, giới hạn phạm vi sửa, yêu cầu phân tích root cause và đề xuất test/verification. Với bug này cần nghi ngờ listener đăng ký nhiều lần, cleanup onDisable/onDestroy thiếu.",
+      "acceptableVariants": [
+        "Có repro steps và expected/actual behavior",
+        "Đưa code liên quan onEnable/onDisable/onDestroy",
+        "Yêu cầu AI giải thích root cause trước khi sửa"
+      ],
+      "upgradeFor3Points": [
+        "Yêu cầu phương án verify cụ thể",
+        "Yêu cầu chỉ sửa phạm vi nhỏ nhất",
+        "Nhắc không đoán API nếu thiếu version Cocos"
+      ],
+      "commonMistakes": [
+        "Prompt quá ngắn: “fix bug click double”",
+        "Không cung cấp code đăng ký event hoặc lifecycle"
+      ],
+      "rubric": {
+        "0": "Không nêu được cấu trúc prompt",
+        "1": "Có mô tả bug nhưng thiếu context/repro/code",
+        "2": "Có context, repro, expected/actual và code liên quan",
+        "3": "Có thêm constraint, root cause, verification và giới hạn phạm vi"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Prompt nên có: version Cocos/TypeScript, mô tả bug, bước tái hiện, expected vs actual, code onEnable/onDisable/onDestroy, log, giả thuyết ban đầu, constraint “sửa nhỏ nhất”, và yêu cầu output gồm root cause + patch + cách verify. Bug button gọi 2 lần thường do listener bị đăng ký lặp và không unsubscribe đúng lifecycle.\n- **Chi tiết triển khai/biến thể chấp nhận:** Có repro; Có code liên quan; Yêu cầu phân tích trước khi sửa; Nêu expected/actual rõ\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Yêu cầu test/verification; Chỉ định không refactor ngoài phạm vi; Nhắc kiểm tra API theo version Cocos\n- **Lỗi thường gặp cần tránh:** Prompt một dòng chung chung; Không đưa code; Chỉ yêu cầu code mà không yêu cầu root cause\n- **Tiêu chí chấm mức 3:** Prompt đủ context + constraint + output shape + verification"
+    },
+    {
+      "id": "AI4",
+      "package": "AI",
+      "group": "AI Dev Workflow",
+      "question": "Sau khi AI sinh code hoặc đề xuất patch, bạn review và kiểm chứng như thế nào trước khi merge?",
+      "goal": "Đánh giá trách nhiệm kỹ thuật khi dùng AI: không phụ thuộc mù quáng, biết review diff và chạy verification.",
+      "coreAnswer": "Đọc diff từng dòng, kiểm tra intent có đúng không, so với pattern repo, chạy test/build/lint phù hợp, thử manual case chính, kiểm tra edge case và lỗi bảo mật/performance. Nếu AI thêm abstraction dư hoặc code không hiểu thì yêu cầu giải thích hoặc viết lại đơn giản hơn.",
+      "acceptableVariants": [
+        "Review diff theo intent",
+        "Chạy test/build/lint hoặc manual smoke test",
+        "Kiểm tra API/version và edge cases"
+      ],
+      "upgradeFor3Points": [
+        "Dùng AI lần hai như reviewer độc lập nhưng vẫn tự quyết",
+        "Yêu cầu test regression cho bug đã sửa",
+        "Kiểm tra scope creep và xóa code thừa"
+      ],
+      "commonMistakes": [
+        "Merge vì code “trông đúng”",
+        "Không chạy app/test hoặc không đọc diff"
+      ],
+      "rubric": {
+        "0": "Tin AI và merge không kiểm",
+        "1": "Chỉ chạy thử sơ sài",
+        "2": "Review diff và chạy verification cơ bản",
+        "3": "Có checklist intent/test/security/performance/scope và regression test"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Review diff theo intent, đọc từng thay đổi, so với pattern repo, chạy test/build/lint phù hợp, smoke test luồng chính, kiểm tra edge cases. Với code AI, đặc biệt kiểm API sai version, abstraction dư, xử lý lỗi thiếu, bảo mật/performance và scope creep.\n- **Chi tiết triển khai/biến thể chấp nhận:** Đọc diff; Chạy verification; Kiểm tra edge case; Không merge code chưa hiểu\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Thêm regression test cho bug; Dùng AI như reviewer thứ hai; Yêu cầu giải thích trade-off; Xóa code dư do AI sinh\n- **Lỗi thường gặp cần tránh:** Chỉ nhìn output cuối; Không chạy test; Merge patch vượt phạm vi yêu cầu\n- **Tiêu chí chấm mức 3:** Review có checklist + verification + kiểm scope/rủi ro"
+    },
+    {
+      "id": "AI5",
+      "package": "AI",
+      "group": "AI Dev Workflow",
+      "question": "Khi đưa code hoặc tài liệu dự án vào AI, bạn xử lý vấn đề bảo mật và dữ liệu nhạy cảm như thế nào?",
+      "goal": "Kiểm tra nhận thức về secret, dữ liệu khách hàng, source private và chính sách công ty khi dùng AI.",
+      "coreAnswer": "Không gửi secret/token/key, thông tin khách hàng, dữ liệu production hoặc code private nếu policy không cho phép. Redact dữ liệu nhạy cảm, gửi snippet tối thiểu, ưu tiên tool/model được công ty phê duyệt. Kiểm tra license và không paste output chứa dependency/code không rõ nguồn nếu có rủi ro.",
+      "acceptableVariants": [
+        "Redact token/key/customer data",
+        "Chỉ gửi context tối thiểu cần thiết",
+        "Tuân thủ policy công ty và dùng tool được phép"
+      ],
+      "upgradeFor3Points": [
+        "Nhắc threat model: prompt retention, training, access control",
+        "Dùng synthetic data/log đã ẩn thông tin",
+        "Kiểm tra license/compliance nếu dùng code gợi ý dài"
+      ],
+      "commonMistakes": [
+        "Paste nguyên .env/log production",
+        "Gửi repo private lên tool chưa được duyệt"
+      ],
+      "rubric": {
+        "0": "Không quan tâm bảo mật",
+        "1": "Chỉ nói không gửi password chung chung",
+        "2": "Biết redact và tuân thủ policy/tool được duyệt",
+        "3": "Có quy trình tối thiểu hóa dữ liệu, synthetic data, compliance/license"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Không gửi secret/token/key, dữ liệu khách hàng, log production nhạy cảm hoặc code private lên tool chưa được duyệt. Redact trước khi prompt, gửi snippet tối thiểu, dùng dữ liệu giả, tuân thủ policy công ty và kiểm tra output trước khi đưa vào codebase.\n- **Chi tiết triển khai/biến thể chấp nhận:** Xóa .env/token; Ẩn customer/user id; Dùng tool enterprise/approved; Chỉ gửi context cần thiết\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Nhắc data retention/training; Kiểm license/compliance; Tạo minimal reproduction bằng dữ liệu synthetic\n- **Lỗi thường gặp cần tránh:** Paste nguyên log/token; Gửi repo private không được phép; Tin AI về license\n- **Tiêu chí chấm mức 3:** Có quy trình bảo mật + giảm dữ liệu + tuân thủ policy"
+    },
+    {
+      "id": "AI6",
+      "package": "AI",
+      "group": "AI Dev Workflow",
+      "question": "Bạn sẽ dùng AI như thế nào để viết test cho một feature mới mà không biến test thành kiểm tra mock/implementation chi tiết?",
+      "goal": "Đánh giá khả năng dùng AI để tăng chất lượng test, tập trung behavior và edge cases.",
+      "coreAnswer": "Cung cấp requirement, API dự kiến, acceptance criteria và edge cases cho AI; yêu cầu test theo behavior/user outcome. Hạn chế mock không cần thiết, không assert implementation nội bộ. Sau khi AI sinh test, dev phải đọc lại, chạy test fail trước nếu làm TDD, rồi implement code pass test.",
+      "acceptableVariants": [
+        "Prompt AI bằng acceptance criteria",
+        "Test behavior thay vì private method/mock call",
+        "Yêu cầu AI đề xuất edge cases"
+      ],
+      "upgradeFor3Points": [
+        "Nêu red-green-refactor hoặc regression test cho bug",
+        "Kiểm tra test có fail đúng lý do trước khi implement",
+        "Tách unit/integration/e2e theo rủi ro"
+      ],
+      "commonMistakes": [
+        "Để AI viết test bám implementation vừa sinh",
+        "Mock mọi dependency khiến test không kiểm behavior thật"
+      ],
+      "rubric": {
+        "0": "Không biết cách dùng AI cho test",
+        "1": "Chỉ yêu cầu “write tests” chung chung",
+        "2": "Dùng acceptance criteria và behavior test",
+        "3": "Có TDD/regression workflow, edge cases và phân tầng test hợp lý"
+      },
+      "modelAnswer": "\n- **Tóm tắt cốt lõi:** Đưa requirement, API mong muốn, acceptance criteria và edge cases cho AI; yêu cầu test behavior, không test private implementation. Review test để tránh mock quá mức. Nếu làm TDD, chạy test để thấy fail đúng lý do trước, sau đó implement tối thiểu để pass.\n- **Chi tiết triển khai/biến thể chấp nhận:** Prompt bằng user outcome; Hạn chế mock; Yêu cầu edge cases; Test lỗi và happy path\n- **Mở rộng để đạt 3 điểm (best practice/adv.):** Red-green-refactor; Regression test cho bug; Phân biệt unit/integration/e2e; Kiểm tra test fail đúng lý do\n- **Lỗi thường gặp cần tránh:** Test mock call thay vì behavior; Test bám code AI vừa sinh; Test pass ngay vì không assert gì meaningful\n- **Tiêu chí chấm mức 3:** Test theo behavior + edge case + workflow TDD/regression"
     }
   ]
 }

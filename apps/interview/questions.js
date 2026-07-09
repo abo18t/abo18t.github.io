@@ -100,16 +100,8 @@ function getRandomQuestions(count = 10, interviewType = 'core') {
     }
 
     let questionIds = [];
-    let shouldShuffle = true;
-    let finalCount = count;
 
-    if (interviewType === 'quangminh') {
-        // Custom set cho Đặng Vũ Quang Minh (theo interview_plan_quang_minh.md)
-        questionIds = ["A1", "A2", "B1", "B9", "C5", "C7", "A8", "A6", "A3", "B10", "A4", "A11", "A13"];
-        // Lấy đúng danh sách này không randomize và lấy đủ số lượng
-        shouldShuffle = false;
-        finalCount = questionIds.length;
-    } else if (interviewType === 'core') {
+    if (interviewType === 'core') {
         questionIds = meta.sets.core;
     } else {
         questionIds = [...meta.sets.core, ...meta.sets.bonus];
@@ -118,19 +110,13 @@ function getRandomQuestions(count = 10, interviewType = 'core') {
     const allQuestions = getAllQuestions();
 
     // Lọc câu hỏi theo ID trong set
-    let availableQuestions;
-    if (interviewType === 'quangminh') {
-        // Giữ đúng thứ tự của questionIds
-        availableQuestions = questionIds.map(id => allQuestions.find(q => q.id === id)).filter(Boolean);
-    } else {
-        availableQuestions = allQuestions.filter(q => questionIds.includes(q.id));
-    }
+    let availableQuestions = allQuestions.filter(q => questionIds.includes(q.id));
 
     // Chọn ngẫu nhiên từ danh sách có sẵn (nếu cần)
     const selectedQuestions = [];
-    const questionsToPick = shouldShuffle ? shuffleArray([...availableQuestions]) : availableQuestions;
+    const questionsToPick = shuffleArray([...availableQuestions]);
 
-    for (let i = 0; i < Math.min(finalCount, questionsToPick.length); i++) {
+    for (let i = 0; i < Math.min(count, questionsToPick.length); i++) {
         selectedQuestions.push(questionsToPick[i]);
     }
 
